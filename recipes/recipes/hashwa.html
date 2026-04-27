@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hashwa · Leo &amp; Virginia Farhat Family Recipes</title>
+  <meta name="description" content="Lebanese spiced ground beef and rice stuffing with toasted pine nuts — a Farhat family staple." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫒</text></svg>" />
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="brand">Leo &amp; Virginia Farhat Family Recipes</a>
+  <a href="cabbage-rolls.html">Cabbage Rolls</a>
+  <a href="hashwa.html">Hashwa</a>
+  <a href="lebanese-rice.html">Lebanese Rice</a>
+  <a href="batlawa.html">Batlawa</a>
+</nav>
+
+<header class="recipe-hero">
+  <div class="crumb"><a href="../index.html">← All Recipes</a></div>
+  <h1>Hashwa</h1>
+  <p class="tagline">Spiced ground beef &amp; rice — the heart of Lebanese stuffing</p>
+  <div class="meta-bar">
+    <dl><dt>Prep</dt><dd>10 min</dd></dl>
+    <dl><dt>Cook</dt><dd>25 min</dd></dl>
+    <dl><dt>Servings</dt><dd>4–6</dd></dl>
+    <dl><dt>Category</dt><dd>Lebanese · Syrian</dd></dl>
+  </div>
+</header>
+
+<div class="recipe-body">
+
+  <aside class="ingredients-col">
+    <h2>Ingredients</h2>
+
+    <h3>Hashwa</h3>
+    <ul>
+      <li>1 lb ground beef (round or sirloin)</li>
+      <li>2 cups Uncle Ben's original converted rice (or other long-grain rice)</li>
+      <li>1 stick butter</li>
+      <li>1 tsp salt (level)</li>
+      <li>1 tsp Syrian spice (level) — see below</li>
+      <li>¼ cup pine nuts, toasted in a dry skillet</li>
+      <li>4 cups chicken broth <em>or</em> 4 cups water + 4 chicken bouillon cubes (Wyler's)</li>
+    </ul>
+
+    <h3>Syrian Spice Blend</h3>
+    <ul>
+      <li>2 oz Mezji (or black pepper)</li>
+      <li>2 × 4 oz containers allspice</li>
+      <li>⅛ tsp cinnamon</li>
+    </ul>
+
+    <div class="tip-box">
+      <strong>Syrian Spice:</strong> Mix all spices together, store in a jar in the fridge. Use 1 level teaspoon per recipe. This blend is the backbone of Farhat family cooking.
+    </div>
+
+    <figure class="original-photo">
+      <h3>Original Recipe Card</h3>
+      <img src="../images/hashwa-original.jpg" alt="Handwritten Hashwa recipe" onclick="openLightbox(this.src)" />
+      <figcaption>Ida's handwritten recipe notebook</figcaption>
+    </figure>
+  </aside>
+
+  <section class="directions-col">
+    <h2>Directions</h2>
+
+    <ol>
+      <li>In a large skillet or pot over medium-high heat, brown the ground beef, breaking it apart as it cooks.</li>
+
+      <li>Add the butter, salt, and Syrian spice. Stir to combine.</li>
+
+      <li>Add the chicken broth (or water with bouillon cubes). Stir and bring the mixture to a full boil.</li>
+
+      <li>Add the rice. Stir to blend everything together. Cover the pot.</li>
+
+      <li>Reduce heat to low. Simmer for 20 minutes — do not lift the lid.</li>
+
+      <li>Turn off the heat. Remove the cover and stir the rice mixture to fluff. Replace the cover and leave on the warm stove for an additional 5–10 minutes.</li>
+
+      <li>Fluff with a fork. Fold in the toasted pine nuts and serve.</li>
+    </ol>
+
+    <div class="tip-box" style="margin-top:1.5rem;">
+      <strong>How to use Hashwa:</strong> Serve as a side dish on its own, or use as a stuffing inside cabbage rolls, grape leaves, or zucchini. It's the base stuffing for most Lebanese stuffed vegetable dishes.
+    </div>
+
+    <div class="tip-box" style="margin-top:1rem;">
+      <strong>Toasting pine nuts:</strong> Add pine nuts to a dry (no oil) skillet over medium heat. Stir constantly for 2–3 minutes until golden. Watch carefully — they burn fast.
+    </div>
+  </section>
+
+</div>
+
+<div class="recipe-nav">
+  <p>Explore more of Aunt Ida's recipes</p>
+  <div class="links">
+    <a href="cabbage-rolls.html">Cabbage Rolls</a>
+    <a href="hashwa.html" class="active">Hashwa</a>
+    <a href="lebanese-rice.html">Lebanese Rice</a>
+    <a href="batlawa.html">Batlawa</a>
+  </div>
+</div>
+
+<footer>
+  <p>Recipe by <span>Ida Farhat</span></p>
+  <p style="margin-top:.3rem;">A Farhat Family Collection — kept with love.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Recipe card enlarged" />
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
