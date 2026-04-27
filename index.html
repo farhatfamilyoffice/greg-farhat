@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greg Farhat</title>
+  <meta name="description" content="Greg Farhat — investor, operator, and family office principal." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #222222;
+      --text: #f0f0f0;
+      --muted: #888888;
+      --accent: #c9a96e;
+      --font: 'Georgia', serif;
+      --mono: 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 12rem 3rem 6rem;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: normal;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-bio {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* ── Divider ── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 3rem;
+    }
+
+    /* ── Focus Areas ── */
+    .focuses {
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      max-width: 900px;
+    }
+
+    .focus-item {}
+
+    .focus-num {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .focus-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .focus-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer span {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-contact a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .hero { padding: 9rem 1.5rem 4rem; }
+      .focuses { padding: 4rem 1.5rem; }
+      footer { padding: 1.5rem; }
+      .rule { margin: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">GF</span>
+    <ul class="nav-links">
+      <li><a href="#focuses">Focus</a></li>
+      <li><a href="mailto:greg@farhatfamilyoffice.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <p class="hero-eyebrow">Greg Farhat</p>
+      <h1>Investor.<br /><em>Operator.</em><br />Builder.</h1>
+      <p class="hero-bio">
+        Principal of Farhat Family Office — coordinating capital, operations,
+        and strategy across real estate, private business, and long-term wealth.
+      </p>
+      <a class="hero-cta" href="mailto:greg@farhatfamilyoffice.com">Get in touch</a>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="focuses" id="focuses">
+      <div class="focus-item">
+        <p class="focus-num">01</p>
+        <h2 class="focus-title">Real Estate</h2>
+        <p class="focus-desc">Investments and property management through Jameson Real Estate Services.</p>
+      </div>
+      <div class="focus-item">
+        <p class="focus-num">02</p>
+        <h2 class="focus-title">Private Business</h2>
+        <p class="focus-desc">Operating and scaling businesses across hospitality, services, and consumer sectors.</p>
+      </div>
+      <div class="focus-item">
+        <p class="focus-num">03</p>
+        <h2 class="focus-title">Family Office</h2>
+        <p class="focus-desc">Long-term wealth stewardship, governance, and coordination across entities.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Greg Farhat</span>
+    <span class="footer-contact"><a href="mailto:greg@farhatfamilyoffice.com">greg@farhatfamilyoffice.com</a></span>
+  </footer>
+
+</body>
+</html>
