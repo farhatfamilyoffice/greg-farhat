@@ -3,652 +3,180 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leo &amp; Virginia Farhat Family Recipes</title>
-  <meta name="description" content="A collection of beloved Lebanese and Syrian family recipes from Leo A. Farhat and Virginia M. Farhat." />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫒</text></svg>" />
+  <title>Farhat Family Recipes</title>
+  <meta name="description" content="A collection of family recipes passed down through the Farhat family." />
   <style>
-    /* ── Single-page recipe sections ── */
-    .recipe-section {
-      max-width: 960px;
-      margin: 0 auto 5rem;
-      padding: 0 2rem;
-      scroll-margin-top: 70px;
-    }
-    .recipe-section-header {
-      background: var(--brown);
-      color: var(--cream);
-      border-radius: 12px 12px 0 0;
-      padding: 2rem 2.5rem 1.5rem;
-    }
-    .recipe-section-header .cat {
-      font-size: .75rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 700;
-      margin-bottom: .4rem;
-    }
-    .recipe-section-header h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 700;
-    }
-    .recipe-section-header .tagline {
-      color: #c8b8a0;
-      font-style: italic;
-      margin-top: .3rem;
-    }
-    .recipe-section-header .meta-bar {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: 1.2rem;
-      font-size: .88rem;
-    }
-    .recipe-section-header .meta-bar dt {
-      color: var(--gold);
-      font-size: .68rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-    .recipe-section-header .meta-bar dd {
-      color: #e8d8c0;
-      font-weight: 700;
-    }
-    .recipe-section-body {
-      background: #fff;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 4px 24px var(--shadow);
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-    }
-    @media (max-width: 680px) {
-      .recipe-section-body { grid-template-columns: 1fr; }
-    }
-    .recipe-section-body .ingredients-col {
-      padding: 2rem;
-      border-right: 1px solid #f0e8d8;
-    }
-    @media (max-width: 680px) {
-      .recipe-section-body .ingredients-col { border-right: none; border-bottom: 1px solid #f0e8d8; }
-    }
-    .recipe-section-body .directions-col { padding: 2rem; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── Heritage section ── */
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #222222;
+      --text: #f0f0f0;
+      --muted: #888888;
+      --accent: #c9a96e;
+      --accent-dim: rgba(201,169,110,0.1);
+      --serif: 'Georgia', serif;
+      --mono: 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--serif); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 3rem;
+      background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--mono); font-size: .8rem; letter-spacing: .15em; color: var(--accent); text-transform: uppercase; }
+    .nav-back { font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color .2s; }
+    .nav-back:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 11rem 3rem 5rem;
+      max-width: 820px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow { font-family: var(--mono); font-size: .7rem; letter-spacing: .2em; color: var(--accent); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: normal; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 2rem; }
+    .hero h1 em { font-style: italic; color: var(--muted); }
+    .hero-intro { font-size: 1.05rem; line-height: 1.85; color: var(--muted); max-width: 560px; }
+
+    /* ── Heritage bar ── */
     .heritage {
-      background: var(--tan);
-      border-top: 3px solid var(--gold);
-      border-bottom: 3px solid var(--gold);
-      padding: 3rem 2rem;
-      text-align: center;
+      padding: 3rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; gap: 3rem; align-items: flex-start; flex-wrap: wrap;
     }
-    .heritage .label {
-      font-size: .75rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--terra);
-      font-weight: 700;
-      margin-bottom: .6rem;
+    .heritage-label { font-family: var(--mono); font-size: .65rem; letter-spacing: .2em; color: var(--accent); text-transform: uppercase; margin-bottom: .75rem; }
+    .heritage-names { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .name-card { display: flex; align-items: center; gap: .9rem; }
+    .name-initials {
+      width: 44px; height: 44px; border: 1px solid var(--accent); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: .7rem; color: var(--accent); letter-spacing: .05em; flex-shrink: 0;
     }
-    .heritage h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.4rem, 4vw, 2rem);
-      color: var(--brown);
-      line-height: 1.4;
-    }
-    .heritage h2 em { color: var(--terra); font-style: italic; }
-    .heritage p {
-      max-width: 600px;
-      margin: 1rem auto 0;
-      color: var(--mid);
-      font-size: .97rem;
-      line-height: 1.75;
-    }
-    .heritage .names {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-      margin-top: 1.8rem;
-    }
-    .heritage .name-card { text-align: center; }
-    .heritage .name-card .initials {
-      width: 56px;
-      height: 56px;
-      background: var(--brown);
-      color: var(--gold);
-      border-radius: 50%;
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto .7rem;
-    }
-    .heritage .name-card .full-name {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      color: var(--brown);
-      font-weight: 600;
-    }
-    .heritage .name-card .role { font-size: .78rem; color: #888; margin-top: .1rem; }
+    .name-text .full-name { font-size: .95rem; color: var(--text); }
+    .name-text .role { font-family: var(--mono); font-size: .65rem; color: var(--muted); letter-spacing: .05em; margin-top: .1rem; }
 
-    /* ── Jump cards ── */
-    .jump-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-      max-width: 960px;
-      margin: 0 auto 3rem;
-      padding: 0 2rem;
-    }
-    .jump-card {
-      background: var(--brown);
-      color: var(--cream);
-      border-radius: 10px;
-      padding: 1.1rem 1.3rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: .9rem;
-      transition: background .2s, transform .15s;
-    }
-    .jump-card:hover { background: var(--terra); transform: translateY(-2px); }
-    .jump-card .jc-img {
-      width: 48px;
-      height: 48px;
-      border-radius: 6px;
-      object-fit: cover;
-      object-position: top;
-      flex-shrink: 0;
-    }
-    .jump-card .jc-title { font-family: var(--serif); font-size: 1rem; line-height: 1.3; }
-    .jump-card .jc-cat { font-size: .7rem; color: var(--gold); text-transform: uppercase; letter-spacing: .07em; margin-top: .2rem; }
+    /* ── Collection grid ── */
+    .collection { padding: 5rem 3rem 6rem; flex: 1; }
+    .collection-label { font-family: var(--mono); font-size: .65rem; letter-spacing: .2em; color: var(--accent); text-transform: uppercase; margin-bottom: 2.5rem; }
+    .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
 
-    /* ── Submit form ── */
-    .submit-section {
-      background: var(--tan);
-      border-top: 3px solid var(--gold);
-      padding: 4rem 2rem;
-      scroll-margin-top: 70px;
+    /* ── Book card ── */
+    .book-card {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 2rem; text-decoration: none; color: var(--text);
+      display: flex; flex-direction: column; gap: 1.25rem;
+      transition: border-color .2s, background .2s;
     }
-    .submit-section .inner {
-      max-width: 680px;
-      margin: 0 auto;
+    .book-card:hover { border-color: var(--accent); background: var(--accent-dim); }
+    .book-card.coming-soon { opacity: .4; pointer-events: none; cursor: default; }
+
+    .book-icon {
+      width: 52px; height: 52px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: .85rem; color: var(--accent); letter-spacing: .05em;
     }
-    .submit-section .label {
-      font-size: .75rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--terra);
-      font-weight: 700;
-      margin-bottom: .6rem;
-      text-align: center;
+    .book-card:hover .book-icon { border-color: var(--accent); }
+
+    .book-name { font-size: 1.1rem; line-height: 1.3; }
+    .book-sub { font-family: var(--mono); font-size: .7rem; color: var(--muted); letter-spacing: .05em; margin-top: .2rem; }
+    .book-desc { font-family: var(--mono); font-size: .72rem; color: var(--muted); line-height: 1.7; }
+    .book-arrow { font-family: var(--mono); font-size: .7rem; color: var(--accent); letter-spacing: .1em; margin-top: auto; }
+    .book-card.coming-soon .book-arrow { color: var(--muted); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border); padding: 2rem 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
     }
-    .submit-section h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.4rem, 4vw, 2rem);
-      color: var(--brown);
-      text-align: center;
-      margin-bottom: .6rem;
+    footer span { font-family: var(--mono); font-size: .7rem; color: var(--muted); letter-spacing: .1em; }
+    footer a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav, .hero, .heritage, .collection { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hero { padding-top: 8rem; }
+      footer { padding: 1.5rem; }
     }
-    .submit-section p.sub {
-      text-align: center;
-      color: var(--mid);
-      font-size: .95rem;
-      margin-bottom: 2rem;
-    }
-    .submit-form label {
-      display: block;
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: .3rem;
-      margin-top: 1.2rem;
-    }
-    .submit-form label:first-child { margin-top: 0; }
-    .submit-form input[type=text],
-    .submit-form input[type=email],
-    .submit-form textarea {
-      width: 100%;
-      padding: .7rem 1rem;
-      border: 2px solid #d8cbb8;
-      border-radius: 8px;
-      font-family: var(--sans);
-      font-size: 1rem;
-      background: #fff;
-      color: var(--brown);
-      transition: border-color .2s;
-    }
-    .submit-form input:focus,
-    .submit-form textarea:focus {
-      outline: none;
-      border-color: var(--terra);
-    }
-    .submit-form textarea { min-height: 120px; resize: vertical; }
-    .submit-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media (max-width: 540px) { .submit-form .row { grid-template-columns: 1fr; } }
-    .submit-form button {
-      margin-top: 1.8rem;
-      width: 100%;
-      padding: .9rem;
-      background: var(--brown);
-      color: var(--cream);
-      border: none;
-      border-radius: 8px;
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .submit-form button:hover { background: var(--terra); }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Greg Farhat</a>
-  <a href="#top" class="brand">Leo &amp; Virginia Farhat Family Recipes</a>
-  <a href="#cabbage-rolls">Cabbage Rolls</a>
-  <a href="#hashwa">Hashwa</a>
-  <a href="#lebanese-rice">Lebanese Rice</a>
-  <a href="#batlawa">Batlawa</a>
-  <a href="#submit">Submit a Recipe</a>
-</nav>
+  <nav>
+    <a href="/" class="nav-back">← Greg Farhat</a>
+    <span class="nav-logo">Family Recipes</span>
+  </nav>
 
-<!-- ── Hero ── -->
-<header class="hero" id="top">
-  <h1><span>Leo &amp; Virginia Farhat</span> Family Recipes</h1>
-  <div class="divider"></div>
-  <p>Handwritten treasures from the Farhat family kitchen — Lebanese and Syrian recipes passed down with love.</p>
-</header>
+  <section class="hero">
+    <p class="hero-eyebrow">Farhat Family</p>
+    <h1>The Family<br /><em>Cookbook.</em></h1>
+    <p class="hero-intro">
+      Recipes passed down through the Farhat family — handwritten cards, typed instructions,
+      and the kind of knowledge that only comes from cooking the same dish a hundred times.
+      Each collection belongs to the person who made it.
+    </p>
+  </section>
 
-<!-- ── Heritage Credit ── -->
-<section class="heritage">
-  <div class="label">In Honor Of</div>
-  <h2>The <em>Farhat Family</em> Kitchen</h2>
-  <p>These recipes were lovingly created, tested, and perfected over a lifetime of cooking. They represent the flavors, traditions, and generosity of a remarkable family.</p>
-  <div class="names">
-    <div class="name-card">
-      <div class="initials">LAF</div>
-      <div class="full-name">Leo A. Farhat</div>
-      <div class="role">Family Patriarch</div>
-    </div>
-    <div class="name-card">
-      <div class="initials">VMF</div>
-      <div class="full-name">Virginia M. Farhat</div>
-      <div class="role">Recipe Author &mdash; Batlawa</div>
+  <div class="heritage">
+    <div>
+      <p class="heritage-label">The Collection</p>
+      <div class="heritage-names">
+        <div class="name-card">
+          <div class="name-initials">LAF</div>
+          <div class="name-text">
+            <div class="full-name">Leo A. Farhat</div>
+            <div class="role">Family Patriarch</div>
+          </div>
+        </div>
+        <div class="name-card">
+          <div class="name-initials">VMF</div>
+          <div class="name-text">
+            <div class="full-name">Virginia M. Farhat</div>
+            <div class="role">Recipe Author</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- ── Jump Links ── -->
-<div class="section-label">
-  <span>The Collection</span>
-  Family Recipes
-</div>
+  <main class="collection">
+    <p class="collection-label">Select a Collection</p>
+    <div class="books-grid">
 
-<div class="jump-grid">
-  <a href="#cabbage-rolls" class="jump-card">
-    <img class="jc-img" src="images/cabbage-rolls-original.jpg" alt="Cabbage Rolls" />
-    <div><div class="jc-title">Cabbage Rolls</div><div class="jc-cat">Lebanese</div></div>
-  </a>
-  <a href="#hashwa" class="jump-card">
-    <img class="jc-img" src="images/hashwa-original.jpg" alt="Hashwa" style="object-position:top left;" />
-    <div><div class="jc-title">Hashwa</div><div class="jc-cat">Lebanese · Syrian</div></div>
-  </a>
-  <a href="#lebanese-rice" class="jump-card">
-    <img class="jc-img" src="images/lebanese-rice-original.jpg" alt="Lebanese Rice" />
-    <div><div class="jc-title">Lebanese Rice</div><div class="jc-cat">Lebanese</div></div>
-  </a>
-  <a href="#batlawa" class="jump-card">
-    <img class="jc-img" src="images/batlawa-original.jpg" alt="Batlawa" />
-    <div><div class="jc-title">Batlawa</div><div class="jc-cat">Lebanese · Dessert</div></div>
-  </a>
-</div>
-
-<main>
-
-  <!-- ══════════════════════════════════════════
-       RECIPE 1 — CABBAGE ROLLS
-  ══════════════════════════════════════════ -->
-  <section class="recipe-section" id="cabbage-rolls">
-    <div class="recipe-section-header">
-      <div class="cat">Lebanese</div>
-      <h2>Cabbage Rolls</h2>
-      <p class="tagline">A family signature — lamb and rice rolled in tender cabbage leaves</p>
-      <div class="meta-bar">
-        <dl><dt>Prep</dt><dd>1 hour</dd></dl>
-        <dl><dt>Cook</dt><dd>1 hour</dd></dl>
-        <dl><dt>Servings</dt><dd>4–6</dd></dl>
-        <dl><dt>Yield</dt><dd>~40 rolls</dd></dl>
-      </div>
-    </div>
-    <div class="recipe-section-body">
-      <div class="ingredients-col">
-        <h2>Ingredients</h2>
-        <h3>Stuffing</h3>
-        <ul>
-          <li>1 lb lamb or beef, coarsely ground</li>
-          <li>2 cups rice</li>
-          <li>1 stick margarine or butter</li>
-          <li>1 tbsp Syrian spice (or allspice)</li>
-          <li>1 tbsp black pepper</li>
-          <li>Salt to taste</li>
-          <li>½ cup water, to loosen</li>
-        </ul>
-        <h3>Cabbage &amp; Pot</h3>
-        <ul>
-          <li>1 head of cabbage</li>
-          <li>Lamb bones or country-style pork ribs (optional)</li>
-          <li>Juice of 2 large lemons</li>
-          <li>Dried mint leaves, crushed</li>
-          <li>2 cloves garlic, halved (or garlic powder)</li>
-          <li>Salt &amp; pepper to taste</li>
-          <li>2 cups water (plus cabbage liquid)</li>
-        </ul>
-        <div class="tip-box">
-          <strong>Family Note:</strong> Use lamb or pork (country-style ribs) stock first, then add the liquid from the boiled cabbage and cover to the top of the rolls.
-        </div>
-        <div class="tip-box" style="margin-top:1rem;">
-          <strong>Yield:</strong> 1 head of cabbage ≈ 40 rolls.
-        </div>
-        <figure class="original-photo" style="margin-top:1.5rem;">
-          <h3>Original Recipe Card</h3>
-          <img src="images/cabbage-rolls-original.jpg" alt="Original cabbage rolls recipe card" data-lightbox />
-          <figcaption>Original typed recipe card with handwritten notes</figcaption>
-        </figure>
-      </div>
-      <div class="directions-col">
-        <h2>Directions</h2>
-        <ol>
-          <li>Combine all stuffing ingredients — ground meat, rice, margarine, salt, pepper, and Syrian spice. Add approximately ½ cup of water and mix well until loose and wet. Set aside.</li>
-          <li>Carve the core from the bottom of the cabbage. Place whole cabbage in boiling water. Boil a few minutes until outer leaves soften. Use a fork to loosen and remove each leaf as it softens. Stack to cool.</li>
-          <li>Cut away the thick center stem from each leaf, slicing down the middle.</li>
-          <li>Place about 1 tablespoon of stuffing across the base of each leaf piece. Roll into a firm cigar shape, tucking in the sides.</li>
-          <li>Line the bottom of a heavy pot with lamb bones or pork ribs. Arrange rolls in tight rows, alternating direction per layer. Sprinkle each layer with salt, pepper, and crushed dried mint.</li>
-          <li>Tuck halved garlic cloves between rolls. Place a heavy plate on top to keep rolls from opening.</li>
-          <li>Add 2 cups water or stock — enough to reach the top of the rolls. Bring to a rolling boil, then lower to medium-low. Cover and cook 45 minutes.</li>
-          <li>Add juice of two lemons. Bring back to boil, then reduce and cook 15 more minutes.</li>
-          <li>Serve warm with pita bread.</li>
-        </ol>
-        <div class="tip-box" style="margin-top:1.5rem;">
-          <strong>Serving tip:</strong> Even better the next day. Reheat gently with a splash of water or broth.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       RECIPE 2 — HASHWA
-  ══════════════════════════════════════════ -->
-  <section class="recipe-section" id="hashwa">
-    <div class="recipe-section-header">
-      <div class="cat">Lebanese · Syrian</div>
-      <h2>Hashwa</h2>
-      <p class="tagline">Spiced ground beef &amp; rice — the heart of Lebanese stuffing</p>
-      <div class="meta-bar">
-        <dl><dt>Prep</dt><dd>10 min</dd></dl>
-        <dl><dt>Cook</dt><dd>25 min</dd></dl>
-        <dl><dt>Servings</dt><dd>4–6</dd></dl>
-      </div>
-    </div>
-    <div class="recipe-section-body">
-      <div class="ingredients-col">
-        <h2>Ingredients</h2>
-        <h3>Hashwa</h3>
-        <ul>
-          <li>1 lb ground beef (round or sirloin)</li>
-          <li>2 cups Uncle Ben's converted long-grain rice</li>
-          <li>1 stick butter</li>
-          <li>1 tsp salt (level)</li>
-          <li>1 tsp Syrian spice (level)</li>
-          <li>¼ cup pine nuts, toasted dry</li>
-          <li>4 cups chicken broth <em>or</em> water + 4 bouillon cubes</li>
-        </ul>
-        <h3>Syrian Spice Blend</h3>
-        <ul>
-          <li>2 oz black pepper (Mezji or McCormick)</li>
-          <li>2 × 4 oz containers allspice</li>
-          <li>⅛ tsp cinnamon</li>
-        </ul>
-        <div class="tip-box">
-          <strong>Syrian Spice:</strong> Mix all spices, store in a jar in the fridge. The backbone of Farhat family cooking.
-        </div>
-        <figure class="original-photo" style="margin-top:1.5rem;">
-          <h3>Original Recipe Card</h3>
-          <img src="images/hashwa-original.jpg" alt="Handwritten Hashwa recipe" data-lightbox style="object-position:top left;" />
-          <figcaption>Original handwritten recipe notebook</figcaption>
-        </figure>
-      </div>
-      <div class="directions-col">
-        <h2>Directions</h2>
-        <ol>
-          <li>Brown ground beef in a large pot over medium-high heat, breaking it apart as it cooks.</li>
-          <li>Add the butter, salt, and Syrian spice. Stir to combine.</li>
-          <li>Add the chicken broth (or water with bouillon). Bring to a full boil.</li>
-          <li>Add the rice and stir to blend. Cover the pot.</li>
-          <li>Reduce heat to low. Simmer 20 minutes — do not lift the lid.</li>
-          <li>Turn off heat. Remove cover, stir to fluff. Replace cover and leave on warm stove 5–10 more minutes.</li>
-          <li>Fluff with a fork, fold in toasted pine nuts, and serve.</li>
-        </ol>
-        <div class="tip-box" style="margin-top:1.5rem;">
-          <strong>Versatile:</strong> Serve as a side dish, or use as stuffing inside cabbage rolls, grape leaves, or zucchini.
-        </div>
-        <div class="tip-box" style="margin-top:1rem;">
-          <strong>Pine nuts:</strong> Toast in a dry skillet over medium heat, stirring constantly, 2–3 minutes until golden. They burn fast.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       RECIPE 3 — LEBANESE RICE
-  ══════════════════════════════════════════ -->
-  <section class="recipe-section" id="lebanese-rice">
-    <div class="recipe-section-header">
-      <div class="cat">Lebanese</div>
-      <h2>Lebanese Rice</h2>
-      <p class="tagline">Buttery rice toasted with golden orzo — simple, perfect, essential</p>
-      <div class="meta-bar">
-        <dl><dt>Prep</dt><dd>15 min</dd></dl>
-        <dl><dt>Cook</dt><dd>20–30 min</dd></dl>
-        <dl><dt>Servings</dt><dd>4–6</dd></dl>
-      </div>
-    </div>
-    <div class="recipe-section-body">
-      <div class="ingredients-col">
-        <h2>Ingredients</h2>
-        <ul>
-          <li>2 cups long-grain white rice</li>
-          <li>2 tsp salt</li>
-          <li>3 tbsp butter</li>
-          <li>½ cup orzo <em>or</em> vermicelli, broken into ¼-inch pieces</li>
-          <li>4 cups water</li>
-        </ul>
-        <div class="tip-box">
-          <strong>Note:</strong> Orzo or vermicelli can be found at Middle Eastern import stores.
-        </div>
-        <div class="tip-box" style="margin-top:1rem;">
-          <strong>Serve with:</strong> Pairs beautifully with Yahnee (Lebanese stewed lamb), Cabbage Rolls, or Hashwa.
-        </div>
-        <figure class="original-photo" style="margin-top:1.5rem;">
-          <h3>Original Recipe Card</h3>
-          <img src="images/lebanese-rice-original.jpg" alt="Typed Lebanese Rice recipe card" data-lightbox />
-          <figcaption>Typed family recipe card</figcaption>
-        </figure>
-      </div>
-      <div class="directions-col">
-        <h2>Directions</h2>
-        <ol>
-          <li>Rinse rice in cold water until the water runs completely clear. Drain well.</li>
-          <li>Melt butter in a medium saucepan over medium heat. Add the orzo or broken vermicelli.</li>
-          <li>Stir constantly until the pasta turns a deep golden brown — about 3–4 minutes.</li>
-          <li>Add the drained rice and stir gently to coat with butter and mix with toasted pasta.</li>
-          <li>Add water and salt. Stir once, then bring to a boil over medium-high heat.</li>
-          <li>Once boiling, reduce to the lowest heat. Cover tightly and cook until all water is absorbed — 20 to 30 minutes. Do not lift the lid.</li>
-          <li>Remove from heat. Rest covered 5 minutes, then fluff with a fork and serve.</li>
-        </ol>
-        <div class="tip-box" style="margin-top:1.5rem;">
-          <strong>The key:</strong> Toast the pasta to a rich amber before adding the rice — that browning gives Lebanese rice its distinctive nutty flavor.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       RECIPE 4 — BATLAWA
-  ══════════════════════════════════════════ -->
-  <section class="recipe-section" id="batlawa">
-    <div class="recipe-section-header">
-      <div class="cat">Lebanese · Dessert</div>
-      <h2>Batlawa</h2>
-      <p class="tagline">Virginia Farhat's Lebanese baklava — phyllo, walnuts &amp; orange blossom syrup</p>
-      <div class="meta-bar">
-        <dl><dt>Oven</dt><dd>300°F</dd></dl>
-        <dl><dt>Bake</dt><dd>60–90 min</dd></dl>
-        <dl><dt>Servings</dt><dd>10+</dd></dl>
-      </div>
-    </div>
-    <div class="recipe-section-body">
-      <div class="ingredients-col">
-        <h2>Ingredients</h2>
-        <h3>Batlawa</h3>
-        <ul>
-          <li>3 lbs butter, rendered</li>
-          <li>2–3 lbs walnuts, ground (not too fine)</li>
-          <li>1½–2 cups granulated sugar</li>
-          <li>2 packages fresh phyllo dough, room temperature</li>
-          <li>1 capful Mazaher (orange blossom water)</li>
-        </ul>
-        <h3>Syrup (make first)</h3>
-        <ul>
-          <li>4 cups granulated sugar</li>
-          <li>1½–1¾ cups water</li>
-          <li>1 tbsp fresh lemon juice</li>
-          <li>1–3 tbsp Mazaher (orange blossom water)</li>
-        </ul>
-        <div class="tip-box">
-          <strong>Rendering butter:</strong> Melt slowly over low heat. Skim the white foam off the top. Use only the clear golden liquid.
-        </div>
-        <div class="tip-box" style="margin-top:1rem;">
-          <strong>Nut ratio:</strong> 2 lbs nuts → 1¼ cups sugar &nbsp;|&nbsp; 3 lbs nuts → 2 cups sugar.
-        </div>
-        <div class="tip-box" style="margin-top:1rem;">
-          <strong>Critical:</strong> Syrup must be completely cold before pouring over hot batlawa. Make it first.
-        </div>
-        <figure class="original-photo" style="margin-top:1.5rem;">
-          <h3>Original Recipe Card</h3>
-          <img src="images/batlawa-original.jpg" alt="Virginia Farhat's Batlawa recipe card" data-lightbox />
-          <figcaption>Virginia Farhat's typed recipe with handwritten notes</figcaption>
-        </figure>
-      </div>
-      <div class="directions-col">
-        <h2>Directions</h2>
-        <p style="font-family:var(--serif);color:var(--terra);font-style:italic;margin-bottom:1rem;font-size:.95rem;">Start with the syrup — it must cool completely before use.</p>
-        <ol>
-          <li>Combine 4 cups sugar and 1½–1¾ cups water over medium-high heat. Stir until clear and boiling.</li>
-          <li>Add 1 tablespoon lemon juice. Simmer on low 10–15 minutes. Remove from heat. Once cooled, stir in Mazaher. Set aside — do not refrigerate.</li>
-          <li>Preheat oven to 300°F.</li>
-          <li>Pour ½ cup rendered butter into the bottom of a large baking pan. Tilt to coat evenly.</li>
-          <li>Layer the first package of phyllo sheet by sheet into the pan, brushing each layer generously with rendered butter. Keep unused sheets covered with a damp towel.</li>
-          <li>Mix ground walnuts with sugar and 1 capful of Mazaher. Spread evenly over the phyllo base. Drizzle extra butter over the nut layer.</li>
-          <li>Layer the second package of phyllo over the nuts, one sheet at a time, brushing each layer with butter.</li>
-          <li>Fold any overhanging edges into the sides of the pan. Pour remaining butter evenly over the top.</li>
-          <li>Score into diamond shapes with a sharp knife, cutting all the way through.</li>
-          <li>Bake on a lower rack at 300°F for 60–90 minutes until light golden brown.</li>
-          <li>Remove from oven, rest 3 minutes on a rack, then pour the cold syrup evenly over the hot batlawa. Let soak fully before serving.</li>
-        </ol>
-        <div class="tip-box" style="margin-top:1.5rem;">
-          <strong>Storing:</strong> Keeps at room temperature up to 2 weeks, covered loosely. Do not refrigerate.
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- ── Submit a Recipe ── -->
-<section class="submit-section" id="submit">
-  <div class="inner">
-    <div class="label">Keep the Tradition Alive</div>
-    <h2>Submit a Recipe</h2>
-    <p class="sub">Have a family recipe to add to the collection? Share it here and we'll add it to the site.</p>
-
-    <form class="submit-form" name="submit-recipe" method="POST" netlify netlify-honeypot="bot-field" enctype="multipart/form-data">
-      <input type="hidden" name="form-name" value="submit-recipe" />
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
-
-      <div class="row">
+      <a href="/recipes/leo-virginia/" class="book-card">
+        <div class="book-icon">LAF<br />VMF</div>
         <div>
-          <label for="submitter-name">Your Name</label>
-          <input type="text" id="submitter-name" name="submitter-name" placeholder="e.g. Greg Farhat" required />
+          <div class="book-name">Leo &amp; Virginia Farhat</div>
+          <div class="book-sub">Lebanese · Syrian · Family Classics</div>
         </div>
+        <div class="book-desc">Cabbage rolls, hashwa, Lebanese rice, batlawa — the flavors of the Farhat family kitchen.</div>
+        <div class="book-arrow">Open Collection →</div>
+      </a>
+
+      <div class="book-card coming-soon">
+        <div class="book-icon">—</div>
         <div>
-          <label for="submitter-email">Your Email</label>
-          <input type="email" id="submitter-email" name="submitter-email" placeholder="you@example.com" />
+          <div class="book-name">Coming Soon</div>
+          <div class="book-sub">More Collections</div>
         </div>
+        <div class="book-desc">Additional family collections will be added here.</div>
+        <div class="book-arrow">Coming Soon</div>
       </div>
 
-      <label for="recipe-name">Recipe Name</label>
-      <input type="text" id="recipe-name" name="recipe-name" placeholder="e.g. Kibbeh, Hummus, Tabouleh…" required />
+    </div>
+  </main>
 
-      <label for="ingredients">Ingredients</label>
-      <textarea id="ingredients" name="ingredients" placeholder="List each ingredient on its own line…" style="min-height:100px;"></textarea>
-
-      <label for="directions">Directions</label>
-      <textarea id="directions" name="directions" placeholder="Step-by-step instructions…" style="min-height:150px;"></textarea>
-
-      <label for="notes">Notes &amp; Tips (optional)</label>
-      <textarea id="notes" name="notes" placeholder="Family secrets, serving suggestions, storage tips…" style="min-height:80px;"></textarea>
-
-      <label for="photos">Photos (optional)</label>
-      <input type="file" id="photos" name="photos" accept="image/*,.pdf" multiple style="padding:.6rem 1rem;cursor:pointer;" />
-      <p style="font-size:.78rem;color:#999;margin-top:.3rem;">You can select multiple photos. JPG, PNG, or PDF accepted.</p>
-
-      <button type="submit">Submit Recipe →</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <p><span>Leo &amp; Virginia Farhat</span> Family Recipes</p>
-  <p style="margin-top:.3rem;">A Farhat Family Collection — kept with love.</p>
-</footer>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightbox-close">✕</button>
-  <img id="lightbox-img" src="" alt="Recipe card enlarged" />
-</div>
-
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-
-  document.querySelectorAll('img[data-lightbox]').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightbox.classList.add('open');
-    });
-  });
-
-  document.getElementById('lightbox-close').addEventListener('click', () => {
-    lightbox.classList.remove('open');
-  });
-
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) lightbox.classList.remove('open');
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') lightbox.classList.remove('open');
-  });
-</script>
+  <footer>
+    <span>Farhat Family Recipes</span>
+    <span><a href="/">gregfarhat.com</a></span>
+  </footer>
 
 </body>
 </html>
