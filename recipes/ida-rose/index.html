@@ -247,15 +247,57 @@
     .submit-form button:hover { background: var(--terra); }
   </style>
 </head>
-<body>
+<style>
+  #ida-gate {
+    position: fixed; inset: 0; background: #FFF5F8;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    z-index: 9999; padding: 2rem; font-family: 'Raleway', system-ui, sans-serif;
+  }
+  #ida-gate.hidden { display: none; }
+  .gate-eyebrow { font-size: .7rem; letter-spacing: .2em; color: #B5476A; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+  .gate-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 700; color: #1B2A4A; margin-bottom: .3rem; text-align: center; }
+  .gate-sub { font-size: .8rem; color: #2D4A7A; letter-spacing: .05em; margin-bottom: 2rem; text-align: center; font-style: italic; }
+  .gate-form { display: flex; flex-direction: column; gap: .75rem; width: 100%; max-width: 300px; }
+  .gate-form input {
+    background: #fff; border: 1px solid #FBDDE9; color: #1B2A4A;
+    font-family: 'Raleway', system-ui, sans-serif; font-size: .95rem;
+    padding: .85rem 1rem; letter-spacing: .03em; outline: none; transition: border-color .2s; border-radius: 4px;
+  }
+  .gate-form input:focus { border-color: #B5476A; }
+  .gate-form input.error { border-color: #c04040; }
+  .gate-form button {
+    background: #1B2A4A; border: none; color: #FFF5F8;
+    font-family: 'Raleway', system-ui, sans-serif; font-size: .8rem;
+    letter-spacing: .12em; text-transform: uppercase;
+    padding: .9rem; cursor: pointer; transition: background .2s; border-radius: 4px;
+  }
+  .gate-form button:hover { background: #B5476A; }
+  .gate-error { font-size: .7rem; color: #c04040; letter-spacing: .05em; text-align: center; min-height: 1rem; }
+  #ida-content { display: none; }
+  #ida-content.visible { display: block; }
+</style>
+
+<!-- Password Gate -->
+<div id="ida-gate">
+  <p class="gate-eyebrow">Ida Rose Farhat</p>
+  <h1 class="gate-title">Family Recipes</h1>
+  <p class="gate-sub">Private collection — enter password to continue</p>
+  <form class="gate-form" id="ida-gate-form">
+    <input type="password" id="ida-pw" placeholder="Password" autocomplete="off" />
+    <button type="submit">Enter →</button>
+    <p class="gate-error" id="ida-gate-error"></p>
+  </form>
+</div>
+
+<div id="ida-content">
 
 <nav>
-  <a href="/recipes/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Recipes</a>
+  <a href="/recipes/" class="back-link" style="color:#c8d4e8;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Recipes</a>
   <a href="#top" class="brand">Favorite Syrian-Lebanese Farhat Family Recipes</a>
-  <a href="#cabbage-rolls">Cabbage Rolls</a>
-  <a href="#hashwa">Hashwa</a>
-  <a href="#lebanese-rice">Lebanese Rice</a>
-  <a href="#batlawa">Batlawa</a>
+  <a href="/recipes/ida-rose/cabbage-rolls/">Cabbage Rolls</a>
+  <a href="/recipes/ida-rose/hashwa/">Hashwa</a>
+  <a href="/recipes/ida-rose/lebanese-rice/">Lebanese Rice</a>
+  <a href="/recipes/ida-rose/batlawa/">Batlawa</a>
   <a href="#submit">Submit a Recipe</a>
 </nav>
 
@@ -287,19 +329,19 @@
 </div>
 
 <div class="jump-grid">
-  <a href="#cabbage-rolls" class="jump-card">
+  <a href="/recipes/ida-rose/cabbage-rolls/" class="jump-card">
     <img class="jc-img" src="images/cabbage-rolls-original.jpg" alt="Cabbage Rolls" />
     <div><div class="jc-title">Cabbage Rolls</div><div class="jc-cat">Lebanese</div></div>
   </a>
-  <a href="#hashwa" class="jump-card">
+  <a href="/recipes/ida-rose/hashwa/" class="jump-card">
     <img class="jc-img" src="images/hashwa-original.jpg" alt="Hashwa" style="object-position:top left;" />
     <div><div class="jc-title">Hashwa</div><div class="jc-cat">Lebanese · Syrian</div></div>
   </a>
-  <a href="#lebanese-rice" class="jump-card">
+  <a href="/recipes/ida-rose/lebanese-rice/" class="jump-card">
     <img class="jc-img" src="images/lebanese-rice-original.jpg" alt="Lebanese Rice" />
     <div><div class="jc-title">Lebanese Rice</div><div class="jc-cat">Lebanese</div></div>
   </a>
-  <a href="#batlawa" class="jump-card">
+  <a href="/recipes/ida-rose/batlawa/" class="jump-card">
     <img class="jc-img" src="images/batlawa-original.jpg" alt="Batlawa" />
     <div><div class="jc-title">Batlawa</div><div class="jc-cat">Lebanese · Dessert</div></div>
   </a>
@@ -642,6 +684,34 @@
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') lightbox.classList.remove('open');
+  });
+</script>
+
+</div><!-- /ida-content -->
+
+<script>
+  const IDA_PASS = 'Empre$$Gin';
+  const IDA_KEY  = 'idarose_unlocked';
+
+  function unlockIda() {
+    document.getElementById('ida-gate').classList.add('hidden');
+    document.getElementById('ida-content').classList.add('visible');
+    sessionStorage.setItem(IDA_KEY, '1');
+  }
+
+  if (sessionStorage.getItem(IDA_KEY) === '1') unlockIda();
+
+  document.getElementById('ida-gate-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const input = document.getElementById('ida-pw');
+    if (input.value === IDA_PASS) {
+      unlockIda();
+    } else {
+      input.classList.add('error');
+      document.getElementById('ida-gate-error').textContent = 'Incorrect password.';
+      input.value = '';
+      setTimeout(() => input.classList.remove('error'), 1500);
+    }
   });
 </script>
 

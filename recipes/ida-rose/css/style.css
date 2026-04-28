@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap');
 
 /* ── Reset & base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cream:    #FBF7F0;
-  --tan:      #EDE3D0;
-  --brown:    #2C1810;
-  --mid:      #6B4226;
-  --terra:    #C4622D;
-  --gold:     #D4A017;
-  --green:    #4A7C59;
-  --shadow:   rgba(44,24,16,.12);
-  --serif:    'Playfair Display', Georgia, serif;
-  --sans:     'Lato', system-ui, sans-serif;
+  --cream:    #FFF5F8;
+  --tan:      #FBDDE9;
+  --brown:    #1B2A4A;
+  --mid:      #2D4A7A;
+  --terra:    #B5476A;
+  --gold:     #C47A95;
+  --green:    #4A6C7C;
+  --shadow:   rgba(27,42,74,.12);
+  --serif:    'Cormorant Garamond', Georgia, serif;
+  --sans:     'Raleway', system-ui, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -44,21 +44,21 @@ nav .brand {
   font-family: var(--serif);
   font-size: 1.25rem;
   font-style: italic;
-  color: var(--gold);
+  color: var(--tan);
   text-decoration: none;
   flex: 1;
   white-space: nowrap;
 }
 
 nav a {
-  color: #e8d8c0;
+  color: #c8d4e8;
   text-decoration: none;
   font-size: .85rem;
   letter-spacing: .04em;
   text-transform: uppercase;
   transition: color .2s;
 }
-nav a:hover { color: var(--gold); }
+nav a:hover { color: var(--tan); }
 
 /* ── Hero ── */
 .hero {
@@ -81,11 +81,11 @@ nav a:hover { color: var(--gold); }
   letter-spacing: .02em;
   position: relative;
 }
-.hero h1 span { color: var(--gold); font-style: italic; }
+.hero h1 span { color: var(--tan); font-style: italic; }
 .hero p {
   margin-top: 1rem;
   font-size: 1.05rem;
-  color: #c8b8a0;
+  color: #c8d4e8;
   max-width: 520px;
   margin-inline: auto;
   position: relative;
@@ -114,7 +114,7 @@ nav a:hover { color: var(--gold); }
   text-transform: uppercase;
   color: var(--terra);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: .3rem;
 }
 
@@ -164,7 +164,7 @@ nav a:hover { color: var(--gold); }
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--terra);
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: .4rem;
 }
 .card-title {
@@ -193,10 +193,10 @@ nav a:hover { color: var(--gold); }
 }
 .recipe-hero .crumb {
   font-size: .8rem;
-  color: #a08060;
+  color: #a0b4cc;
   margin-bottom: 1rem;
 }
-.recipe-hero .crumb a { color: var(--gold); text-decoration: none; }
+.recipe-hero .crumb a { color: var(--tan); text-decoration: none; }
 .recipe-hero .crumb a:hover { text-decoration: underline; }
 .recipe-hero h1 {
   font-family: var(--serif);
@@ -204,7 +204,7 @@ nav a:hover { color: var(--gold); }
   font-weight: 700;
 }
 .recipe-hero .tagline {
-  color: #c8b8a0;
+  color: #c8d4e8;
   margin-top: .5rem;
   font-style: italic;
 }
@@ -216,8 +216,8 @@ nav a:hover { color: var(--gold); }
   margin-top: 1.5rem;
   font-size: .9rem;
 }
-.recipe-hero .meta-bar dt { color: var(--gold); font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; }
-.recipe-hero .meta-bar dd { color: #e8d8c0; font-weight: 700; }
+.recipe-hero .meta-bar dt { color: var(--tan); font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; }
+.recipe-hero .meta-bar dd { color: #e0eaf5; font-weight: 600; }
 
 .recipe-body {
   max-width: 860px;
@@ -235,8 +235,9 @@ nav a:hover { color: var(--gold); }
 /* ── Ingredients ── */
 .ingredients-col h2, .directions-col h2 {
   font-family: var(--serif);
-  font-size: 1.3rem;
-  color: var(--mid);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--brown);
   border-bottom: 2px solid var(--tan);
   padding-bottom: .5rem;
   margin-bottom: 1.2rem;
@@ -256,7 +257,7 @@ nav a:hover { color: var(--gold); }
   padding: .35rem 0 .35rem 1.4rem;
   position: relative;
   font-size: .95rem;
-  border-bottom: 1px solid #f0e8d8;
+  border-bottom: 1px solid #f0dce6;
   line-height: 1.5;
 }
 .ingredients-col ul li::before {
@@ -277,7 +278,7 @@ nav a:hover { color: var(--gold); }
 .directions-col ol li {
   counter-increment: steps;
   padding: .8rem 0 .8rem 0;
-  border-bottom: 1px solid #f0e8d8;
+  border-bottom: 1px solid #f0dce6;
   position: relative;
   padding-left: 2.8rem;
   font-size: .97rem;
@@ -296,7 +297,7 @@ nav a:hover { color: var(--gold); }
   align-items: center;
   justify-content: center;
   font-size: .8rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .tip-box {
@@ -379,16 +380,76 @@ nav a:hover { color: var(--gold); }
 .recipe-nav .links a:hover { background: var(--terra); }
 .recipe-nav .links a.active { background: var(--terra); }
 
+/* ── Heritage section ── */
+.heritage {
+  background: var(--tan);
+  border-top: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.heritage .label {
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--terra);
+  font-weight: 600;
+  margin-bottom: .6rem;
+}
+.heritage h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--brown);
+  line-height: 1.4;
+}
+.heritage h2 em { color: var(--terra); font-style: italic; }
+.heritage p {
+  max-width: 600px;
+  margin: 1rem auto 0;
+  color: var(--mid);
+  font-size: .97rem;
+  line-height: 1.75;
+}
+.heritage .names {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 1.8rem;
+}
+.heritage .name-card { text-align: center; }
+.heritage .name-card .initials {
+  width: 56px;
+  height: 56px;
+  background: var(--brown);
+  color: var(--tan);
+  border-radius: 50%;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto .7rem;
+}
+.heritage .name-card .full-name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--brown);
+  font-weight: 600;
+}
+.heritage .name-card .role { font-size: .78rem; color: #888; margin-top: .1rem; }
+
 /* ── Footer ── */
 footer {
   background: var(--brown);
-  color: #a08060;
+  color: #a0b4cc;
   text-align: center;
   padding: 2rem;
   font-size: .82rem;
   line-height: 1.8;
 }
-footer span { color: var(--gold); }
+footer span { color: var(--tan); }
 
 /* ── Print ── */
 @media print {

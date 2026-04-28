@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batlawa — Ida Rose Farhat</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫒</text></svg>" />
+  <style>
+    .recipe-page { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--gold); padding-bottom: 1.5rem; }
+    .recipe-header .cat { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--terra); font-weight: 700; margin-bottom: .4rem; }
+    .recipe-header h1 { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
+    .recipe-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; margin-bottom: 1.2rem; }
+    .meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-bar dl { display: flex; flex-direction: column; }
+    .meta-bar dt { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--terra); font-weight: 700; }
+    .meta-bar dd { font-size: 1rem; font-weight: 700; color: var(--brown); }
+
+    .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+    @media (max-width: 680px) { .recipe-body { grid-template-columns: 1fr; } }
+
+    .ingredients-col h2, .directions-col h2 { font-family: var(--serif); font-size: 1.3rem; color: var(--brown); margin-bottom: 1rem; border-bottom: 1px solid var(--tan); padding-bottom: .5rem; }
+    .ingredients-col h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--terra); margin: 1.2rem 0 .5rem; }
+    .ingredients-col ul { list-style: none; padding: 0; }
+    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid #f0e8d8; font-size: .95rem; color: var(--brown); }
+    .ingredients-col ul li:last-child { border-bottom: none; }
+
+    .directions-col ol { padding-left: 1.4rem; }
+    .directions-col ol li { padding: .5rem 0; font-size: .97rem; color: var(--brown); line-height: 1.75; }
+
+    .tip-box { background: var(--tan); border-left: 3px solid var(--gold); padding: .75rem 1rem; margin-top: 1rem; font-size: .88rem; color: var(--mid); border-radius: 0 6px 6px 0; }
+
+    .original-photo { margin-top: 1.5rem; }
+    .original-photo h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--terra); margin-bottom: .5rem; }
+    .original-photo img { width: 100%; border-radius: 6px; border: 1px solid #d8cbb8; }
+    .original-photo figcaption { font-size: .78rem; color: #999; margin-top: .4rem; font-style: italic; }
+
+    .print-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--brown); color: var(--cream);
+      border: none; border-radius: 6px;
+      padding: .55rem 1.2rem; font-family: var(--sans); font-size: .82rem;
+      letter-spacing: .05em; text-transform: uppercase; cursor: pointer;
+      transition: background .2s;
+    }
+    .print-btn:hover { background: var(--terra); }
+
+    @media print {
+      nav, .print-btn { display: none !important; }
+      body { background: #fff; font-size: 12pt; }
+      .recipe-page { padding: 0; max-width: 100%; }
+      .recipe-body { grid-template-columns: 1fr 2fr; gap: 2rem; }
+      .recipe-header { border-bottom: 2pt solid #000; }
+      .tip-box { border-left: 2pt solid #999; background: #f5f5f5; }
+      .original-photo { display: none; }
+      a { text-decoration: none; color: inherit; }
+    }
+  </style>
+</head>
+<script>if(sessionStorage.getItem('idarose_unlocked')!=='1'){location.replace('/recipes/ida-rose/')}</script>
+<body>
+
+<nav>
+  <a href="/recipes/ida-rose/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collection</a>
+  <a href="#top" class="brand">Favorite Syrian-Lebanese Farhat Family Recipes</a>
+</nav>
+
+<div class="recipe-page" id="top">
+
+  <div class="recipe-header">
+    <div class="cat">Lebanese · Dessert</div>
+    <h1>Batlawa</h1>
+    <p class="tagline">Ida Rose Farhat's Lebanese baklava — phyllo, walnuts &amp; orange blossom syrup</p>
+    <div class="meta-bar">
+      <dl><dt>Oven</dt><dd>300°F</dd></dl>
+      <dl><dt>Bake</dt><dd>60–90 min</dd></dl>
+      <dl><dt>Servings</dt><dd>10+</dd></dl>
+    </div>
+    <div style="margin-top:1.2rem;">
+      <button class="print-btn" onclick="window.print()">&#x2399; Print Recipe</button>
+    </div>
+  </div>
+
+  <div class="recipe-body">
+    <div class="ingredients-col">
+      <h2>Ingredients</h2>
+      <h3>Batlawa</h3>
+      <ul>
+        <li>3 lbs butter, rendered</li>
+        <li>2–3 lbs walnuts, ground (not too fine)</li>
+        <li>1½–2 cups granulated sugar</li>
+        <li>2 packages fresh phyllo dough, room temperature</li>
+        <li>1 capful Mazaher (orange blossom water)</li>
+      </ul>
+      <h3>Syrup (make first)</h3>
+      <ul>
+        <li>4 cups granulated sugar</li>
+        <li>1½–1¾ cups water</li>
+        <li>1 tbsp fresh lemon juice</li>
+        <li>1–3 tbsp Mazaher (orange blossom water)</li>
+      </ul>
+      <div class="tip-box">
+        <strong>Rendering butter:</strong> Melt slowly over low heat. Skim the white foam off the top. Use only the clear golden liquid.
+      </div>
+      <div class="tip-box" style="margin-top:1rem;">
+        <strong>Nut ratio:</strong> 2 lbs nuts → 1¼ cups sugar &nbsp;|&nbsp; 3 lbs nuts → 2 cups sugar.
+      </div>
+      <div class="tip-box" style="margin-top:1rem;">
+        <strong>Critical:</strong> Syrup must be completely cold before pouring over hot batlawa. Make it first.
+      </div>
+      <figure class="original-photo">
+        <h3>Original Recipe Card</h3>
+        <img src="../images/batlawa-original.jpg" alt="Ida Rose Farhat's Batlawa recipe card" />
+        <figcaption>Ida Rose Farhat's typed recipe with handwritten notes</figcaption>
+      </figure>
+    </div>
+
+    <div class="directions-col">
+      <h2>Directions</h2>
+      <p style="font-family:var(--serif);color:var(--terra);font-style:italic;margin-bottom:1rem;font-size:.95rem;">Start with the syrup — it must cool completely before use.</p>
+      <ol>
+        <li>Combine 4 cups sugar and 1½–1¾ cups water over medium-high heat. Stir until clear and boiling.</li>
+        <li>Add 1 tablespoon lemon juice. Simmer on low 10–15 minutes. Remove from heat. Once cooled, stir in Mazaher. Set aside — do not refrigerate.</li>
+        <li>Preheat oven to 300°F.</li>
+        <li>Pour ½ cup rendered butter into the bottom of a large baking pan. Tilt to coat evenly.</li>
+        <li>Layer the first package of phyllo sheet by sheet into the pan, brushing each layer generously with rendered butter. Keep unused sheets covered with a damp towel.</li>
+        <li>Mix ground walnuts with sugar and 1 capful of Mazaher. Spread evenly over the phyllo base. Drizzle extra butter over the nut layer.</li>
+        <li>Layer the second package of phyllo over the nuts, one sheet at a time, brushing each layer with butter.</li>
+        <li>Fold any overhanging edges into the sides of the pan. Pour remaining butter evenly over the top.</li>
+        <li>Score into diamond shapes with a sharp knife, cutting all the way through.</li>
+        <li>Bake on a lower rack at 300°F for 60–90 minutes until light golden brown.</li>
+        <li>Remove from oven, rest 3 minutes on a rack, then pour the cold syrup evenly over the hot batlawa. Let soak fully before serving.</li>
+      </ol>
+      <div class="tip-box" style="margin-top:1.5rem;">
+        <strong>Storing:</strong> Keeps at room temperature up to 2 weeks, covered loosely. Do not refrigerate.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span style="font-family:var(--serif);font-style:italic;">Ida Rose Farhat — Farhat Family Recipes</span>
+  <a href="/recipes/ida-rose/" style="color:#c8b8a0;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+</footer>
+
+</body>
+</html>
