@@ -76,7 +76,7 @@ nav a:hover { color: var(--tan); }
 }
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
   font-weight: 700;
   letter-spacing: .02em;
   position: relative;
@@ -103,7 +103,7 @@ nav a:hover { color: var(--tan); }
   text-align: center;
   padding: 3rem 1rem 1.5rem;
   font-family: var(--serif);
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   color: var(--mid);
 }
 .section-label span {
@@ -200,7 +200,7 @@ nav a:hover { color: var(--tan); }
 .recipe-hero .crumb a:hover { text-decoration: underline; }
 .recipe-hero h1 {
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
   font-weight: 700;
 }
 .recipe-hero .tagline {
@@ -398,7 +398,7 @@ nav a:hover { color: var(--tan); }
 }
 .heritage h2 {
   font-family: var(--serif);
-  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 700;
   color: var(--brown);
   line-height: 1.4;
