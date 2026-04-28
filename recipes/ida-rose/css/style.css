@@ -9,7 +9,7 @@
   --brown:    #1B2A4A;
   --mid:      #2D4A7A;
   --terra:    #B5476A;
-  --gold:     #C47A95;
+  --gold:     #C9A96E;
   --green:    #4A6C7C;
   --shadow:   rgba(27,42,74,.12);
   --serif:    'Cormorant Garamond', Georgia, serif;
@@ -257,7 +257,7 @@ nav a:hover { color: var(--tan); }
   padding: .35rem 0 .35rem 1.4rem;
   position: relative;
   font-size: .95rem;
-  border-bottom: 1px solid #f0dce6;
+  border-bottom: 1px solid #f0e8d0;
   line-height: 1.5;
 }
 .ingredients-col ul li::before {
@@ -278,7 +278,7 @@ nav a:hover { color: var(--tan); }
 .directions-col ol li {
   counter-increment: steps;
   padding: .8rem 0 .8rem 0;
-  border-bottom: 1px solid #f0dce6;
+  border-bottom: 1px solid #f0e8d0;
   position: relative;
   padding-left: 2.8rem;
   font-size: .97rem;
