@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/mayorjapinga",
+      "destination": "/mayorjapinga/",
+      "permanent": false
+    }
+  ]
+}
