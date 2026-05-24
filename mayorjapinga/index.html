@@ -725,6 +725,38 @@ p + p { margin-top: 16px; }
     cursor: not-allowed;
     pointer-events: none;
 }
+.survey-email-row {
+    max-width: 460px;
+    margin: 0 auto 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.survey-email-row label {
+    font-family: var(--pixel);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: center;
+}
+.survey-email-row input {
+    padding: 14px 16px;
+    border: 3px solid var(--ink);
+    background: var(--paper);
+    font-family: var(--body);
+    font-size: 16px;
+    color: var(--ink);
+    outline: none;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: border-color .12s ease, box-shadow .12s ease;
+    width: 100%;
+}
+.survey-email-row input::placeholder { color: var(--muted); }
+.survey-email-row input:focus {
+    border-color: var(--pink);
+    box-shadow: 4px 4px 0 var(--pink);
+}
 .survey-actions { text-align: center; }
 .survey-submit {
     display: inline-block;
@@ -1028,8 +1060,13 @@ p + p { margin-top: 16px; }
                 </button>
             </div>
 
+            <div class="survey-email-row">
+                <label for="survey-email">Email required to submit</label>
+                <input id="survey-email" type="email" placeholder="your.email@lansing.com" autocomplete="email" required>
+            </div>
             <div class="survey-actions">
                 <button type="button" class="survey-submit" id="survey-submit" disabled>Send My Top 3 →</button>
+                <p class="form-note" style="margin-top: 14px; color: var(--muted);">We'll only use your email to send the official platform from Steve at launch. No spam. No list rentals.</p>
             </div>
 
             <div class="survey-thanks" id="survey-thanks">
@@ -1121,20 +1158,27 @@ p + p { margin-top: 16px; }
 // Top-3 issue poll
 (function() {
     var MAX = 3;
+    var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     var grid = document.getElementById('poll-grid');
     var counter = document.getElementById('survey-counter');
     var countEl = document.getElementById('survey-count');
     var submit = document.getElementById('survey-submit');
     var thanks = document.getElementById('survey-thanks');
     var picksList = document.getElementById('survey-picks');
+    var emailInput = document.getElementById('survey-email');
+    var emailRow = document.querySelector('.survey-email-row');
     if (!grid || !submit) return;
 
     var selected = [];
     var cards = grid.querySelectorAll('.poll-card');
 
+    function emailValid() {
+        return emailInput && EMAIL_RE.test(emailInput.value.trim());
+    }
+
     function update() {
         countEl.textContent = selected.length;
-        submit.disabled = selected.length === 0;
+        submit.disabled = selected.length === 0 || !emailValid();
         counter.classList.toggle('full', selected.length === MAX);
         cards.forEach(function(c) {
             var isSel = selected.indexOf(c.dataset.id) !== -1;
@@ -1156,21 +1200,29 @@ p + p { margin-top: 16px; }
         update();
     });
 
+    if (emailInput) emailInput.addEventListener('input', update);
+
     submit.addEventListener('click', function() {
-        if (selected.length === 0) return;
+        if (selected.length === 0 || !emailValid()) {
+            if (!emailValid() && emailInput) emailInput.focus();
+            return;
+        }
+        var email = emailInput.value.trim();
         var picks = selected.map(function(id) {
             var card = grid.querySelector('.poll-card[data-id="' + id + '"]');
             return card ? card.querySelector('h3').textContent.trim() : id;
         });
-        // TODO: POST {picks, ts} to backend (Formspree / Netlify Function / Supabase)
+        // TODO: POST {email, picks, ts} to backend (Formspree / Netlify Function / Supabase)
         try {
             localStorage.setItem('japinga-poll', JSON.stringify({
                 when: new Date().toISOString(),
+                email: email,
                 picks: selected
             }));
         } catch (_) {}
         grid.style.display = 'none';
         document.querySelector('.survey-actions').style.display = 'none';
+        if (emailRow) emailRow.style.display = 'none';
         counter.style.display = 'none';
         picksList.innerHTML = picks.map(function(p) {
             return '<li>' + p + '</li>';
