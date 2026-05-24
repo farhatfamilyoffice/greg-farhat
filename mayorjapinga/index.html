@@ -356,23 +356,29 @@ p + p { margin-top: 16px; }
 }
 .aside-quip strong { font-style: normal; font-weight: 700; }
 
-/* Retro photo frame */
+/* Retro photo frame — padding-bottom technique for bulletproof aspect ratio */
 .portrait-frame {
     position: relative;
+    width: 100%;
     border: 3px solid var(--ink);
     box-shadow: var(--shadow-hard-lg);
-    background: var(--paper);
+    background: var(--paper-soft);
     overflow: hidden;
 }
+.portrait-frame::before {
+    content: "";
+    display: block;
+    padding-bottom: 125%; /* 4:5 portrait */
+}
 .portrait-frame img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
-.portrait-frame.bio { aspect-ratio: 4 / 5; }
 .portrait-frame.bio img { object-position: center 28%; }
-.portrait-frame.family { aspect-ratio: 4 / 5; }
 .portrait-frame.family img { object-position: center 35%; }
 .portrait-frame::after {
     content: "";
@@ -384,6 +390,7 @@ p + p { margin-top: 16px; }
     background: var(--pink);
     border-left: 3px solid var(--ink);
     border-bottom: 3px solid var(--ink);
+    z-index: 2;
 }
 .portrait-frame.family::after { background: var(--blue); }
 .photo-caption {
@@ -792,7 +799,7 @@ p + p { margin-top: 16px; }
     .about-row, .about-row.reverse { grid-template-columns: 1fr; gap: 32px; }
     .about-row + .about-row { margin-top: 56px; }
     .about-row.reverse > div:first-child { order: 2; }
-    .portrait-frame.bio, .portrait-frame.family { aspect-ratio: 4 / 5; max-width: 420px; margin: 0 auto; }
+    .portrait-frame.bio, .portrait-frame.family { max-width: 420px; margin: 0 auto; }
     .tile-grid { grid-template-columns: 1fr; }
     .poll-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
     .footer-grid { grid-template-columns: 1fr; gap: 28px; }
