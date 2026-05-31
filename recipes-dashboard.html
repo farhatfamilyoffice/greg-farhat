@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farhat Family Recipe Website — Executive Dashboard</title>
+  <style>
+    @page {
+      size: letter landscape;
+      margin: .45in .5in;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown:  #0C1A3E;
+      --mid:    #1D3870;
+      --terra:  #9B3060;
+      --gold:   #D4A017;
+      --cream:  #FFF0F7;
+      --tan:    #F5D8EC;
+      --ink:    #0C1A3E;
+      --muted:  #5a6a8a;
+    }
+
+    html, body {
+      width: 100%; height: 100%;
+      font-family: 'Georgia', serif;
+      font-size: 10.5pt;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    /* ── Top bar ── */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 3px solid var(--terra);
+      padding-bottom: .3rem;
+      margin-bottom: .5rem;
+    }
+    .top-bar-left h1 {
+      font-size: 17pt;
+      font-weight: 700;
+      color: var(--brown);
+      letter-spacing: -.01em;
+      line-height: 1;
+    }
+    .top-bar-left p {
+      font-size: 8.5pt;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: .1rem;
+    }
+    .top-bar-right {
+      text-align: right;
+      font-size: 7.5pt;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* ── KPI strip ── */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .4rem;
+      margin-bottom: .5rem;
+    }
+    .kpi {
+      background: var(--brown);
+      color: #fff;
+      border-radius: 6px;
+      padding: .45rem .6rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .kpi-value {
+      font-size: 22pt;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--tan);
+    }
+    .kpi-label {
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #c8b8d8;
+      margin-top: .15rem;
+      font-family: 'Courier New', monospace;
+    }
+    .kpi.accent { background: var(--terra); }
+    .kpi.accent .kpi-label { color: #f5c8dd; }
+
+    /* ── Body grid ── */
+    .body-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1fr;
+      gap: .5rem;
+      margin-bottom: .5rem;
+    }
+
+    /* ── Collection card ── */
+    .col-card {
+      border: 1.5px solid var(--tan);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .col-card-header {
+      background: var(--brown);
+      color: var(--tan);
+      padding: .35rem .6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .col-card-header .col-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+      letter-spacing: .01em;
+    }
+    .col-card-header .col-badge {
+      background: var(--terra);
+      color: #fff;
+      font-size: 7pt;
+      font-family: 'Courier New', monospace;
+      letter-spacing: .05em;
+      padding: .1rem .4rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .col-card-body { padding: .4rem .6rem; }
+
+    .section-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .18rem 0;
+      border-bottom: 1px solid var(--tan);
+      font-size: 8.5pt;
+    }
+    .section-row:last-child { border-bottom: none; }
+    .section-name { color: var(--ink); }
+    .section-count {
+      font-family: 'Courier New', monospace;
+      font-size: 7.5pt;
+      color: var(--terra);
+      font-weight: 700;
+    }
+
+    /* Bar for section counts */
+    .bar-wrap { flex: 1; margin: 0 .5rem; height: 5px; background: var(--tan); border-radius: 3px; }
+    .bar-fill { height: 100%; background: var(--terra); border-radius: 3px; }
+
+    /* ── Bottom strip ── */
+    .bottom-strip {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: .5rem;
+    }
+
+    .panel {
+      border: 1.5px solid var(--tan);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .panel-header {
+      background: var(--tan);
+      padding: .25rem .6rem;
+      font-size: 7pt;
+      font-family: 'Courier New', monospace;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--terra);
+      font-weight: 700;
+    }
+    .panel-body { padding: .35rem .6rem; }
+
+    .recent-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: .3rem;
+    }
+    .recent-item {
+      background: var(--cream);
+      border-radius: 5px;
+      padding: .3rem .4rem;
+    }
+    .recent-item .r-title { font-size: 7.5pt; font-weight: 700; color: var(--brown); line-height: 1.2; }
+    .recent-item .r-sub { font-size: 6.5pt; color: var(--muted); margin-top: .1rem; font-family: 'Courier New', monospace; }
+
+    .stat-rows {}
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: .2rem 0;
+      border-bottom: 1px solid var(--tan);
+      font-size: 8pt;
+    }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-key { color: var(--muted); }
+    .stat-val { font-weight: 700; color: var(--brown); font-family: 'Courier New', monospace; font-size: 7.5pt; }
+
+    /* ── Footer ── */
+    .footer-bar {
+      border-top: 1px solid var(--tan);
+      margin-top: .4rem;
+      padding-top: .25rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7pt;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      letter-spacing: .04em;
+    }
+    .footer-bar a { color: var(--terra); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <h1>Farhat Family Recipe Website</h1>
+    <p>A living digital archive of family recipes — Lebanese, Syrian, Italian, American, and beyond</p>
+  </div>
+  <div class="top-bar-right">
+    gregfarhat.com/recipes<br/>
+    As of April 30, 2026
+  </div>
+</div>
+
+<!-- ── KPIs ── -->
+<div class="kpi-strip">
+  <div class="kpi accent">
+    <span class="kpi-value">148</span>
+    <span class="kpi-label">Recipes Live</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi-value">3</span>
+    <span class="kpi-label">Active Collections</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi-value">30+</span>
+    <span class="kpi-label">Recipe Sections</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi-value">4</span>
+    <span class="kpi-label">Family Authors</span>
+  </div>
+</div>
+
+<!-- ── Collection cards ── -->
+<div class="body-grid">
+
+  <!-- Nan Farhat -->
+  <div class="col-card">
+    <div class="col-card-header">
+      <span class="col-name">Nan Farhat</span>
+      <span class="col-badge">68 recipes · 5 sections</span>
+    </div>
+    <div class="col-card-body">
+      <div class="section-row">
+        <span class="section-name">Appetizers &amp; Party Foods</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:62%;"></div></div>
+        <span class="section-count">11</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Main Dishes</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:100%;"></div></div>
+        <span class="section-count">19</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Soups, Salads &amp; Sides</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:84%;"></div></div>
+        <span class="section-count">16</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Desserts</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:95%;"></div></div>
+        <span class="section-count">18</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Breads &amp; Baked Goods</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:21%;"></div></div>
+        <span class="section-count">4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ida Rose -->
+  <div class="col-card">
+    <div class="col-card-header">
+      <span class="col-name">Ida Rose Farhat</span>
+      <span class="col-badge">27 recipes · 8 sections</span>
+    </div>
+    <div class="col-card-body">
+      <div class="section-row">
+        <span class="section-name">Syrian-Lebanese</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:100%;"></div></div>
+        <span class="section-count">13</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Italian</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:23%;"></div></div>
+        <span class="section-count">3</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Meats</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:15%;"></div></div>
+        <span class="section-count">2</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Salads</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:15%;"></div></div>
+        <span class="section-count">2</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Mexican · Sauces · Soups · Beverages</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:38%;"></div></div>
+        <span class="section-count">7</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Father Vincent -->
+  <div class="col-card">
+    <div class="col-card-header">
+      <span class="col-name">Fr. Vincent Farhat</span>
+      <span class="col-badge">53 recipes · 8 sections</span>
+    </div>
+    <div class="col-card-body">
+      <div class="section-row">
+        <span class="section-name">Appetizers</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:45%;"></div></div>
+        <span class="section-count">~8</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Syrian-Lebanese Classics</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:65%;"></div></div>
+        <span class="section-count">~12</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Meats</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:55%;"></div></div>
+        <span class="section-count">~10</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Desserts &amp; Sweets</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:60%;"></div></div>
+        <span class="section-count">~11</span>
+      </div>
+      <div class="section-row">
+        <span class="section-name">Soups · Salads · Sides · Other</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:65%;"></div></div>
+        <span class="section-count">~12</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Bottom strip ── -->
+<div class="bottom-strip">
+
+  <!-- Recent additions -->
+  <div class="panel">
+    <div class="panel-header">Recently Added — Ida Rose Collection</div>
+    <div class="panel-body">
+      <div class="recent-grid">
+        <div class="recent-item">
+          <div class="r-title">Slow Cooker Coke Pulled Pork</div>
+          <div class="r-sub">Meats · from Jen</div>
+        </div>
+        <div class="recent-item">
+          <div class="r-title">Aunt Marina's Seven Layer Salad</div>
+          <div class="r-sub">Salads · Aunt Marina</div>
+        </div>
+        <div class="recent-item">
+          <div class="r-title">Taco Salad &amp; Bean Dip</div>
+          <div class="r-sub">Mexican · party staple</div>
+        </div>
+        <div class="recent-item">
+          <div class="r-title">Mena's Homemade Ricotta</div>
+          <div class="r-sub">Italian · Roma Bakery</div>
+        </div>
+        <div class="recent-item">
+          <div class="r-title">Mary David's Easter Cookies</div>
+          <div class="r-sub">Syrian-Lebanese · ma'amoul</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project stats -->
+  <div class="panel">
+    <div class="panel-header">Project Status</div>
+    <div class="panel-body">
+      <div class="stat-rows">
+        <div class="stat-row">
+          <span class="stat-key">Site</span>
+          <span class="stat-val">gregfarhat.com/recipes/</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Deployment</span>
+          <span class="stat-val">Live · Vercel</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Nan Farhat PDF digitized</span>
+          <span class="stat-val">89 pages · 68 recipes ✓</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Photo galleries added</span>
+          <span class="stat-val">10 photos · 4 pages</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Leo A. Farhat Jr.</span>
+          <span class="stat-val">Coming Soon</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Family authors represented</span>
+          <span class="stat-val">Nan · Ida Rose · Fr. Vincent</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Footer ── -->
+<div class="footer-bar">
+  <span>Farhat Family Office · Confidential</span>
+  <span><a href="https://www.gregfarhat.com/recipes/">gregfarhat.com/recipes/</a> · All collections live and searchable</span>
+  <span>Generated April 30, 2026</span>
+</div>
+
+</body>
+</html>

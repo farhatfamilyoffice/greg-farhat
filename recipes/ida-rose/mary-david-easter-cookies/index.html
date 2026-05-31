@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mary David's Easter Cookies — The Ida Rose Farhat Collection</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>" />
+  <style>
+    .recipe-page { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--terra); padding-bottom: 1.5rem; }
+    .recipe-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
+    .recipe-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; margin-bottom: 1.2rem; }
+    .meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-bar dl { display: flex; flex-direction: column; }
+    .meta-bar dt { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--terra); font-weight: 700; }
+    .meta-bar dd { font-size: 1rem; font-weight: 700; color: var(--brown); }
+    .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+    @media (max-width: 680px) { .recipe-body { grid-template-columns: 1fr; } }
+    .ingredients-col h2, .directions-col h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--mid); border-bottom: 2px solid var(--tan); padding-bottom: .5rem; margin-bottom: 1.2rem; }
+    .ingredients-col h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--terra); margin: 1.2rem 0 .5rem; font-weight: 700; }
+    .ingredients-col ul { list-style: none; padding: 0; }
+    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid var(--tan); font-size: .95rem; }
+    .ingredients-col ul li:last-child { border-bottom: none; }
+    .tip-box { background: var(--tan); border-left: 3px solid var(--gold); padding: .75rem 1rem; margin-top: 1rem; font-size: .88rem; color: var(--mid); border-radius: 0 6px 6px 0; }
+    .original-photo { margin-top: 1.5rem; }
+    .original-photo h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--mid); margin-bottom: .5rem; font-weight: 700; }
+    .original-photo img { width: 100%; border-radius: 6px; border: 1px solid var(--tan); }
+    .original-photo figcaption { font-size: .78rem; color: #999; margin-top: .4rem; font-style: italic; }
+    .print-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--brown); color: var(--cream); border: none; border-radius: 6px; padding: .55rem 1.2rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: background .2s; }
+    .print-btn:hover { background: var(--terra); }
+    @media print {
+      nav, .print-btn { display: none !important; }
+      body { background: #fff; font-size: 12pt; color: #000; }
+      .recipe-page { padding: 0; max-width: 100%; }
+      .recipe-body { grid-template-columns: 1fr 2fr; gap: 2rem; }
+      .recipe-header { border-bottom: 2pt solid #000; }
+      .recipe-header h1, .meta-bar dd { color: #000; }
+      .tip-box { border-left: 2pt solid #aaa; background: #f5f5f5; }
+      a { text-decoration: none; color: inherit; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/recipes/ida-rose/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collection</a>
+  <a href="#top" class="brand">The Ida Rose Farhat Collection</a>
+</nav>
+
+<div class="recipe-page" id="top">
+  <div class="recipe-header">
+    <h1>Mary David's Easter Cookies</h1>
+    <p class="tagline">Lebanese ma'amoul-style Easter cookies — spiced anise dough stuffed with dates, pecans, and walnuts, glazed hot from the oven</p>
+    <div class="meta-bar">
+      <dl><dt>Section</dt><dd>Syrian-Lebanese</dd></dl>
+      <dl><dt>Source</dt><dd>Mary David</dd></dl>
+      <dl><dt>Bake</dt><dd>350°F · ~20 min</dd></dl>
+      <dl><dt>Yield</dt><dd>Large batch (5 lb dough)</dd></dl>
+    </div>
+    <div style="margin-top:1.2rem;">
+      <button class="print-btn" onclick="window.print()">&#x2399; Print Recipe</button>
+    </div>
+  </div>
+
+  <div class="recipe-body">
+    <div class="ingredients-col">
+      <h2>Ingredients</h2>
+      <h3>Dough</h3>
+      <ul>
+        <li>5 lb flour</li>
+        <li>1½ lb butter</li>
+        <li>3 cups sugar</li>
+        <li>½ cup ground anise</li>
+        <li>½ tsp nutmeg</li>
+        <li>1 tsp mahlab</li>
+        <li>3 packages dry yeast, dissolved in 1 cup lukewarm water</li>
+        <li>3½ cups lukewarm milk</li>
+        <li>½ cup half and half</li>
+        <li>1 drop mazahad</li>
+      </ul>
+      <h3>Date Filling</h3>
+      <ul>
+        <li>1 lb dates, coarsely ground</li>
+        <li>½ cup pecans or walnuts, finely chopped</li>
+        <li>1 Tbsp butter or margarine, melted</li>
+      </ul>
+      <h3>Glaze</h3>
+      <ul>
+        <li>1 cup sugar</li>
+        <li>½ cup half and half</li>
+        <li>1 drop mazahad</li>
+      </ul>
+      <div class="tip-box">
+        <strong>Mazahad:</strong> A floral Lebanese flavoring (similar to rose water but more delicate). One drop goes a long way — don't overdo it.
+      </div>
+      <div class="tip-box" style="margin-top:.75rem;">
+        <strong>Mahlab:</strong> Ground cherry pits — a classic Lebanese baking spice with a subtle almond-cherry flavor. Available at Middle Eastern grocers.
+      </div>
+      <figure class="original-photo">
+        <h3>Original Recipe</h3>
+        <img src="../images/mary-david-easter-cookies-original.jpg" alt="Mary David's Easter Cookies recipe" />
+        <figcaption>Mary David's handwritten Easter cookie recipe</figcaption>
+      </figure>
+    </div>
+
+    <div class="directions-col">
+      <h2>Directions</h2>
+      <ol>
+        <li>Dissolve yeast in 1 cup lukewarm water. Set aside to activate (about 5–10 minutes until foamy).</li>
+        <li>In a large bowl, work the butter into the flour with your hands, as if making a pie crust, until the mixture resembles coarse crumbs.</li>
+        <li>Warm the milk slightly. Add sugar, half and half, and mazahad to the milk and stir to dissolve.</li>
+        <li>Add the dissolved yeast to the flour mixture, then add the milk-sugar mixture. Mix until a soft dough forms. Knead until smooth and elastic.</li>
+        <li>Cover and let the dough rise in a warm place for 2–3 hours.</li>
+        <li><strong>Make the filling:</strong> Combine ground dates, chopped nuts, and melted butter. Mix well.</li>
+        <li>Pinch off pieces of dough and roll into balls about the size of a baseball. Flatten and roll to about ¼ inch thickness.</li>
+        <li>Place a spoonful of date filling in the center. Fold the dough over the filling and pinch to seal. Shape into a round or oval, and press with a fork or cookie mold to flute the edges.</li>
+        <li>Place on ungreased baking sheets. Bake at 350°F for approximately 20 minutes, until just golden.</li>
+        <li><strong>Glaze:</strong> Combine sugar, half and half, and mazahad in a small saucepan. Heat until sugar dissolves. Brush over cookies immediately while still hot.</li>
+      </ol>
+      <div class="tip-box" style="margin-top:1.5rem;">
+        <strong>Timing:</strong> These are a project — make the dough in the morning and let it rise. Filling and baking happens in the afternoon. Worth every step.
+      </div>
+      <div class="tip-box" style="margin-top:1rem;">
+        <strong>Glaze now:</strong> Brush the glaze on immediately when the cookies come out of the oven. The heat helps it soak in and creates the signature sheen.
+      </div>
+      <div class="tip-box" style="margin-top:1rem;">
+        <strong>Yield:</strong> With 5 lbs of dough, this makes a very large batch — perfect for holidays, gifts, and sharing with the whole family.
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>The Ida Rose Farhat Collection</span>
+  <a href="/recipes/ida-rose/" style="color:var(--tan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+</footer>
+
+</body>
+</html>

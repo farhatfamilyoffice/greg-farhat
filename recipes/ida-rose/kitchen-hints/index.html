@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Hints — The Ida Rose Farhat Collection</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>" />
+  <style>
+    .hints-page { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .hints-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--terra); padding-bottom: 1.5rem; }
+    .hints-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .4rem; }
+    .hints-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; }
+
+    .hint-card {
+      background: #fff;
+      border-radius: 10px;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 3px 16px var(--shadow);
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+    .hint-card h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--brown);
+      margin-bottom: 1rem;
+    }
+    .hint-card p {
+      font-size: .95rem;
+      color: var(--mid);
+      line-height: 1.75;
+      margin: 0 0 .75rem;
+    }
+    .hint-card p:last-child { margin-bottom: 0; }
+    .hint-card .note {
+      display: inline-block;
+      margin-top: .75rem;
+      font-size: .82rem;
+      color: #999;
+      font-style: italic;
+    }
+
+    .print-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--brown); color: var(--cream); border: none; border-radius: 6px; padding: .55rem 1.2rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: background .2s; margin-top: 1.2rem; }
+    .print-btn:hover { background: var(--terra); }
+
+    @media print {
+      nav, .print-btn { display: none !important; }
+      body { background: #fff; font-size: 12pt; color: #000; }
+      .hints-page { padding: 0; max-width: 100%; }
+      .hints-header { border-bottom: 2pt solid #000; }
+      .hints-header h1 { color: #000; }
+      .hint-card { box-shadow: none; border-left: 2pt solid #aaa; border-radius: 0; page-break-inside: avoid; }
+      .hint-card h2 { color: #000; }
+      .hint-card p { color: #000; }
+      a { text-decoration: none; color: inherit; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/recipes/ida-rose/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collection</a>
+  <a href="#top" class="brand">The Ida Rose Farhat Collection</a>
+</nav>
+
+<div class="hints-page" id="top">
+
+  <div class="hints-header">
+    <h1>Kitchen Hints</h1>
+    <p class="tagline">Tips, tricks, and notes from the Farhat family kitchen</p>
+    <button class="print-btn" onclick="window.print()">&#x2399; Print All</button>
+  </div>
+
+  <div class="hint-card">
+    <h2>Foil and Parchment</h2>
+    <p>When cooking things on aluminium foil, first scrunch the foil up, then lay it loosely flat again on your baking tray. The juices will stay put — and the food will not stick to the foil half as much, if at all.</p>
+    <p>Also spray with cooking spray or spread oil on top of the foil.</p>
+    <p>Or just use parchment paper.</p>
+    <span class="note">Nonstick foil is available but very expensive — about $14 a roll for 150 sq ft.</span>
+  </div>
+
+  <div class="hint-card">
+    <h2>DIY Self-Rising Flour</h2>
+    <p>If all you have is all-purpose flour, you don't need to run to the store. To make your own self-rising flour, just add 1½ teaspoons baking powder and ¼ teaspoon salt to each cup of all-purpose flour.</p>
+  </div>
+
+</div>
+
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>The Ida Rose Farhat Collection</span>
+  <a href="/recipes/ida-rose/" style="color:var(--tan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+</footer>
+
+</body>
+</html>

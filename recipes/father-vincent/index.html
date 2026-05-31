@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Father Vincent Farhat Collection</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝</text></svg>" />
+  <style>
+    .collection-hero { background: var(--brown); color: var(--cream); padding: 4rem 2rem 3rem; text-align: center; position: relative; overflow: hidden; }
+    .collection-hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .collection-hero .eyebrow { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: .8rem; position: relative; }
+    .collection-hero h1 { font-size: clamp(2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; position: relative; }
+    .collection-hero h1 span { color: var(--gold); font-weight: 300; }
+    .collection-hero .tagline { margin-top: 1rem; color: #A8BCCE; font-size: 1rem; max-width: 560px; margin-inline: auto; position: relative; line-height: 1.7; }
+    .collection-hero .divider { width: 80px; height: 2px; background: var(--gold); margin: 1.5rem auto 0; position: relative; }
+    .biography { background: var(--tan); padding: 2.5rem 2rem; }
+    .biography-inner { max-width: 760px; margin: 0 auto; font-size: .97rem; line-height: 1.75; color: var(--mid); }
+    .biography-inner p + p { margin-top: 1rem; }
+    .biography-inner strong { color: var(--brown); }
+    .sections-nav { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; padding: 2rem 2rem 0; max-width: 900px; margin: 0 auto; }
+    .sections-nav a { background: var(--brown); color: var(--cream); text-decoration: none; padding: .45rem 1rem; border-radius: 100px; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; transition: background .2s; }
+    .sections-nav a:hover { background: var(--terra); }
+    .recipe-section { max-width: 1100px; margin: 0 auto 3rem; padding: 0 2rem; }
+    .recipe-section h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: -.02em; color: var(--mid); border-bottom: 3px solid var(--gold); padding-bottom: .5rem; margin-bottom: 1.5rem; margin-top: 3rem; }
+    .recipe-section h2 .count { font-size: .75rem; font-weight: 600; color: var(--terra); text-transform: uppercase; letter-spacing: .08em; margin-left: .6rem; }
+    .recipe-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.4rem; }
+    .rcard { background: #fff; border-radius: 10px; box-shadow: 0 3px 14px var(--shadow); overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform .22s, box-shadow .22s; }
+    .rcard:hover { transform: translateY(-4px); box-shadow: 0 8px 28px var(--shadow); }
+    .rcard-icon { width: 100%; aspect-ratio: 4/3; background: var(--tan); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .rcard-body { padding: 1.1rem 1.2rem; flex: 1; }
+    .rcard-cat { font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--terra); margin-bottom: .3rem; }
+    .rcard-title { font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em; line-height: 1.25; margin-bottom: .4rem; color: var(--brown); }
+    .rcard-desc { font-size: .82rem; color: #777; line-height: 1.5; }
+    .rcard.locked { opacity: .55; pointer-events: none; }
+    .rcard.locked .rcard-icon { background: #f0f0f0; }
+    .lock-badge { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #999; margin-top: .5rem; display: inline-block; }
+    .stat-bar { background: var(--brown); color: #A8BCCE; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 1.5rem 2rem; }
+    .stat-bar .stat { text-align: center; }
+    .stat-bar .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--gold); display: block; line-height: 1; }
+    .stat-bar .stat-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-top: .3rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/recipes/" class="back-link" style="color:#A8BCCE;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collections</a>
+  <a href="#top" class="brand">The Father Vincent Farhat Collection</a>
+  <a href="#appetizers">Appetizers</a>
+  <a href="#syrian-lebanese">Syrian-Lebanese</a>
+  <a href="#desserts">Desserts</a>
+</nav>
+
+<div id="top">
+  <div class="collection-hero">
+    <p class="eyebrow">A Family Treasure</p>
+    <h1>The Father Vincent<br><span>Farhat Collection</span></h1>
+    <p class="tagline">Recipes gathered and treasured by Father Vincent Farhat — from Lebanese family heirlooms to beloved American classics, spanning generations of family cooking.</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="biography">
+    <div class="biography-inner">
+      <p>Father Vincent Farhat is a Maronite Catholic priest and a passionate keeper of the family table. His handwritten recipe book — filled with Lebanese dishes passed down from his mother, notes from family friends, and recipes collected from parishioners — reflects a life lived at the intersection of heritage and hospitality.</p>
+      <p>This collection spans <strong>appetizers and dips, soups, salads, Italian and Syrian-Lebanese classics, meats, sides, and a wide array of desserts and sweets</strong>. Many recipes carry the names of the family members and friends who shared them — a reminder that every dish has a story.</p>
+    </div>
+  </div>
+
+  <div class="stat-bar">
+    <div class="stat"><span class="stat-num">87</span><div class="stat-label">Pages</div></div>
+    <div class="stat"><span class="stat-num">53</span><div class="stat-label">Recipes</div></div>
+    <div class="stat"><span class="stat-num">8</span><div class="stat-label">Sections</div></div>
+  </div>
+
+  <div class="sections-nav">
+    <a href="#appetizers">Appetizers & Dips</a>
+    <a href="#soups">Soups</a>
+    <a href="#salads">Salads</a>
+    <a href="#pasta-sauces">Sauces & Pasta</a>
+    <a href="#syrian-lebanese">Syrian-Lebanese</a>
+    <a href="#meats">Meats & Mains</a>
+    <a href="#sides">Sides</a>
+    <a href="#desserts">Desserts & Sweets</a>
+  </div>
+
+  <!-- ── APPETIZERS & DIPS ── -->
+  <div class="recipe-section" id="appetizers">
+    <h2>Appetizers & Dips <span class="count">11 recipes</span></h2>
+    <div class="recipe-grid">
+      <a href="moms-cheeseball/" class="rcard">
+        <div class="rcard-icon">🧀</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Mom's Cheeseball</div>
+          <div class="rcard-desc">Cream cheese, old English cheddar, blue cheese, red wine & Spanish olives</div>
+        </div>
+      </a>
+      <a href="idas-shrimp-dip/" class="rcard">
+        <div class="rcard-icon">🍤</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Ida's Shrimp Dip</div>
+          <div class="rcard-desc">Sour cream, cream cheese, Italian dry dressing, lemon juice & canned shrimp</div>
+        </div>
+      </a>
+      <a href="aunt-marinas-hot-crab-dip/" class="rcard">
+        <div class="rcard-icon">🦀</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Aunt Marina's Hot Crab Dip</div>
+          <div class="rcard-desc">Velveeta, butter, dry mustard & crab meat — served in a chafing dish</div>
+        </div>
+      </a>
+      <a href="hummus-bi-tahini/" class="rcard">
+        <div class="rcard-icon">🫘</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers · Syrian-Lebanese</div>
+          <div class="rcard-title">Hummus & Tahini</div>
+          <div class="rcard-desc">Tahini, lemon juice, garlic, chick peas — blended and chilled</div>
+        </div>
+      </a>
+      <a href="avocado-dip-guacamole/" class="rcard">
+        <div class="rcard-icon">🥑</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Avocado Dip (Guacamole)</div>
+          <div class="rcard-desc">Garlic, onions, jalapeños, avocados, tomato & lemon — serve with taco chips</div>
+        </div>
+      </a>
+      <a href="taco-dip/" class="rcard">
+        <div class="rcard-icon">🌮</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Taco Dip</div>
+          <div class="rcard-desc">Layered cream cheese, taco sauce, tomatoes, avocado, onions & cheddar</div>
+        </div>
+      </a>
+      <div class="rcard locked">
+        <div class="rcard-icon">🧀</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Cheese Spread</div>
+          <div class="rcard-desc">Cracker Barrel, cream cheese, onion, Worcestershire & Tabasco</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+      <div class="rcard locked">
+        <div class="rcard-icon">🧄</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Boursin (Garlic & Herb Cheese)</div>
+          <div class="rcard-desc">Cream cheese, lemon, fresh savory, pepper & garlic</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+      <a href="spinach-dip/" class="rcard">
+        <div class="rcard-icon">🥬</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Spinach Dip</div>
+          <div class="rcard-desc">Chopped spinach, water chestnuts, mayo, sour cream & Knorr herb soup mix</div>
+        </div>
+      </a>
+      <div class="rcard locked">
+        <div class="rcard-icon">🥐</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Crescent Fondue</div>
+          <div class="rcard-desc">Crescent rolls baked in a Bundt pan with melted butter & port wine cheese</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+      <div class="rcard locked">
+        <div class="rcard-icon">🧀</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Appetizers</div>
+          <div class="rcard-title">Cheese Straws</div>
+          <div class="rcard-desc">Butter, NY sharp cheese, flour & cayenne — from Karen Hitt</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SOUPS ── -->
+  <div class="recipe-section" id="soups">
+    <h2>Soups <span class="count">2 recipes</span></h2>
+    <div class="recipe-grid">
+      <a href="moms-chicken-rice-soup/" class="rcard">
+        <div class="rcard-icon">🍜</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Soups</div>
+          <div class="rcard-title">Mom's Chicken Rice Soup</div>
+          <div class="rcard-desc">Whole chicken, onions, allspice, cinnamon, carrot rings & rice</div>
+        </div>
+      </a>
+      <a href="leos-bean-soup/" class="rcard">
+        <div class="rcard-icon">🫘</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Soups</div>
+          <div class="rcard-title">Leo's Bean Soup</div>
+          <div class="rcard-desc">Ham hock, navy beans, carrots, celery, potatoes & apple cider vinegar</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── SALADS & DRESSINGS ── -->
+  <div class="recipe-section" id="salads">
+    <h2>Salads & Dressings <span class="count">5 recipes</span></h2>
+    <div class="recipe-grid">
+      <a href="seven-layer-salad/" class="rcard">
+        <div class="rcard-icon">🥗</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Salads</div>
+          <div class="rcard-title">Seven Layer Salad</div>
+          <div class="rcard-desc">Lettuce, green pepper, celery, onion, water chestnuts, peas — Hidden Valley Ranch dressing, cheddar & bacon</div>
+        </div>
+      </a>
+      <a href="caesar-salad/" class="rcard">
+        <div class="rcard-icon">🥬</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Salads</div>
+          <div class="rcard-title">Caesar Salad</div>
+          <div class="rcard-desc">Garlic, anchovies, dry mustard, Worcestershire, egg yolk, olive oil, Romaine & Parmesan</div>
+        </div>
+      </a>
+      <a href="spinach-salad-hot-bacon/" class="rcard">
+        <div class="rcard-icon">🥓</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Salads</div>
+          <div class="rcard-title">Spinach Salad with Hot Bacon Vinaigrette</div>
+          <div class="rcard-desc">Fresh spinach, boiled eggs, mushrooms & bacon — with a warm egg-bacon dressing</div>
+        </div>
+      </a>
+      <div class="rcard locked">
+        <div class="rcard-icon">🍓</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Salads</div>
+          <div class="rcard-title">Raspberry Walnut Salad</div>
+          <div class="rcard-desc">Soft lettuce, mandarin oranges, walnut halves, dried cherries & raspberry walnut dressing</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+      <div class="rcard locked">
+        <div class="rcard-icon">🫙</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Dressings</div>
+          <div class="rcard-title">Pear & Partridge Dressing</div>
+          <div class="rcard-desc">Sugar, vinegar, oil, onions, green peppers, pimento & Worcestershire</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SAUCES & PASTA ── -->
+  <div class="recipe-section" id="pasta-sauces">
+    <h2>Sauces & Pasta <span class="count">2 recipes</span></h2>
+    <div class="recipe-grid">
+      <a href="leos-spaghetti-sauce/" class="rcard">
+        <div class="rcard-icon">🍝</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Italian</div>
+          <div class="rcard-title">Leo's Spaghetti Sauce</div>
+          <div class="rcard-desc">Ground beef or turkey, onion, celery, Romano, Parmesan, whole tomatoes, sauce & paste</div>
+        </div>
+      </a>
+      <a href="sicilianas-pasta-sauce/" class="rcard">
+        <div class="rcard-icon">🍅</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Italian</div>
+          <div class="rcard-title">Siciliana's Pasta Sauce</div>
+          <div class="rcard-desc">Onion cooked till black in Mazola oil, tomato paste & sauce, meatballs — cooked 3 hours</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── SYRIAN-LEBANESE ── -->
+  <div class="recipe-section" id="syrian-lebanese">
+    <h2>Syrian-Lebanese <span class="count">7 recipes</span></h2>
+    <div class="recipe-grid">
+      <a href="koot-beets-tahini/" class="rcard">
+        <div class="rcard-icon">🫚</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Syrian-Lebanese</div>
+          <div class="rcard-title">Koot (Beets & Tahini)</div>
+          <div class="rcard-desc">Fresh beets, tahini sauce, lemon & laban — garnished with parsley</div>
+        </div>
+      </a>
+      <a href="hummus-bi-tahini/" class="rcard">
+        <div class="rcard-icon">🫘</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Syrian-Lebanese</div>
+          <div class="rcard-title">Hummus & Tahini</div>
+          <div class="rcard-desc">Tahini, lemon juice, garlic, chick peas — blended and chilled</div>
+        </div>
+      </a>
+      <a href="yakne-chicken-peas/" class="rcard">
+        <div class="rcard-icon">🍗</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Syrian-Lebanese</div>
+          <div class="rcard-title">Yakne — Chicken & Peas</div>
+          <div class="rcard-desc">Chicken broth, tomato paste, chicken & peas — served over Lebanese rice</div>
+        </div>
+      </a>
+      <a href="sfeeha-with-lamb/" class="rcard">
+        <div class="rcard-icon">🥙</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Syrian-Lebanese</div>
+          <div class="rcard-title">Fatia — Sfeeha with Lamb</div>
+          <div class="rcard-desc">Ground lamb, onions, laban, pine nuts & Syrian spice baked in a homemade dough at 450°</div>
+        </div>
+      </a>
+      <a href="atayef/" class="rcard">
+        <div class="rcard-icon">🥞</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Syrian-Lebanese · Desserts</div>
+          <div class="rcard-title">Atayef</div>
+          <div class="rcard-desc">Thin pancakes filled with chopped nuts, folded into half-moons & fried in oil</div>
+        </div>
+      </a>
+      <a href="maamouls/" class="rcard">
+        <div class="rcard-icon">🍪</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Syrian-Lebanese · Desserts</div>
+          <div class="rcard-title">Maamoul (Butter Cookies)</div>
+          <div class="rcard-desc">Butter, powdered sugar, orange blossom water & walnut filling — baked at 300°</div>
+        </div>
+      </a>
+      <a href="kaak-easter-cookies/" class="rcard">
+        <div class="rcard-icon">🌙</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Syrian-Lebanese · Desserts</div>
+          <div class="rcard-title">Kaak (Easter Cookies)</div>
+          <div class="rcard-desc">Butter cookies with a date & walnut filling, brushed with an orange blossom sugar glaze</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── MEATS & MAIN DISHES ── -->
+  <div class="recipe-section" id="meats">
+    <h2>Meats & Main Dishes <span class="count">7 recipes</span></h2>
+    <div class="recipe-grid">
+      <a href="prime-rib/" class="rcard">
+        <div class="rcard-icon">🥩</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Meats</div>
+          <div class="rcard-title">Prime Rib (15 lb)</div>
+          <div class="rcard-desc">Lawry's salt, garlic salt, basil & thyme — roasted at 400° then low and slow at 300°</div>
+        </div>
+      </a>
+      <a href="spare-ribs/" class="rcard">
+        <div class="rcard-icon">🍖</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Meats</div>
+          <div class="rcard-title">Spare Ribs</div>
+          <div class="rcard-desc">Salt, pepper, paprika & Lawry's — blazed at 500°, finished low with sauce on the side</div>
+        </div>
+      </a>
+      <a href="dads-sloppy-joes/" class="rcard">
+        <div class="rcard-icon">🍔</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Meats</div>
+          <div class="rcard-title">Dad's Sloppy Joes</div>
+          <div class="rcard-desc">Ground turkey or beef, chicken gumbo soup, mustard & ketchup — serve on Kaiser rolls</div>
+        </div>
+      </a>
+      <a href="meatloaf-aunt-marian/" class="rcard">
+        <div class="rcard-icon">🍖</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Meats</div>
+          <div class="rcard-title">Meatloaf — Aunt Marian's</div>
+          <div class="rcard-desc">Ground beef, cornflake crumbs, egg, onion, chili sauce & ketchup</div>
+        </div>
+      </a>
+      <a href="beef-stroganoff/" class="rcard">
+        <div class="rcard-icon">🥩</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Meats</div>
+          <div class="rcard-title">Beef Stroganoff</div>
+          <div class="rcard-desc">Sirloin steak, cream of mushroom, sour cream & Worcestershire — from Karen Hitt</div>
+        </div>
+      </a>
+      <a href="ham-swiss-egg-bake/" class="rcard">
+        <div class="rcard-icon">🧇</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Meats · Brunch</div>
+          <div class="rcard-title">Ham & Swiss Egg Bake</div>
+          <div class="rcard-desc">Pepperidge Farm bread, ham, Swiss cheese — make-ahead overnight casserole for 12</div>
+        </div>
+      </a>
+      <div class="rcard locked">
+        <div class="rcard-icon">🍗</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Meats</div>
+          <div class="rcard-title">Baked Chicken with Wine Sauce</div>
+          <div class="rcard-desc">Chicken baked in foil with a brown butter & wine sauce</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SIDES ── -->
+  <div class="recipe-section" id="sides">
+    <h2>Sides & Casseroles <span class="count">2 recipes</span></h2>
+    <div class="recipe-grid">
+      <a href="scalloped-potatoes/" class="rcard">
+        <div class="rcard-icon">🥔</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Sides</div>
+          <div class="rcard-title">Scalloped Potatoes</div>
+          <div class="rcard-desc">Yellow potatoes, Gruyère, butter & cream — serves 14–20, baked at 325°</div>
+        </div>
+      </a>
+      <a href="macaroni-and-cheese/" class="rcard">
+        <div class="rcard-icon">🧀</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Sides</div>
+          <div class="rcard-title">Macaroni & Cheese</div>
+          <div class="rcard-desc">Sharp cheddar & Velveeta in a butter-flour roux — baked at 350° for 45 minutes</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── DESSERTS & SWEETS ── -->
+  <div class="recipe-section" id="desserts">
+    <h2>Desserts & Sweets <span class="count">19 recipes</span></h2>
+    <div class="recipe-grid">
+      <a href="carrot-cake/" class="rcard">
+        <div class="rcard-icon">🥕</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Carrot Cake</div>
+          <div class="rcard-desc">Shredded carrots, crushed pineapple, coconut & nuts — cream cheese frosting</div>
+        </div>
+      </a>
+      <a href="russian-tea-cookies/" class="rcard">
+        <div class="rcard-icon">🍪</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Russian Tea Cookies</div>
+          <div class="rcard-desc">Soft butter, powdered sugar, vanilla, flour & chopped pecans — rolled in powdered sugar</div>
+        </div>
+      </a>
+      <a href="lita-farhats-pineapple-cake/" class="rcard">
+        <div class="rcard-icon">🍍</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Lita Farhat's Pineapple Upside Down Cake</div>
+          <div class="rcard-desc">Cast iron pan, butter, brown sugar, pineapples, cherries & nuts — baked at 350°</div>
+        </div>
+      </a>
+      <a href="maamouls/" class="rcard">
+        <div class="rcard-icon">🍪</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts · Syrian-Lebanese</div>
+          <div class="rcard-title">Maamoul (Butter Cookies)</div>
+          <div class="rcard-desc">Butter, powdered sugar, orange blossom water & walnut filling — baked at 300°</div>
+        </div>
+      </a>
+      <a href="bananas-foster/" class="rcard">
+        <div class="rcard-icon">🍌</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Bananas Foster</div>
+          <div class="rcard-desc">Butter, brown sugar, banana, 151 rum & crème de banana — flambéed, served over vanilla ice cream</div>
+        </div>
+      </a>
+      <a href="strawberries-romanoff/" class="rcard">
+        <div class="rcard-icon">🍓</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Strawberries Romanoff</div>
+          <div class="rcard-desc">Butter, sugar, sliced strawberries & Grand Marnier — served over vanilla ice cream</div>
+        </div>
+      </a>
+      <a href="cherries-jubilee/" class="rcard">
+        <div class="rcard-icon">🍒</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Cherries Jubilee</div>
+          <div class="rcard-desc">Butter, brown sugar, dark sweet cherries, brandy & cherry juice — served over vanilla ice cream</div>
+        </div>
+      </a>
+      <a href="ma-farhats-apple-pie/" class="rcard">
+        <div class="rcard-icon">🥧</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Ma Farhat's Apple Pie (Deep Dish)</div>
+          <div class="rcard-desc">20–25 apples, lemon, sugar, cinnamon — in a Crisco crust, baked at 350° for 1 hour</div>
+        </div>
+      </a>
+      <a href="pecan-pie/" class="rcard">
+        <div class="rcard-icon">🥧</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Pecan Pie</div>
+          <div class="rcard-desc">Sugar, syrup, eggs, flour, vanilla, butter & pecans — from Yvonne Duncan & Karen Hitt</div>
+        </div>
+      </a>
+      <a href="pumpkin-spice-cake/" class="rcard">
+        <div class="rcard-icon">🎃</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Pumpkin Spice Cake</div>
+          <div class="rcard-desc">Pumpkin, cinnamon, oil & eggs — cream cheese frosting with butter & powdered sugar</div>
+        </div>
+      </a>
+      <a href="atayef/" class="rcard">
+        <div class="rcard-icon">🥞</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts · Syrian-Lebanese</div>
+          <div class="rcard-title">Atayef</div>
+          <div class="rcard-desc">Thin pancakes filled with chopped nuts, folded into half-moons & fried in oil</div>
+        </div>
+      </a>
+      <a href="kaak-easter-cookies/" class="rcard">
+        <div class="rcard-icon">🌙</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts · Syrian-Lebanese</div>
+          <div class="rcard-title">Kaak (Easter Cookies)</div>
+          <div class="rcard-desc">Butter cookies with date & walnut filling, brushed with orange blossom sugar glaze</div>
+        </div>
+      </a>
+      <a href="aunt-helens-shredded-wheat/" class="rcard">
+        <div class="rcard-icon">🍯</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts · Syrian-Lebanese</div>
+          <div class="rcard-title">Aunt Helen's Shredded Wheat</div>
+          <div class="rcard-desc">Shredded wheat, butter, and a sugar syrup with lemon juice & orange blossom water</div>
+        </div>
+      </a>
+      <div class="rcard locked">
+        <div class="rcard-icon">🍋</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Lemon Cheesecake</div>
+          <div class="rcard-desc">Cream cheese, eggs, lemon & sour cream topping — graham cracker crust</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+      <div class="rcard locked">
+        <div class="rcard-icon">🍪</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Aunt Gloria's "S" Cookies</div>
+          <div class="rcard-desc">Rendered butter, confectionary sugar & a shot of brandy — baked at 250°</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+      <div class="rcard locked">
+        <div class="rcard-icon">🍪</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Mary Catherine's Peanut Butter Cookies</div>
+          <div class="rcard-desc">Sugar, brown sugar, shortening, peanut butter & egg — refrigerate 1 hr, bake at 375°</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+      <div class="rcard locked">
+        <div class="rcard-icon">🎂</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">Ida's Sheet Cake</div>
+          <div class="rcard-desc">Texas-style sheet cake with a milk, powdered sugar & nut frosting</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+      <div class="rcard locked">
+        <div class="rcard-icon">🎂</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts</div>
+          <div class="rcard-title">John's White Cake</div>
+          <div class="rcard-desc">Crisco, sugar, vanilla, eggs, flour, baking powder, salt & milk — two 9" layers</div>
+          <span class="lock-badge">🔒 Coming Soon</span>
+        </div>
+      </div>
+      <a href="blueberry-scones/" class="rcard">
+        <div class="rcard-icon">🫐</div>
+        <div class="rcard-body">
+          <div class="rcard-cat">Desserts · Breakfast</div>
+          <div class="rcard-title">Blueberry Scones with Lemon Glaze</div>
+          <div class="rcard-desc">Fresh blueberries, heavy cream & lemon glaze — from "Father's Spice and Everything Nice"</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background:var(--brown);color:#A8BCCE;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>The Father Vincent Farhat Collection</span>
+  <a href="/recipes/" style="color:var(--gold);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← All Collections</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Party Journal — Farhat Family</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥂</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown: #0C1A3E;
+      --cream: #FFF8F0;
+      --terra: #9B3060;
+      --gold: #D4A017;
+      --mid: #1D3870;
+      --line: #ccc;
+    }
+
+    @page {
+      size: letter portrait;
+      margin: .5in .6in;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: var(--cream);
+      color: var(--brown);
+    }
+
+    /* ── Screen nav ── */
+    .screen-nav {
+      background: var(--brown);
+      color: #c8b8a0;
+      padding: .8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .78rem;
+    }
+    .screen-nav a { color: #c8b8a0; text-decoration: none; letter-spacing: .06em; text-transform: uppercase; }
+    .screen-nav a:hover { color: var(--gold); }
+    .print-btn {
+      background: var(--gold); color: var(--brown); border: none;
+      padding: .42rem 1.05rem; border-radius: 5px; font-size: .77rem;
+      font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      cursor: pointer; font-family: Georgia, serif;
+    }
+    .print-btn:hover { background: var(--terra); color: #fff; }
+
+    /* ── Journal wrapper ── */
+    .journal {
+      max-width: 7.2in;
+      margin: 1.3rem auto 2rem;
+      padding: 0 1.75rem;
+    }
+
+    /* ── Header ── */
+    .journal-header {
+      border-bottom: 2.5px double var(--brown);
+      padding-bottom: .7rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .journal-title {
+      font-size: 1.75rem;
+      font-weight: normal;
+      line-height: 1;
+    }
+    .journal-title em { color: var(--terra); font-style: italic; }
+    .journal-subtitle {
+      font-size: .62rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ── Two-column layout ── */
+    .journal-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem 2.2rem;
+    }
+    .journal-col-full { grid-column: 1 / -1; }
+
+    /* ── Field block ── */
+    .field { }
+    .field-label {
+      font-size: .58rem;
+      font-family: 'Courier New', monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-weight: 700;
+      display: block;
+      margin-bottom: .22rem;
+    }
+    .field-lines { list-style: none; padding: 0; }
+    .field-lines li {
+      border-bottom: 1px solid var(--line);
+      height: 1.42rem;
+      width: 100%;
+    }
+
+    /* ── Checklist ── */
+    .checklist-section {
+      border-top: 1.5px solid var(--brown);
+      padding-top: .6rem;
+      margin-top: .25rem;
+    }
+    .checklist-label {
+      font-size: .58rem;
+      font-family: 'Courier New', monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-weight: 700;
+      margin-bottom: .45rem;
+      display: block;
+    }
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1rem;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: .42rem;
+      padding: .18rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .72rem;
+      color: var(--mid);
+      line-height: 1.2;
+    }
+    .check-box {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid var(--brown);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    .journal-footer {
+      margin-top: .7rem;
+      text-align: center;
+      font-size: .58rem;
+      color: #aaa;
+      font-family: 'Courier New', monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border-top: 1px solid var(--line);
+      padding-top: .45rem;
+    }
+
+    /* ── Print ── */
+    @media print {
+      .screen-nav { display: none !important; }
+      body { background: #fff; }
+      .journal { margin: 0; padding: 0; max-width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .journal-body { grid-template-columns: 1fr; }
+      .checklist-grid { grid-template-columns: 1fr; }
+      .journal-col-full { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-nav">
+  <a href="/recipes/ida-rose/">← The Ida Rose Farhat Collection</a>
+  <button class="print-btn" onclick="window.print()">&#x2399; Print / Save as PDF</button>
+</div>
+
+<div class="journal">
+
+  <div class="journal-header">
+    <div class="journal-title">Party <em>Journal</em></div>
+    <div class="journal-subtitle">Inspired by the Kate Spade Party Journal</div>
+  </div>
+
+  <div class="journal-body">
+
+    <!-- Occasion / Date & Place -->
+    <div class="field">
+      <span class="field-label">Occasion</span>
+      <ul class="field-lines"><li></li></ul>
+    </div>
+    <div class="field">
+      <span class="field-label">Date &amp; Place</span>
+      <ul class="field-lines"><li></li></ul>
+    </div>
+
+    <!-- Guests — full width, 2 lines -->
+    <div class="field journal-col-full">
+      <span class="field-label">Guests</span>
+      <ul class="field-lines"><li></li><li></li></ul>
+    </div>
+
+    <!-- Food Menu / Drink Menu -->
+    <div class="field">
+      <span class="field-label">Food Menu</span>
+      <ul class="field-lines"><li></li><li></li><li></li></ul>
+    </div>
+    <div class="field">
+      <span class="field-label">Drink Menu</span>
+      <ul class="field-lines"><li></li><li></li><li></li></ul>
+    </div>
+
+    <!-- Flowers & Décor / Shopping List -->
+    <div class="field">
+      <span class="field-label">Flowers &amp; Décor</span>
+      <ul class="field-lines"><li></li><li></li></ul>
+    </div>
+    <div class="field">
+      <span class="field-label">Shopping List</span>
+      <ul class="field-lines"><li></li><li></li></ul>
+    </div>
+
+    <!-- Music / Notes -->
+    <div class="field">
+      <span class="field-label">Music</span>
+      <ul class="field-lines"><li></li></ul>
+    </div>
+    <div class="field">
+      <span class="field-label">Notes</span>
+      <ul class="field-lines"><li></li></ul>
+    </div>
+
+    <!-- Checklist — full width -->
+    <div class="journal-col-full checklist-section">
+      <span class="checklist-label">Party Checklist</span>
+      <div class="checklist-grid">
+        <div class="check-item"><div class="check-box"></div>Create Menu</div>
+        <div class="check-item"><div class="check-box"></div>Table Decorations</div>
+        <div class="check-item"><div class="check-box"></div>Shopping List for Food</div>
+        <div class="check-item"><div class="check-box"></div>Shopping List for Drinks, lemons, limes, ice</div>
+        <div class="check-item"><div class="check-box"></div>Shopping List for Flowers, candles, special lighting</div>
+        <div class="check-item"><div class="check-box"></div>Choose music for the evening</div>
+        <div class="check-item"><div class="check-box"></div>Select table linens, clean/iron</div>
+        <div class="check-item"><div class="check-box"></div>Select glassware, dishes, flatware, serving pieces</div>
+        <div class="check-item"><div class="check-box"></div>Closet for guests' coats &amp; shoes</div>
+        <div class="check-item"><div class="check-box"></div>Cook</div>
+        <div class="check-item"><div class="check-box"></div>Set table</div>
+        <div class="check-item"><div class="check-box"></div>Arrange centerpiece</div>
+        <div class="check-item"><div class="check-box"></div>Prepare lighting (votives, candles, other lighting)</div>
+        <div class="check-item"><div class="check-box"></div>Set up the bar</div>
+        <div class="check-item"><div class="check-box"></div>Prepare drinks</div>
+        <div class="check-item"><div class="check-box"></div>Turn on the music (and pour yourself a drink)</div>
+        <div class="check-item"><div class="check-box"></div>The guests arrive — pass hors d'oeuvres, serve drinks</div>
+        <div class="check-item"><div class="check-box"></div>Dinner</div>
+        <div class="check-item"><div class="check-box"></div>Dessert</div>
+        <div class="check-item"><div class="check-box"></div>More drinks, coffee, small candies</div>
+        <div class="check-item" style="grid-column:1/-1;font-style:italic;color:var(--terra);"><div class="check-box"></div>Say good night and sleep</div>
+      </div>
+    </div>
+
+  </div><!-- /.journal-body -->
+
+  <div class="journal-footer">Farhat Family · gregfarhat.com/recipes</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pineapple Upside Down Cake — The Ida Rose Farhat Collection</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍍</text></svg>" />
+  <style>
+    .recipe-page { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--terra); padding-bottom: 1.5rem; }
+    .recipe-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
+    .recipe-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; margin-bottom: 1.2rem; }
+    .meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-bar dl { display: flex; flex-direction: column; }
+    .meta-bar dt { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--terra); font-weight: 700; }
+    .meta-bar dd { font-size: 1rem; font-weight: 700; color: var(--brown); }
+    .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+    @media (max-width: 680px) { .recipe-body { grid-template-columns: 1fr; } }
+    .ingredients-col h2, .directions-col h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--mid); border-bottom: 2px solid var(--tan); padding-bottom: .5rem; margin-bottom: 1.2rem; }
+    .ingredients-col h3, .directions-col h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--terra); margin: 1.4rem 0 .6rem; font-weight: 700; }
+    .ingredients-col ul { list-style: none; padding: 0; }
+    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid var(--tan); font-size: .95rem; }
+    .ingredients-col ul li:last-child { border-bottom: none; }
+    .tip-box { background: var(--tan); border-left: 3px solid var(--gold); padding: .75rem 1rem; margin-top: 1rem; font-size: .88rem; color: var(--mid); border-radius: 0 6px 6px 0; }
+    .print-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--brown); color: var(--cream); border: none; border-radius: 6px; padding: .55rem 1.2rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: background .2s; }
+    .print-btn:hover { background: var(--terra); }
+    .photo-gallery { margin-top: 3rem; }
+    .photo-gallery h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--mid); margin-bottom: .75rem; font-weight: 700; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+    .gallery-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid var(--tan); }
+    .gallery-single img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; border: 1px solid var(--tan); }
+    @media print {
+      nav, .print-btn { display: none !important; }
+      body { background: #fff; font-size: 12pt; color: #000; }
+      .recipe-page { padding: 0; max-width: 100%; }
+      .recipe-body { grid-template-columns: 1fr 2fr; gap: 2rem; }
+      .recipe-header { border-bottom: 2pt solid #000; }
+      .recipe-header h1, .meta-bar dd { color: #000; }
+      .tip-box { border-left: 2pt solid #aaa; background: #f5f5f5; }
+      a { text-decoration: none; color: inherit; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/recipes/ida-rose/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collection</a>
+  <a href="#top" class="brand">The Ida Rose Farhat Collection</a>
+</nav>
+
+<div class="recipe-page" id="top">
+  <div class="recipe-header">
+    <h1>Pineapple Upside Down Cake</h1>
+    <p class="tagline">From Ida Farhat's Grandmother — caramelized pineapple rings, Maraschino cherries, and walnuts in a cast iron skillet</p>
+    <div class="meta-bar">
+      <dl><dt>Section</dt><dd>Desserts &amp; Pies</dd></dl>
+      <dl><dt>Bake</dt><dd>350°F · 32–36 min</dd></dl>
+      <dl><dt>Pan</dt><dd>10" Cast Iron</dd></dl>
+      <dl><dt>Source</dt><dd>Grandmother Ida</dd></dl>
+    </div>
+    <div style="margin-top:1.2rem;">
+      <button class="print-btn" onclick="window.print()">&#x2399; Print Recipe</button>
+    </div>
+  </div>
+
+  <div class="recipe-body">
+    <div class="ingredients-col">
+      <h2>Ingredients</h2>
+
+      <h3>Topping</h3>
+      <ul>
+        <li>15.5 oz can Dole Pineapple Rings in juice (not syrup) — 8 rings</li>
+        <li>12–18 Maraschino cherries</li>
+        <li>1 stick butter</li>
+        <li>1 cup brown sugar</li>
+        <li>Walnut or pecan halves (optional)</li>
+      </ul>
+
+      <h3>Cake Batter</h3>
+      <ul>
+        <li>1 cup all-purpose flour</li>
+        <li>1 tsp baking powder</li>
+        <li>½ cup pineapple juice (reserved from the can)</li>
+        <li>1 tsp vanilla</li>
+        <li>1 cup white sugar</li>
+        <li>3 eggs, separated</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>Cast iron tip:</strong> Be sure to butter the sides of the pan too — not just the bottom. The caramel climbs the sides.
+      </div>
+
+      <div class="tip-box" style="margin-top:1rem;">
+        <strong>Make-ahead:</strong> Make the night before. Once cooled, cover with aluminum foil to prevent drying out. Leave on counter until serving.
+      </div>
+    </div>
+
+    <div class="directions-col">
+      <h2>Directions</h2>
+
+      <p style="font-size:.9rem;color:var(--mid);margin-bottom:1rem;">Preheat oven to 350°F. Place rack in the middle of the oven.</p>
+
+      <h3>Pineapple Topping</h3>
+      <ol>
+        <li>Drain pineapple rings and reserve the juice. Measure out ½ cup for the batter. Drain the cherries.</li>
+        <li>Place 1 stick of butter in the 10-inch cast iron skillet and melt over low heat. Coat the sides of the pan too.</li>
+        <li>Sprinkle 1 cup brown sugar over the butter. Use a fork to press and distribute evenly across the bottom.</li>
+        <li>Place 1 pineapple ring in the center. Surround with the remaining 7 rings — use halved or whole rings to fill the pan.</li>
+        <li>Place a Maraschino cherry in the center of each ring.</li>
+        <li>If using, place walnut or pecan halves flat-side up around the edge of the pan.</li>
+        <li>Gently press the pineapple, cherries, and nuts into the sugar-butter mixture so they rest on the bottom of the pan.</li>
+      </ol>
+
+      <h3>Cake Batter</h3>
+      <ol>
+        <li>In a bowl, whisk together 1 cup flour and 1 tsp baking powder. Set aside.</li>
+        <li>In a second bowl, combine the reserved ½ cup pineapple juice, white sugar, egg yolks, and vanilla. Stir with a wooden spoon until the sugar begins to dissolve.</li>
+        <li>Gradually add flour mixture into the pineapple mixture in thirds — add ⅓ at a time, folding with a rubber spatula until just blended. Beat with a wooden spoon for 100 strokes.</li>
+        <li>In a separate clean bowl, beat egg whites until stiff peaks form.</li>
+        <li>Gently fold egg whites into the batter, folding in one direction only, until no white streaks remain.</li>
+        <li>Spread batter evenly over the pineapple layer, smoothing the surface level.</li>
+        <li>Bake uncovered for 32–36 minutes, until a toothpick inserted in the center comes out clean.</li>
+      </ol>
+
+      <h3>Removing from the Pan</h3>
+      <ol>
+        <li>Remove from oven. Immediately run a knife or wooden skewer around the inside edge of the pan.</li>
+        <li>Set the cast iron pan on a folded towel to protect from heat. Cover a serving platter with aluminum foil and place it face-down over the pan.</li>
+        <li>Flip in one confident motion. Gently tap the pan, then slowly lift it away.</li>
+        <li>Cool before slicing. The caramel will firm up beautifully as it cools.</li>
+      </ol>
+
+      <div class="tip-box" style="margin-top:1.5rem;">
+        <strong>Doubling for a 12" skillet:</strong> Use a 20 oz can of sliced pineapple plus part of a 15.5 oz can. Use ≈1 cup of pineapple juice from the 20 oz can only. Bake 45–47 minutes.
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-gallery">
+    <h3>From the Kitchen</h3>
+    <div class="gallery-single">
+      <img src="../images/pineapple-upside-down-cake-photo.jpg" alt="Pineapple Upside Down Cake — fresh from the cast iron pan" />
+    </div>
+    <div class="gallery-grid" style="margin-top:1rem;">
+      <img src="../images/pineapple-upside-down-cake-original-1.jpg" alt="Original recipe card — page 1" />
+      <img src="../images/pineapple-upside-down-cake-original-2.jpg" alt="Original recipe card — page 2" />
+    </div>
+  </div>
+</div>
+
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>The Ida Rose Farhat Collection</span>
+  <a href="/recipes/ida-rose/" style="color:var(--tan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+</footer>
+
+</body>
+</html>

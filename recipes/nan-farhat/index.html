@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipes from Nan — Nan Farhat Collection</title>
+  <meta name="description" content="Recipes from Nan Farhat — appetizers, mains, soups, salads, sides, and desserts." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>" />
+  <style>
+    /* ── Chapters grid ── */
+    .chapters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: .7rem;
+      max-width: 1000px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+    .chapter-card {
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      display: block;
+    }
+    .chapter-card.active { background: var(--brown); color: var(--cream); }
+    .chapter-card.active:hover { background: var(--terra); color: var(--cream); transform: translateY(-2px); }
+    .chapter-card .ch-count { display: block; font-size: .68rem; font-weight: 400; margin-top: .15rem; opacity: .7; }
+
+    /* ── Recipe cards ── */
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+    }
+    .recipe-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .recipe-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px var(--shadow); }
+    .recipe-card-emoji { width: 100%; aspect-ratio: 4/3; background: var(--tan); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+    .recipe-card-body { padding: 1.2rem; flex: 1; display: flex; flex-direction: column; }
+    .recipe-card-title { font-size: 1.05rem; font-weight: 700; color: var(--brown); margin-bottom: .3rem; line-height: 1.2; }
+    .recipe-card-tagline { font-size: .82rem; color: var(--mid); line-height: 1.5; flex: 1; }
+    .recipe-card-cta { display: inline-block; margin-top: .9rem; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--terra); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/recipes/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← All Collections</a>
+  <a href="#top" class="brand">Recipes from Nan</a>
+  <a href="#appetizers">Appetizers</a>
+  <a href="#main-dishes">Main Dishes</a>
+  <a href="#soups-salads">Soups &amp; Sides</a>
+  <a href="#desserts">Desserts</a>
+  <div class="nav-dropdown">
+    <button class="nav-dropdown-btn" id="collections-btn">Collections ▾</button>
+    <div class="nav-dropdown-menu" id="collections-menu">
+      <a href="/recipes/ida-rose/">Ida Rose Farhat</a>
+      <a href="/recipes/ida-rose/virginia-farhat-pork-loin/">Virginia Farhat</a>
+      <a href="/recipes/ida-rose/mary-david-easter-cookies/">Mary David</a>
+    </div>
+  </div>
+  <div class="nav-search">
+    <input type="search" id="recipe-search" placeholder="Search recipes…" autocomplete="off" />
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<header class="hero" id="top">
+  <h1>Recipes from <span>Nan</span></h1>
+  <div class="divider"></div>
+  <p>Nan Farhat's kitchen — from cheeseballs and chili to molten chocolate cakes and Lebanese salad dressings.</p>
+</header>
+
+<!-- ── Chapters ── -->
+<div class="section-label" id="chapters">
+  <span>The Cookbook</span>
+  All Sections
+</div>
+
+<div class="chapters-grid">
+  <a href="#appetizers" class="chapter-card active">Appetizers &amp; Party Foods<span class="ch-count">11 recipes</span></a>
+  <a href="#breads" class="chapter-card active">Breads &amp; Baked Goods<span class="ch-count">4 recipes</span></a>
+  <a href="#main-dishes" class="chapter-card active">Main Dishes<span class="ch-count">19 recipes</span></a>
+  <a href="#soups-salads" class="chapter-card active">Soups, Salads &amp; Sides<span class="ch-count">16 recipes</span></a>
+  <a href="#desserts" class="chapter-card active">Desserts<span class="ch-count">18 recipes</span></a>
+</div>
+
+<!-- ── Appetizers ── -->
+<div class="section-label" id="appetizers" style="scroll-margin-top:70px;">
+  <span>Chapter 1</span>
+  Appetizers &amp; Party Foods
+</div>
+<div class="recipe-grid">
+
+  <a href="/recipes/nan-farhat/cheeseball/" class="recipe-card">
+    <div class="recipe-card-emoji">🧀</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Cheeseball</div>
+      <div class="recipe-card-tagline">Classic party cheeseball with cream cheese, sharp cheddar, and green onion rolled in pecans</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/hot-beef-dip/" class="recipe-card">
+    <div class="recipe-card-emoji">🥩</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Hot Beef Dip</div>
+      <div class="recipe-card-tagline">Warm chipped beef and cream cheese dip — baked until bubbly and served with crackers</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/spinach-dip/" class="recipe-card">
+    <div class="recipe-card-emoji">🥬</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Spinach Dip</div>
+      <div class="recipe-card-tagline">Classic cold spinach dip with sour cream, mayo, and Knorr vegetable soup mix</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/deviled-eggs/" class="recipe-card">
+    <div class="recipe-card-emoji">🥚</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Deviled Eggs</div>
+      <div class="recipe-card-tagline">Creamy deviled eggs with mayo, mustard, and a dash of paprika</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/chile-cheese/" class="recipe-card">
+    <div class="recipe-card-emoji">🌶️</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Chile Cheese</div>
+      <div class="recipe-card-tagline">Baked chile and cheese appetizer — layered green chiles, eggs, and cheddar</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/chilled-mexican-dip/" class="recipe-card">
+    <div class="recipe-card-emoji">🫑</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Chilled Mexican Dip</div>
+      <div class="recipe-card-tagline">Layered chilled dip with refried beans, guacamole, sour cream, salsa, and cheese</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/spinach-balls/" class="recipe-card">
+    <div class="recipe-card-emoji">🌿</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Spinach Balls</div>
+      <div class="recipe-card-tagline">Savory baked spinach and stuffing balls — a perennial party favorite</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/rumaki-sauce/" class="recipe-card">
+    <div class="recipe-card-emoji">🍢</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Rumaki Sauce</div>
+      <div class="recipe-card-tagline">Sweet teriyaki-style dipping sauce for rumaki and appetizers</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/baba-gannouj/" class="recipe-card">
+    <div class="recipe-card-emoji">🍆</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Baba Gannouj</div>
+      <div class="recipe-card-tagline">Lebanese smoky eggplant dip with tahini, lemon, and garlic</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/humus-bi-tahini/" class="recipe-card">
+    <div class="recipe-card-emoji">🫘</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Humus bi Tahini</div>
+      <div class="recipe-card-tagline">Authentic Lebanese hummus — chickpeas, tahini, lemon, and garlic</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/chicken-riggies/" class="recipe-card">
+    <div class="recipe-card-emoji">🍗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Chicken Riggies</div>
+      <div class="recipe-card-tagline">Utica-style rigatoni with chicken, peppers, and spicy tomato cream sauce</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- ── Breads ── -->
+<div class="section-label" id="breads" style="scroll-margin-top:70px;">
+  <span>Chapter 2</span>
+  Breads &amp; Baked Goods
+</div>
+<div class="recipe-grid">
+
+  <a href="/recipes/nan-farhat/popovers/" class="recipe-card">
+    <div class="recipe-card-emoji">🍞</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Popovers</div>
+      <div class="recipe-card-tagline">Light, airy popovers — a simple batter baked in a hot oven until golden and hollow</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/giant-popovers/" class="recipe-card">
+    <div class="recipe-card-emoji">🍞</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Giant Popovers</div>
+      <div class="recipe-card-tagline">Oversized popovers baked in large muffin tins — crisp outside, eggy and hollow inside</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/bread-pudding/" class="recipe-card">
+    <div class="recipe-card-emoji">🍮</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Bread Pudding</div>
+      <div class="recipe-card-tagline">Virginia's classic bread pudding with brown sugar, raisins, and vanilla — baked in a bain-marie</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/cinnamon-bread-pudding/" class="recipe-card">
+    <div class="recipe-card-emoji">🍮</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Cinnamon Bread Pudding</div>
+      <div class="recipe-card-tagline">Chef Hilton's — white bread soaked in heavy cream, eggs, and cinnamon; 325°F then 350°F; 12 servings</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- ── Main Dishes ── -->
+<div class="section-label" id="main-dishes" style="scroll-margin-top:70px;">
+  <span>Chapter 3</span>
+  Main Dishes
+</div>
+<div class="recipe-grid">
+
+  <a href="/recipes/nan-farhat/roberts-restaurant-chicken/" class="recipe-card">
+    <div class="recipe-card-emoji">🍗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Robert's Restaurant Chicken</div>
+      <div class="recipe-card-tagline">Pan-seared in clarified butter, baked at 400°F, finished with lemon-bouillon pan sauce</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/rice-crispy-chicken/" class="recipe-card">
+    <div class="recipe-card-emoji">🍗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Rice Crispy Chicken</div>
+      <div class="recipe-card-tagline">From Ida — chicken breasts coated in Rice Krispies and seasonings, baked at 350°F</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/teriyaki-chicken/" class="recipe-card">
+    <div class="recipe-card-emoji">🍗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Teriyaki Chicken</div>
+      <div class="recipe-card-tagline">Honey-teriyaki marinade with garlic and ginger — roasted skin-down then flipped at high heat</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/stuffed-chicken-and-hushwa/" class="recipe-card">
+    <div class="recipe-card-emoji">🍗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Stuffed Chicken &amp; Hushwa</div>
+      <div class="recipe-card-tagline">Virginia Farhat's Lebanese stuffed chicken — rice, pine nuts, and meat under the skin</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/rosa-yahnee-with-peas/" class="recipe-card">
+    <div class="recipe-card-emoji">🍲</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Rosa Yahnee with Peas</div>
+      <div class="recipe-card-tagline">Virginia's Lebanese yakhnee — braised chicken with baby peas in spiced tomato broth</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/beef-stroganoff/" class="recipe-card">
+    <div class="recipe-card-emoji">🥩</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Beef Stroganoff</div>
+      <div class="recipe-card-tagline">Tender beef with mushrooms and onion in a sour cream sauce — do not boil after adding cream</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/nans-meatloaf/" class="recipe-card">
+    <div class="recipe-card-emoji">🥩</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Nan's Meatloaf</div>
+      <div class="recipe-card-tagline">Ground sirloin with Lipton onion soup, Italian bread crumbs, egg, and ketchup; 350°F 1 hour</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/anns-meatloaf/" class="recipe-card">
+    <div class="recipe-card-emoji">🥩</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Ann's Meatloaf</div>
+      <div class="recipe-card-tagline">Beef and pork with milk-soaked bread, egg, and Worcestershire; 350°F 1½ hours</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/egg-bake/" class="recipe-card">
+    <div class="recipe-card-emoji">🥚</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Egg Bake</div>
+      <div class="recipe-card-tagline">From Ida — layered bread, ham, cheese, and vegetables in egg custard; overnight prep; 12 servings</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/mac-and-cheese/" class="recipe-card">
+    <div class="recipe-card-emoji">🧀</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Mac and Cheese</div>
+      <div class="recipe-card-tagline">Roux-based sauce with Velveeta and cheddar — single batch or 4× party batch</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/cheese-pita-with-phyllo/" class="recipe-card">
+    <div class="recipe-card-emoji">🧀</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Cheese Pita with Phyllo</div>
+      <div class="recipe-card-tagline">Lebanese fillo pastry with cottage cheese, feta, and eggs in clarified butter; 375°F 1 hour</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/nans-spaghetti-sauce-with-meat/" class="recipe-card">
+    <div class="recipe-card-emoji">🍝</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Nan's Spaghetti Sauce with Meat</div>
+      <div class="recipe-card-tagline">Ground sirloin, celery, onion, garlic, tomato sauces, and Parmesan — a family staple</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/new-york-spaghetti-sauce/" class="recipe-card">
+    <div class="recipe-card-emoji">🍝</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">New York Spaghetti Sauce</div>
+      <div class="recipe-card-tagline">Meatless tomato sauce with whole tomatoes, garlic, shallots, basil, and olive oil</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/pizza-sauce/" class="recipe-card">
+    <div class="recipe-card-emoji">🍕</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Pizza Sauce</div>
+      <div class="recipe-card-tagline">Norman Farhat's pizza sauce — onions, garlic, oregano, and whole tomatoes; boil 30 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/dipping-sauce-for-shrimp/" class="recipe-card">
+    <div class="recipe-card-emoji">🍤</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Dipping Sauce for Shrimp</div>
+      <div class="recipe-card-tagline">Colman's dry mustard, Hellmann's mayo, Worcestershire, A-1, and cayenne — keeps 1 week</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/citrus-sauce-for-chicken/" class="recipe-card">
+    <div class="recipe-card-emoji">🍋</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Citrus Sauce for Chicken</div>
+      <div class="recipe-card-tagline">Mike Smalley's honey-lime-lemon-OJ marinade with chili powder — 24-hour marinade</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/white-chili-specialty/" class="recipe-card">
+    <div class="recipe-card-emoji">🌶️</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">White Chili Specialty</div>
+      <div class="recipe-card-tagline">Slow cooker — Great Northern beans, chicken, green chiles, cumin; Low 10–12 hrs; 8–10 servings</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/white-chili/" class="recipe-card">
+    <div class="recipe-card-emoji">🌶️</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">White Chili</div>
+      <div class="recipe-card-tagline">Slow cooker chicken chili with canned beans, bell peppers, and jalapeños; 8 servings</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/nans-chili/" class="recipe-card">
+    <div class="recipe-card-emoji">🌶️</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Nan's Chili</div>
+      <div class="recipe-card-tagline">Ground sirloin with McCormick chili mix, celery, onion, hot beans, and crushed tomatoes</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- ── Soups Salads Sides ── -->
+<div class="section-label" id="soups-salads" style="scroll-margin-top:70px;">
+  <span>Chapter 4</span>
+  Soups, Salads &amp; Side Dishes
+</div>
+<div class="recipe-grid">
+
+  <a href="/recipes/nan-farhat/syrian-salad-dressing/" class="recipe-card">
+    <div class="recipe-card-emoji">🥗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Syrian Salad Dressing</div>
+      <div class="recipe-card-tagline">Lebanese salad with cucumber, tomato, and onion; Mazola oil, apple cider vinegar, and mint</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/greek-salad-and-dressing/" class="recipe-card">
+    <div class="recipe-card-emoji">🥗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Greek Salad &amp; Dressing</div>
+      <div class="recipe-card-tagline">Iceberg, feta, olives, and cucumber with olive oil, wine vinegar, and oregano dressing</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/seven-layer-salad/" class="recipe-card">
+    <div class="recipe-card-emoji">🥗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Seven Layer Salad</div>
+      <div class="recipe-card-tagline">From Vincent Farhat — lettuce, peas, water chestnuts, sour cream dressing, bacon and cheese topping</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/tetes-fruit-salad/" class="recipe-card">
+    <div class="recipe-card-emoji">🍊</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Tete's Fruit Salad</div>
+      <div class="recipe-card-tagline">Tete Farhat's — mandarin oranges, pineapple, cherries, and marshmallows in sour cream</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/broccoli-and-cauliflower-salad/" class="recipe-card">
+    <div class="recipe-card-emoji">🥦</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Broccoli &amp; Cauliflower Salad</div>
+      <div class="recipe-card-tagline">Florets with white raisins, onion, and mayo-vinegar dressing; top with toasted almonds at serving</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/caesar-salad/" class="recipe-card">
+    <div class="recipe-card-emoji">🥗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Caesar Salad</div>
+      <div class="recipe-card-tagline">Classic Caesar with coddled egg, anchovies, garlic, lemon, Worcestershire, and Parmesan</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/slaw-with-chicken/" class="recipe-card">
+    <div class="recipe-card-emoji">🥗</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Slaw with Chicken</div>
+      <div class="recipe-card-tagline">Asian-style slaw with cabbage, toasted almonds, crushed ramen, and oil-vinegar dressing</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/baked-beans/" class="recipe-card">
+    <div class="recipe-card-emoji">🫘</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Baked Beans</div>
+      <div class="recipe-card-tagline">Slow-baked with bacon, Vidalia onion, molasses, and brown sugar; 250°F 6 hours</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/bread-dressing/" class="recipe-card">
+    <div class="recipe-card-emoji">🍞</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Bread Dressing</div>
+      <div class="recipe-card-tagline">Tete Farhat's — toasted bread, celery, sausage, mushrooms, eggs, and sage; stuffs 2 chickens</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/cheese-sauce-for-vegetables/" class="recipe-card">
+    <div class="recipe-card-emoji">🧀</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Cheese Sauce for Vegetables</div>
+      <div class="recipe-card-tagline">Rich roux-based sauce with sharp cheddar and Velveeta — pour over steamed vegetables and bake</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/baked-carrots/" class="recipe-card">
+    <div class="recipe-card-emoji">🥕</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Baked Carrots</div>
+      <div class="recipe-card-tagline">Barefoot Contessa-style oven-roasted carrots with olive oil, kosher salt, and pepper; 400°F</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/sweet-potato-casserole/" class="recipe-card">
+    <div class="recipe-card-emoji">🍠</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Sweet Potato Casserole</div>
+      <div class="recipe-card-tagline">Creamy mashed sweet potatoes topped with brown sugar and pecan crumble; 350°F 45 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/meatless-string-beans/" class="recipe-card">
+    <div class="recipe-card-emoji">🫘</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Meatless String Beans</div>
+      <div class="recipe-card-tagline">Virginia Farhat's — green beans with Vidalia onion, tomato sauce, and Syrian spices</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/garlic-mashed-potatoes/" class="recipe-card">
+    <div class="recipe-card-emoji">🥔</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Garlic Mashed Potatoes</div>
+      <div class="recipe-card-tagline">Creamy mashed potatoes with roasted garlic, whipping cream, and butter — finished in toaster oven</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/potato-gratin/" class="recipe-card">
+    <div class="recipe-card-emoji">🥔</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Potato Gratin</div>
+      <div class="recipe-card-tagline">Williams-Sonoma — russet potatoes in garlic cream, baked golden in individual bakers; 4 servings</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/squash/" class="recipe-card">
+    <div class="recipe-card-emoji">🥣</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Squash Casserole</div>
+      <div class="recipe-card-tagline">Baked squash with cheddar, evaporated milk, and saltine crumbs; 350°F 45–60 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- ── Desserts ── -->
+<div class="section-label" id="desserts" style="scroll-margin-top:70px;">
+  <span>Chapter 5</span>
+  Desserts
+</div>
+<div class="recipe-grid">
+
+  <a href="/recipes/nan-farhat/molten-chocolate-cakes/" class="recipe-card">
+    <div class="recipe-card-emoji">🍫</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Molten Chocolate Cakes</div>
+      <div class="recipe-card-tagline">Individual warm chocolate cakes with a flowing center — serve straight from the oven; 8 servings</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/banana-cake/" class="recipe-card">
+    <div class="recipe-card-emoji">🍌</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Banana Cake</div>
+      <div class="recipe-card-tagline">Moist buttermilk banana cake — chilled in the freezer 45 min, topped with cream cheese frosting</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/pumpkin-spice-cake/" class="recipe-card">
+    <div class="recipe-card-emoji">🎃</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Pumpkin Spice Cake</div>
+      <div class="recipe-card-tagline">From Marina Farhat — warmly spiced pumpkin cake with cream cheese frosting; 350°F 30 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/pineapple-upside-down-cake/" class="recipe-card">
+    <div class="recipe-card-emoji">🍍</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Pineapple Upside Down Cake</div>
+      <div class="recipe-card-tagline">Tete Farhat's cast iron classic — brown sugar, pineapple, cherries, and separated egg batter</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/red-velvet-cake/" class="recipe-card">
+    <div class="recipe-card-emoji">🎂</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Red Velvet Cake</div>
+      <div class="recipe-card-tagline">From Karen Duncan Hitt — classic red velvet with cocoa and buttermilk, cream cheese frosting</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/eclair-cake/" class="recipe-card">
+    <div class="recipe-card-emoji">🍮</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Éclair Cake</div>
+      <div class="recipe-card-tagline">No-bake graham cracker and vanilla pudding cake with chocolate frosting — refrigerate 24 hours</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/texas-sheet-cake/" class="recipe-card">
+    <div class="recipe-card-emoji">🍫</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Texas Sheet Cake</div>
+      <div class="recipe-card-tagline">Rich chocolate sheet cake — frosted while hot with a poured cocoa glaze with chopped nuts</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/cheesecake/" class="recipe-card">
+    <div class="recipe-card-emoji">🍰</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Cheesecake</div>
+      <div class="recipe-card-tagline">From Vincent Farhat — cream cheese filling baked in a water bath, topped with sour cream; 375°F</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/chocolate-chip-cookies/" class="recipe-card">
+    <div class="recipe-card-emoji">🍪</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Chocolate Chip Cookies</div>
+      <div class="recipe-card-tagline">Classic butter and brown sugar cookies with milk chocolate chips; 375°F 9–12 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/no-bake-cookies/" class="recipe-card">
+    <div class="recipe-card-emoji">🍪</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">No Bake Cookies</div>
+      <div class="recipe-card-tagline">Cocoa, peanut butter, and oatmeal — boiled exactly 1 minute then dropped on wax paper</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/peanut-butter-cookies/" class="recipe-card">
+    <div class="recipe-card-emoji">🥜</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Peanut Butter Cookies</div>
+      <div class="recipe-card-tagline">From Mary Farhat Mariarity — refrigerate dough 1 hour, then bake at 375°F 8–10 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/russian-tea-cookies/" class="recipe-card">
+    <div class="recipe-card-emoji">🍪</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Russian Tea Cookies</div>
+      <div class="recipe-card-tagline">From Vincent Farhat — butter, flour, and chopped pecans; rolled in powdered sugar; 400°F 10–12 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/nan-bars/" class="recipe-card">
+    <div class="recipe-card-emoji">🍫</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Nan Bars</div>
+      <div class="recipe-card-tagline">Graham cracker base with dark chocolate, butterscotch chips, and drizzled condensed milk; 350°F 20 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/red-velvet-bars/" class="recipe-card">
+    <div class="recipe-card-emoji">🍰</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Red Velvet Bars</div>
+      <div class="recipe-card-tagline">Food Network — German chocolate cake mix base with a cream cheese layer; baked 40–45 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/white-chocolate-brownies/" class="recipe-card">
+    <div class="recipe-card-emoji">🍫</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">White Chocolate Brownies</div>
+      <div class="recipe-card-tagline">From Ida Farhat — white chocolate morsels, butter, eggs, and macadamia nuts; 325°F 30–35 min</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/taffy-apple-dip/" class="recipe-card">
+    <div class="recipe-card-emoji">🍎</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Taffy Apple Dip</div>
+      <div class="recipe-card-tagline">From Ida Farhat — cream cheese, brown sugar, and Planters peanuts; chill and serve with sliced apples</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/deep-dish-apple-pie/" class="recipe-card">
+    <div class="recipe-card-emoji">🍎</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Deep Dish Apple Pie</div>
+      <div class="recipe-card-tagline">Virginia's apple pie with Crisco crust — Granny Smith or McIntosh apples, cinnamon; 350°F 1 hr</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+  <a href="/recipes/nan-farhat/grasshopper-pie/" class="recipe-card">
+    <div class="recipe-card-emoji">🌿</div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">Grasshopper Pie</div>
+      <div class="recipe-card-tagline">From Kathryn Farhat Kramer — Oreo crust, marshmallow cream, and crème de menthe; chill overnight</div>
+      <span class="recipe-card-cta">View Recipe →</span>
+    </div>
+  </a>
+
+</div>
+
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>Recipes from Nan — Nan Farhat</span>
+  <a href="/recipes/" style="color:var(--tan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← All Collections</a>
+</footer>
+
+<script>
+  // ── Collections dropdown ──
+  const colBtn  = document.getElementById('collections-btn');
+  const colMenu = document.getElementById('collections-menu');
+  colBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    colMenu.classList.toggle('open');
+  });
+  document.addEventListener('click', function() {
+    colMenu.classList.remove('open');
+  });
+
+  // ── Build search index from recipe cards ──
+  const searchIndex = [];
+  document.querySelectorAll('.recipe-grid').forEach(function(grid) {
+    const label = grid.previousElementSibling;
+    const section = label && label.classList.contains('section-label')
+      ? label.textContent.replace(/chapter/gi, '').trim()
+      : '';
+    grid.querySelectorAll('a.recipe-card').forEach(function(card) {
+      const title   = (card.querySelector('.recipe-card-title')?.textContent  || '').trim();
+      const tagline = (card.querySelector('.recipe-card-tagline')?.textContent || '').trim();
+      const href    = card.getAttribute('href') || '';
+      if (title && href) searchIndex.push({ title, tagline, href, section });
+    });
+  });
+
+  // ── Search dropdown ──
+  const searchInput  = document.getElementById('recipe-search');
+  const resultsBox   = document.createElement('div');
+  resultsBox.className = 'search-results';
+  searchInput.parentNode.appendChild(resultsBox);
+
+  let activeIdx = -1;
+
+  function renderResults(q) {
+    if (!q) { resultsBox.classList.remove('open'); activeIdx = -1; return; }
+    const hits = searchIndex.filter(function(r) {
+      return r.title.toLowerCase().includes(q) ||
+             r.tagline.toLowerCase().includes(q) ||
+             r.section.toLowerCase().includes(q);
+    }).slice(0, 9);
+
+    if (!hits.length) {
+      resultsBox.innerHTML = '<div class="search-no-results">No recipes found</div>';
+    } else {
+      resultsBox.innerHTML = hits.map(function(r, i) {
+        return '<a href="' + r.href + '" class="search-result-item" data-idx="' + i + '">' +
+               '<div class="search-result-title">' + r.title + '</div>' +
+               '<div class="search-result-sub">' + r.section + '</div>' +
+               '</a>';
+      }).join('');
+    }
+    resultsBox.classList.add('open');
+    activeIdx = -1;
+  }
+
+  searchInput.addEventListener('input', function() {
+    renderResults(this.value.toLowerCase().trim());
+  });
+
+  searchInput.addEventListener('keydown', function(e) {
+    const items = resultsBox.querySelectorAll('.search-result-item');
+    if (!items.length) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIdx = Math.min(activeIdx + 1, items.length - 1);
+      items.forEach(function(el, i) { el.classList.toggle('active', i === activeIdx); });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIdx = Math.max(activeIdx - 1, 0);
+      items.forEach(function(el, i) { el.classList.toggle('active', i === activeIdx); });
+    } else if (e.key === 'Enter' && activeIdx >= 0) {
+      e.preventDefault();
+      items[activeIdx].click();
+    } else if (e.key === 'Escape') {
+      resultsBox.classList.remove('open');
+      activeIdx = -1;
+      searchInput.blur();
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-search')) {
+      resultsBox.classList.remove('open');
+      activeIdx = -1;
+    }
+  });
+</script>
+</body>
+</html>

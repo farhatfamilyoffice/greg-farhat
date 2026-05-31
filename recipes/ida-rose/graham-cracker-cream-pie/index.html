@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graham Cracker Cream Pie — The Ida Rose Farhat Collection</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥧</text></svg>" />
+  <style>
+    .recipe-page { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--terra); padding-bottom: 1.5rem; }
+    .recipe-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
+    .recipe-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; margin-bottom: 1.2rem; }
+    .meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-bar dl { display: flex; flex-direction: column; }
+    .meta-bar dt { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--terra); font-weight: 700; }
+    .meta-bar dd { font-size: 1rem; font-weight: 700; color: var(--brown); }
+    .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+    @media (max-width: 680px) { .recipe-body { grid-template-columns: 1fr; } }
+    .ingredients-col h2, .directions-col h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--mid); border-bottom: 2px solid var(--tan); padding-bottom: .5rem; margin-bottom: 1.2rem; }
+    .ingredients-col h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--terra); margin: 1.2rem 0 .5rem; font-weight: 700; }
+    .directions-col h3 { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--terra); margin: 2rem 0 .75rem; }
+    .ingredients-col ul { list-style: none; padding: 0; }
+    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid var(--tan); font-size: .95rem; }
+    .ingredients-col ul li:last-child { border-bottom: none; }
+    .tip-box { background: var(--tan); border-left: 3px solid var(--gold); padding: .75rem 1rem; margin-top: 1rem; font-size: .88rem; color: var(--mid); border-radius: 0 6px 6px 0; }
+    .print-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--brown); color: var(--cream); border: none; border-radius: 6px; padding: .55rem 1.2rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: background .2s; }
+    .print-btn:hover { background: var(--terra); }
+    .photo-section { margin-top: 2.5rem; }
+    .photo-section h3 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); margin-bottom: .6rem; }
+    .photo-section img { width: 100%; border-radius: 8px; border: 3px solid var(--tan); }
+    @media print {
+      nav, .print-btn { display: none !important; }
+      body { background: #fff; font-size: 12pt; color: #000; }
+      .recipe-page { padding: 0; max-width: 100%; }
+      .recipe-body { grid-template-columns: 1fr 2fr; gap: 2rem; }
+      .recipe-header { border-bottom: 2pt solid #000; }
+      .recipe-header h1, .meta-bar dd { color: #000; }
+      .tip-box { border-left: 2pt solid #aaa; background: #f5f5f5; }
+      a { text-decoration: none; color: inherit; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/recipes/ida-rose/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collection</a>
+  <a href="#top" class="brand">The Ida Rose Farhat Collection</a>
+</nav>
+
+<div class="recipe-page" id="top">
+  <div class="recipe-header">
+    <h1>Graham Cracker Cream Pie</h1>
+    <p class="tagline">Aunt Linda's vanilla cream pie in a buttery graham cracker crust — topped with meringue and finished golden in the oven</p>
+    <div class="meta-bar">
+      <dl><dt>Section</dt><dd>Desserts</dd></dl>
+      <dl><dt>Source</dt><dd>Aunt Linda</dd></dl>
+      <dl><dt>Bake</dt><dd>350°F</dd></dl>
+      <dl><dt>Makes</dt><dd>One 9–10" pie</dd></dl>
+    </div>
+    <div style="margin-top:1.2rem;">
+      <button class="print-btn" onclick="window.print()">&#x2399; Print Recipe</button>
+    </div>
+  </div>
+
+  <div class="recipe-body">
+    <div class="ingredients-col">
+      <h2>Ingredients</h2>
+
+      <h3>Graham Cracker Crust</h3>
+      <ul>
+        <li>1½ cups fine graham cracker crumbs</li>
+        <li>¼ cup sugar</li>
+        <li>⅓ cup butter, melted</li>
+      </ul>
+
+      <h3>Vanilla Cream Filling</h3>
+      <ul>
+        <li>¾ cup sugar</li>
+        <li>⅓ cup all-purpose flour</li>
+        <li>¼ tsp salt</li>
+        <li>3 cups milk</li>
+        <li>3 egg yolks, slightly beaten</li>
+        <li>2 tbsp butter</li>
+        <li>1 tsp vanilla</li>
+      </ul>
+
+      <h3>Meringue</h3>
+      <ul>
+        <li>3 egg whites</li>
+        <li>¼ tsp vanilla</li>
+        <li>¼ tsp cream of tartar</li>
+        <li>6 tbsp sugar</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>Banana variation:</strong> Slice 3 bananas into the cooled crust before adding the vanilla cream filling. Makes a classic Banana Cream Pie.
+      </div>
+    </div>
+
+    <div class="directions-col">
+      <h2>Directions</h2>
+
+      <h3>Graham Cracker Crust</h3>
+      <ol>
+        <li>Combine graham cracker crumbs and sugar. Mix in melted butter until the crumbs are evenly moistened.</li>
+        <li>Press firmly and evenly into a 9–10" pie plate, building up the sides.</li>
+        <li>Bake at 350°F for about 8–10 minutes until just set. Cool completely before filling.</li>
+      </ol>
+
+      <h3>Vanilla Cream Filling</h3>
+      <ol>
+        <li>In a saucepan, combine sugar, flour, and salt. Gradually stir in milk until smooth.</li>
+        <li>Cook over medium heat, stirring constantly, until the mixture thickens and comes to a boil. Cook 2 minutes longer.</li>
+        <li>Remove from heat. Stir a small amount of the hot mixture into the beaten egg yolks, then stir the yolk mixture back into the saucepan.</li>
+        <li>Return to heat and cook 2 more minutes, stirring constantly. Remove from heat.</li>
+        <li>Stir in butter and vanilla until combined. Pour into the cooled graham cracker crust.</li>
+      </ol>
+
+      <h3>Meringue</h3>
+      <ol>
+        <li>Beat egg whites with vanilla and cream of tartar until soft peaks form.</li>
+        <li>Gradually beat in sugar, one tablespoon at a time, until stiff glossy peaks form and all sugar is dissolved.</li>
+        <li>Spread meringue over the hot filling all the way to the edges of the crust — sealing to the crust prevents shrinking.</li>
+        <li>Bake at 350°F for 12–15 minutes until the meringue is golden. Cool completely before slicing.</li>
+      </ol>
+
+      <div class="tip-box" style="margin-top:1.5rem;">
+        <strong>Seal the meringue:</strong> Spread all the way to the crust edge on every side. This prevents the meringue from pulling away and weeping during baking.
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-section">
+    <h3>Original Recipe Card</h3>
+    <img src="../images/graham-cracker-cream-pie-original.jpg" alt="Original Graham Cracker Cream Pie recipe card from Aunt Linda" />
+  </div>
+</div>
+
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>The Ida Rose Farhat Collection</span>
+  <a href="/recipes/ida-rose/" style="color:var(--tan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+</footer>
+
+</body>
+</html>

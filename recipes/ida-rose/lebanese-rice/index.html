@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="/gate.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lebanese Rice — Ida Rose Farhat</title>
@@ -8,68 +9,58 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫒</text></svg>" />
   <style>
     .recipe-page { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
-    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--gold); padding-bottom: 1.5rem; }
-    .recipe-header .cat { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--terra); font-weight: 700; margin-bottom: .4rem; }
-    .recipe-header h1 { font-family: var(--serif); font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
+    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--terra); padding-bottom: 1.5rem; }
+    .recipe-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
     .recipe-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; margin-bottom: 1.2rem; }
     .meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
     .meta-bar dl { display: flex; flex-direction: column; }
     .meta-bar dt { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--terra); font-weight: 700; }
     .meta-bar dd { font-size: 1rem; font-weight: 700; color: var(--brown); }
-
     .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
     @media (max-width: 680px) { .recipe-body { grid-template-columns: 1fr; } }
-
-    .ingredients-col h2, .directions-col h2 { font-family: var(--serif); font-size: 1.3rem; color: var(--brown); margin-bottom: 1rem; border-bottom: 1px solid var(--tan); padding-bottom: .5rem; }
-    .ingredients-col h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--terra); margin: 1.2rem 0 .5rem; }
+    .ingredients-col h2, .directions-col h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--mid); border-bottom: 2px solid var(--tan); padding-bottom: .5rem; margin-bottom: 1.2rem; }
+    .ingredients-col h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--terra); margin: 1.2rem 0 .5rem; font-weight: 700; }
     .ingredients-col ul { list-style: none; padding: 0; }
-    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid #f0e8d8; font-size: .95rem; color: var(--brown); }
+    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid var(--tan); font-size: .95rem; }
     .ingredients-col ul li:last-child { border-bottom: none; }
-
-    .directions-col ol { padding-left: 1.4rem; }
-    .directions-col ol li { padding: .5rem 0; font-size: .97rem; color: var(--brown); line-height: 1.75; }
-
     .tip-box { background: var(--tan); border-left: 3px solid var(--gold); padding: .75rem 1rem; margin-top: 1rem; font-size: .88rem; color: var(--mid); border-radius: 0 6px 6px 0; }
-
     .original-photo { margin-top: 1.5rem; }
-    .original-photo h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--terra); margin-bottom: .5rem; }
-    .original-photo img { width: 100%; border-radius: 6px; border: 1px solid #d8cbb8; }
+    .original-photo h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--mid); margin-bottom: .5rem; font-weight: 700; }
+    .original-photo img { width: 100%; border-radius: 6px; border: 1px solid var(--tan); }
     .original-photo figcaption { font-size: .78rem; color: #999; margin-top: .4rem; font-style: italic; }
-
-    .print-btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: var(--brown); color: var(--cream);
-      border: none; border-radius: 6px;
-      padding: .55rem 1.2rem; font-family: var(--sans); font-size: .82rem;
-      letter-spacing: .05em; text-transform: uppercase; cursor: pointer;
-      transition: background .2s;
-    }
+    .print-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--brown); color: var(--cream); border: none; border-radius: 6px; padding: .55rem 1.2rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: background .2s; }
     .print-btn:hover { background: var(--terra); }
-
     @media print {
       nav, .print-btn { display: none !important; }
-      body { background: #fff; font-size: 12pt; }
+      body { background: #fff; font-size: 12pt; color: #000; }
       .recipe-page { padding: 0; max-width: 100%; }
       .recipe-body { grid-template-columns: 1fr 2fr; gap: 2rem; }
       .recipe-header { border-bottom: 2pt solid #000; }
-      .tip-box { border-left: 2pt solid #999; background: #f5f5f5; }
-      .original-photo { display: none; }
+      .recipe-header h1, .meta-bar dd { color: #000; }
+      .tip-box { border-left: 2pt solid #aaa; background: #f5f5f5; }
       a { text-decoration: none; color: inherit; }
     }
+
+    .photo-gallery { max-width: 960px; margin: 0 auto 3rem; padding: 0 2rem; }
+    .photo-gallery .gallery-label { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--terra); margin-bottom: .75rem; display: block; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .gallery-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid var(--tan); }
+    .gallery-single img { width: 100%; border-radius: 8px; border: 1px solid var(--tan); max-height: 420px; object-fit: cover; }
+    .gallery-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .gallery-pair img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid var(--tan); }
+    @media (max-width: 500px) { .gallery-pair { grid-template-columns: 1fr; } }
   </style>
 </head>
-<script>if(sessionStorage.getItem('idarose_unlocked')!=='1'){location.replace('/recipes/ida-rose/')}</script>
 <body>
 
 <nav>
   <a href="/recipes/ida-rose/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collection</a>
-  <a href="#top" class="brand">Ida Rose Farhat Collection</a>
+  <a href="#top" class="brand">The Ida Rose Farhat Collection</a>
 </nav>
 
 <div class="recipe-page" id="top">
 
   <div class="recipe-header">
-    <div class="cat">Lebanese</div>
     <h1>Lebanese Rice</h1>
     <p class="tagline">Buttery rice toasted with golden orzo — simple, perfect, essential</p>
     <div class="meta-bar">
@@ -124,9 +115,17 @@
 
 </div>
 
+
+<div class="photo-gallery">
+  <span class="gallery-label">From the Kitchen</span>
+  <div class="gallery-single">
+    <img src="../images/lebanese-rice-photo.jpg" alt="Lebanese rice with toasted vermicelli" />
+  </div>
+</div>
+
 <footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-  <span style="font-family:var(--serif);font-style:italic;">Ida Rose Farhat — Farhat Family Recipes</span>
-  <a href="/recipes/ida-rose/" style="color:#c8b8a0;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+  <span>The Ida Rose Farhat Collection</span>
+  <a href="/recipes/ida-rose/" style="color:var(--tan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
 </footer>
 
 </body>

@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Reset & base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:    #F2F4F8;
+  --tan:      #DDE3EF;
+  --brown:    #0B1A38;
+  --mid:      #1A3060;
+  --terra:    #6B85A8;
+  --gold:     #C9A840;
+  --shadow:   rgba(11,26,56,.14);
+  --font:     'Manrope', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--brown);
+  font-family: var(--font);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* ── Nav ── */
+nav {
+  background: var(--brown);
+  padding: .9rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+
+nav .brand {
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: var(--gold);
+  text-decoration: none;
+  flex: 1;
+  white-space: nowrap;
+}
+
+nav a {
+  color: #C8D4E8;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+nav a:hover { color: var(--gold); }
+
+/* ── Hero ── */
+.hero {
+  background: var(--brown);
+  color: var(--cream);
+  text-align: center;
+  padding: 5rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero h1 {
+  font-family: var(--font);
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  position: relative;
+}
+.hero h1 span { color: var(--gold); font-weight: 300; letter-spacing: -.01em; }
+.hero p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #A8BCCE;
+  max-width: 520px;
+  margin-inline: auto;
+  position: relative;
+  line-height: 1.7;
+}
+.hero .divider {
+  margin: 1.5rem auto;
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  position: relative;
+}
+
+/* ── Grid ── */
+.section-label {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem;
+  font-family: var(--font);
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--mid);
+}
+.section-label span {
+  display: block;
+  font-size: .72rem;
+  font-family: var(--font);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--terra);
+  font-style: normal;
+  margin-bottom: .4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 32px var(--shadow);
+}
+.card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.card-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--tan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+.card-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+.card-category {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: .4rem;
+}
+.card-title {
+  font-family: var(--font);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  margin-bottom: .6rem;
+}
+.card-meta {
+  font-size: .8rem;
+  font-weight: 400;
+  color: #888;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: .8rem;
+}
+.card-meta span::before { margin-right: .3rem; }
+
+/* ── Recipe page layout ── */
+.recipe-hero {
+  background: var(--brown);
+  color: var(--cream);
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+}
+.recipe-hero .crumb {
+  font-size: .78rem;
+  font-weight: 500;
+  color: #8AA0B8;
+  margin-bottom: 1rem;
+}
+.recipe-hero .crumb a { color: var(--gold); text-decoration: none; }
+.recipe-hero .crumb a:hover { text-decoration: underline; }
+.recipe-hero h1 {
+  font-family: var(--font);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+}
+.recipe-hero .tagline {
+  color: #A8BCCE;
+  font-weight: 300;
+  margin-top: .6rem;
+  font-size: 1rem;
+}
+.recipe-hero .meta-bar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  font-size: .88rem;
+}
+.recipe-hero .meta-bar dt { color: var(--gold); font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.recipe-hero .meta-bar dd { color: #C8D4E8; font-weight: 700; }
+
+.recipe-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 680px) {
+  .recipe-body { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ── Ingredients ── */
+.ingredients-col h2, .directions-col h2 {
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--mid);
+  border-bottom: 2px solid var(--tan);
+  padding-bottom: .5rem;
+  margin-bottom: 1.2rem;
+}
+.ingredients-col h3 {
+  font-family: var(--font);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin: 1.2rem 0 .5rem;
+}
+.ingredients-col ul {
+  list-style: none;
+  padding: 0;
+}
+.ingredients-col ul li {
+  padding: .35rem 0 .35rem 1.4rem;
+  position: relative;
+  font-size: .95rem;
+  font-weight: 400;
+  border-bottom: 1px solid #D8E0EA;
+  line-height: 1.5;
+}
+.ingredients-col ul li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: .6rem;
+  top: .6rem;
+}
+
+/* ── Directions ── */
+.directions-col ol {
+  counter-reset: steps;
+  list-style: none;
+  padding: 0;
+}
+.directions-col ol li {
+  counter-increment: steps;
+  padding: .8rem 0;
+  border-bottom: 1px solid #D8E0EA;
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+  font-size: .97rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+.directions-col ol li::before {
+  content: counter(steps);
+  flex-shrink: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: var(--terra);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 700;
+  margin-top: .2rem;
+}
+
+.tip-box {
+  background: var(--tan);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.2rem;
+  margin-top: 1.5rem;
+  font-size: .9rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.tip-box strong { color: var(--mid); font-weight: 700; }
+
+/* ── Original photo ── */
+.original-photo { margin-top: 2rem; }
+.original-photo h3 {
+  font-family: var(--font);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: .6rem;
+}
+.original-photo img {
+  width: 100%;
+  border-radius: 8px;
+  border: 3px solid var(--tan);
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.original-photo img:hover { opacity: .9; }
+.original-photo figcaption {
+  font-size: .75rem;
+  font-weight: 400;
+  color: #999;
+  margin-top: .4rem;
+  text-align: center;
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 6px; }
+.lightbox-close {
+  position: fixed;
+  top: 1rem; right: 1.5rem;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+
+/* ── Recipe nav ── */
+.recipe-nav {
+  background: var(--tan);
+  padding: 2rem;
+  text-align: center;
+}
+.recipe-nav p { color: var(--mid); font-size: .82rem; font-weight: 400; margin-bottom: 1rem; }
+.recipe-nav .links { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
+.recipe-nav .links a {
+  background: var(--brown);
+  color: var(--cream);
+  padding: .5rem 1.1rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  transition: background .2s;
+}
+.recipe-nav .links a:hover { background: var(--terra); }
+.recipe-nav .links a.active { background: var(--terra); }
+
+/* ── Footer ── */
+footer {
+  background: var(--brown);
+  color: #8AA0B8;
+  text-align: center;
+  padding: 2rem;
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 1.8;
+}
+footer span { color: var(--gold); font-weight: 600; }
+
+/* ── Print ── */
+@media print {
+  nav, .recipe-nav, footer, .original-photo { display: none; }
+  .recipe-hero { background: #fff; color: #000; padding: 1rem 0; }
+  .recipe-hero h1 { color: #000; }
+  .recipe-hero .meta-bar dt, .recipe-hero .meta-bar dd { color: #444; }
+  .recipe-body { grid-template-columns: 1fr; }
+}

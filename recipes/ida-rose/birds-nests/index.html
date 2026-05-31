@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syrian Birds' Nests — The Ida Rose Farhat Collection</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪺</text></svg>" />
+  <style>
+    .recipe-page { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--terra); padding-bottom: 1.5rem; }
+    .recipe-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
+    .recipe-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; margin-bottom: 1.2rem; }
+    .meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-bar dl { display: flex; flex-direction: column; }
+    .meta-bar dt { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--terra); font-weight: 700; }
+    .meta-bar dd { font-size: 1rem; font-weight: 700; color: var(--brown); }
+    .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+    @media (max-width: 680px) { .recipe-body { grid-template-columns: 1fr; } }
+    .ingredients-col h2, .directions-col h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--mid); border-bottom: 2px solid var(--tan); padding-bottom: .5rem; margin-bottom: 1.2rem; }
+    .ingredients-col h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--terra); margin: 1.2rem 0 .5rem; font-weight: 700; }
+    .ingredients-col ul { list-style: none; padding: 0; }
+    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid var(--tan); font-size: .95rem; }
+    .ingredients-col ul li:last-child { border-bottom: none; }
+    .tip-box { background: var(--tan); border-left: 3px solid var(--gold); padding: .75rem 1rem; margin-top: 1rem; font-size: .88rem; color: var(--mid); border-radius: 0 6px 6px 0; }
+    .print-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--brown); color: var(--cream); border: none; border-radius: 6px; padding: .55rem 1.2rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: background .2s; }
+    .print-btn:hover { background: var(--terra); }
+    .photo-section { margin-top: 2.5rem; }
+    .photo-section h3 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); margin-bottom: .6rem; }
+    .photo-section img { width: 100%; border-radius: 8px; border: 3px solid var(--tan); }
+    @media print {
+      nav, .print-btn { display: none !important; }
+      body { background: #fff; font-size: 12pt; color: #000; }
+      .recipe-page { padding: 0; max-width: 100%; }
+      .recipe-body { grid-template-columns: 1fr 2fr; gap: 2rem; }
+      .recipe-header { border-bottom: 2pt solid #000; }
+      .recipe-header h1, .meta-bar dd { color: #000; }
+      .tip-box { border-left: 2pt solid #aaa; background: #f5f5f5; }
+      a { text-decoration: none; color: inherit; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/recipes/ida-rose/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collection</a>
+  <a href="#top" class="brand">The Ida Rose Farhat Collection</a>
+</nav>
+
+<div class="recipe-page" id="top">
+  <div class="recipe-header">
+    <h1>Syrian Birds' Nests</h1>
+    <p class="tagline">Buttery cookie-dough nests filled with pistachios and walnuts, baked golden and soaked in sugar syrup — a Farhat family Syrian classic</p>
+    <div class="meta-bar">
+      <dl><dt>Section</dt><dd>Syrian-Lebanese</dd></dl>
+      <dl><dt>Bake</dt><dd>350° · 25 min</dd></dl>
+      <dl><dt>Yield</dt><dd>~3½ dozen</dd></dl>
+    </div>
+    <div style="margin-top:1.2rem;">
+      <button class="print-btn" onclick="window.print()">&#x2399; Print Recipe</button>
+    </div>
+  </div>
+
+  <div class="recipe-body">
+    <div class="ingredients-col">
+      <h2>Ingredients</h2>
+
+      <h3>Dough</h3>
+      <ul>
+        <li>1 lb flour</li>
+        <li>3 tbsp cornstarch</li>
+        <li>1 tsp baking powder</li>
+        <li>1 cup butter</li>
+        <li>2 eggs</li>
+      </ul>
+
+      <h3>Filling</h3>
+      <ul>
+        <li>Pistachios, chopped</li>
+        <li>Walnuts, chopped</li>
+        <li>Sugar <em>(to sweeten filling)</em></li>
+      </ul>
+
+      <h3>Sugar Syrup</h3>
+      <ul>
+        <li>Sugar syrup <em>(attar — for soaking after baking)</em></li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>Attar (sugar syrup):</strong> A standard Lebanese sugar syrup — boil equal parts sugar and water with a squeeze of lemon and a drop of rose water or orange blossom water until slightly thickened.
+      </div>
+      <div class="tip-box" style="margin-top:.75rem;">
+        <strong>Filling note:</strong> The original card calls for a pistachio and walnut filling — mix finely chopped nuts with a little sugar.
+      </div>
+    </div>
+
+    <div class="directions-col">
+      <h2>Directions</h2>
+      <ol>
+        <li>Prepare the nut filling: mix finely chopped pistachios and walnuts with sugar. Set aside.</li>
+        <li>Work butter into the flour, cornstarch, and baking powder until the mixture resembles coarse crumbs. Add eggs and mix until a smooth dough forms.</li>
+        <li>Grease baking sheets. Roll dough out and cut into strips or shapes using a roller or pasta machine.</li>
+        <li>Form each piece of dough into a small nest shape — curl the strips into rounds with a hollow center.</li>
+        <li>Place on greased baking sheets. Bake at 350°F for 25 minutes until lightly golden.</li>
+        <li>While hot, pour sugar syrup (attar) over the nests and let soak for 25 minutes.</li>
+        <li>Press the pistachio and walnut filling into the center of each nest while the syrup is still warm.</li>
+        <li>Cool completely before stacking or serving.</li>
+      </ol>
+
+      <div class="tip-box" style="margin-top:1.5rem;">
+        <strong>Pour syrup hot:</strong> The syrup goes over the nests immediately out of the oven — the heat helps the pastry absorb it fully. Let soak the full 25 minutes before handling.
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-section">
+    <h3>Original Recipe Card</h3>
+    <img src="../images/birds-nests-original.jpg" alt="Original Syrian Birds' Nests handwritten recipe card" />
+  </div>
+</div>
+
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>The Ida Rose Farhat Collection</span>
+  <a href="/recipes/ida-rose/" style="color:var(--tan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+</footer>
+
+</body>
+</html>

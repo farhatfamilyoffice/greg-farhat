@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squash Casserole — Recipes from Nan</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥣</text></svg>" />
+  <style>
+    .recipe-page { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--gold); padding-bottom: 1.5rem; }
+    .recipe-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
+    .recipe-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; margin-bottom: 1.2rem; }
+    .meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-bar dl { display: flex; flex-direction: column; }
+    .meta-bar dt { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+    .meta-bar dd { font-size: 1rem; font-weight: 700; color: var(--brown); }
+    .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+    @media (max-width: 680px) { .recipe-body { grid-template-columns: 1fr; } }
+    .ingredients-col h2, .directions-col h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--mid); border-bottom: 2px solid var(--tan); padding-bottom: .5rem; margin-bottom: 1.2rem; }
+    .ingredients-col h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--terra); margin: 1.2rem 0 .5rem; font-weight: 700; }
+    .ingredients-col ul { list-style: none; padding: 0; }
+    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid var(--tan); font-size: .95rem; }
+    .ingredients-col ul li:last-child { border-bottom: none; }
+    .tip-box { background: var(--tan); border-left: 3px solid var(--gold); padding: .75rem 1rem; margin-top: 1rem; font-size: .88rem; color: var(--mid); border-radius: 0 6px 6px 0; }
+    .print-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--brown); color: var(--cream); border: none; border-radius: 6px; padding: .55rem 1.2rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: background .2s; }
+    .print-btn:hover { background: var(--terra); }
+    @media print { nav, .print-btn { display: none !important; } body { background: #fff; font-size: 12pt; color: #000; } .recipe-page { padding: 0; max-width: 100%; } .recipe-body { grid-template-columns: 1fr 2fr; gap: 2rem; } .recipe-header { border-bottom: 2pt solid #000; } .recipe-header h1, .meta-bar dd { color: #000; } .tip-box { border-left: 2pt solid #aaa; background: #f5f5f5; } a { text-decoration: none; color: inherit; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/recipes/nan-farhat/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Recipes from Nan</a>
+  <a href="#top" class="brand">Recipes from Nan</a>
+</nav>
+<div class="recipe-page" id="top">
+  <div class="recipe-header">
+    <h1>Squash Casserole</h1>
+    <p class="tagline">Cooked squash baked with cheddar, evaporated milk, and saltine crumbs</p>
+    <div class="meta-bar">
+      <dl><dt>Section</dt><dd>Side Dishes</dd></dl>
+      <dl><dt>Oven</dt><dd>350°F</dd></dl>
+      <dl><dt>Time</dt><dd>45–60 min</dd></dl>
+    </div>
+    <div style="margin-top:1.2rem;">
+      <button class="print-btn" onclick="window.print()">&#x2399; Print Recipe</button>
+    </div>
+  </div>
+  <div class="recipe-body">
+    <div class="ingredients-col">
+      <h2>Ingredients</h2>
+      <ul>
+        <li>2 cups cooked squash</li>
+        <li>¾ cup butter, softened</li>
+        <li>2 eggs</li>
+        <li>1 tsp salt</li>
+        <li>½ tsp pepper</li>
+        <li>1 cup onion, diced</li>
+        <li>1 cup shredded cheddar cheese</li>
+        <li>1 (8 oz) can evaporated milk</li>
+        <li>2 cups saltine cracker crumbs</li>
+      </ul>
+    </div>
+    <div class="directions-col">
+      <h2>Directions</h2>
+      <ol>
+        <li>Preheat oven to 350°F.</li>
+        <li>Mix all ingredients together in a large bowl until well combined.</li>
+        <li>Pour into a greased baking dish.</li>
+        <li>Bake at 350°F for 45–60 minutes, until set and golden on top.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>Recipes from Nan — Nan Farhat</span>
+  <a href="/recipes/nan-farhat/" style="color:var(--gold);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+</footer>
+</body>
+</html>

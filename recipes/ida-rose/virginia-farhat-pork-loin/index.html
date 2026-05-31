@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/gate.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virginia Farhat's Boneless Pork Loin — The Ida Rose Farhat Collection</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥩</text></svg>" />
+  <style>
+    .recipe-page { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--terra); padding-bottom: 1.5rem; }
+    .recipe-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
+    .recipe-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; margin-bottom: 1.2rem; }
+    .meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-bar dl { display: flex; flex-direction: column; }
+    .meta-bar dt { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--terra); font-weight: 700; }
+    .meta-bar dd { font-size: 1rem; font-weight: 700; color: var(--brown); }
+    .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+    @media (max-width: 680px) { .recipe-body { grid-template-columns: 1fr; } }
+    .ingredients-col h2, .directions-col h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--mid); border-bottom: 2px solid var(--tan); padding-bottom: .5rem; margin-bottom: 1.2rem; }
+    .ingredients-col ul { list-style: none; padding: 0; }
+    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid var(--tan); font-size: .95rem; }
+    .ingredients-col ul li:last-child { border-bottom: none; }
+    .tip-box { background: var(--tan); border-left: 3px solid var(--gold); padding: .75rem 1rem; margin-top: 1rem; font-size: .88rem; color: var(--mid); border-radius: 0 6px 6px 0; }
+    .original-photo { margin-top: 1.5rem; }
+    .original-photo h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--mid); margin-bottom: .5rem; font-weight: 700; }
+    .original-photo img { width: 100%; border-radius: 6px; border: 1px solid var(--tan); }
+    .original-photo figcaption { font-size: .78rem; color: #999; margin-top: .4rem; font-style: italic; }
+    .print-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--brown); color: var(--cream); border: none; border-radius: 6px; padding: .55rem 1.2rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: background .2s; }
+    .print-btn:hover { background: var(--terra); }
+    @media print {
+      nav, .print-btn { display: none !important; }
+      body { background: #fff; font-size: 12pt; color: #000; }
+      .recipe-page { padding: 0; max-width: 100%; }
+      .recipe-body { grid-template-columns: 1fr 2fr; gap: 2rem; }
+      .recipe-header { border-bottom: 2pt solid #000; }
+      .recipe-header h1, .meta-bar dd { color: #000; }
+      .tip-box { border-left: 2pt solid #aaa; background: #f5f5f5; }
+      a { text-decoration: none; color: inherit; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/recipes/ida-rose/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collection</a>
+  <a href="#top" class="brand">The Ida Rose Farhat Collection</a>
+</nav>
+
+<div class="recipe-page" id="top">
+
+  <div class="recipe-header">
+    <h1>Virginia Farhat's Boneless Pork Loin</h1>
+    <p class="tagline">Seasoned heavily, roasted slow — a Farhat family centerpiece</p>
+    <div class="meta-bar">
+      <dl><dt>Section</dt><dd>Meats</dd></dl>
+      <dl><dt>Weight</dt><dd>5½ lb loin</dd></dl>
+      <dl><dt>Total Time</dt><dd>~2 hours</dd></dl>
+      <dl><dt>Rest</dt><dd>15 min</dd></dl>
+    </div>
+    <div style="margin-top:1.2rem;">
+      <button class="print-btn" onclick="window.print()">&#x2399; Print Recipe</button>
+    </div>
+  </div>
+
+  <div class="recipe-body">
+    <div class="ingredients-col">
+      <h2>Ingredients</h2>
+      <ul>
+        <li>5½ lb boneless pork loin, fat cap on top <em>(light meat, large — not tenderloin)</em></li>
+        <li>Mazola oil</li>
+        <li>Salt</li>
+        <li>Pepper</li>
+        <li>Garlic powder</li>
+        <li>Lawry's Seasoned Salt</li>
+        <li>2 cups water</li>
+        <li>PAM cooking spray</li>
+      </ul>
+      <div class="tip-box">
+        <strong>Virginia's note:</strong> Use light meat, large pork loin — not tenderloin. Fat cap on top is key.
+      </div>
+      <figure class="original-photo">
+        <h3>Original Recipe Card</h3>
+        <img src="../images/virginia-farhat-pork-loin-original.jpg" alt="Virginia Farhat's Boneless Pork Loin recipe card" />
+        <figcaption>Virginia Farhat's original typed recipe card</figcaption>
+      </figure>
+    </div>
+
+    <div class="directions-col">
+      <h2>Directions</h2>
+      <ol>
+        <li>Preheat oven to 450°F. Spray a shallow roasting pan with PAM.</li>
+        <li>Rub the entire pork loin with Mazola oil on all sides.</li>
+        <li>Sprinkle HEAVILY with salt, pepper, garlic powder, and Lawry's Seasoned Salt on all sides of the loin.</li>
+        <li>Place loin uncovered in the hot oven and roast at 450°F for 30 minutes.</li>
+        <li>After 30 minutes, pour 2 cups of water into the bottom of the pan. Lower heat to 350°F.</li>
+        <li>Continue roasting for about 1½ hours.</li>
+        <li>Remove from oven. Let loin rest 15 minutes before slicing and serving.</li>
+      </ol>
+      <div class="tip-box" style="margin-top:1.5rem;">
+        <strong>Tip:</strong> Season heavily — don't be shy with the Lawry's. The high initial heat creates a crust; the water and lower heat keep it moist.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>The Ida Rose Farhat Collection</span>
+  <a href="/recipes/ida-rose/" style="color:var(--tan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+</footer>
+
+</body>
+</html>
