@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.svg" />
+  <script src="/gate-idarose.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chicken-Fried Mushrooms — The Ida Rose Farhat Collection</title>
+  <link rel="stylesheet" href="../css/style.css" /><text y='.9em' font-size='90'>🍄</text></svg>" />
+  <style>
+    .recipe-page { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .recipe-header { margin-bottom: 2.5rem; border-bottom: 3px solid var(--terra); padding-bottom: 1.5rem; }
+    .recipe-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--brown); margin-bottom: .5rem; }
+    .recipe-header .tagline { font-style: italic; color: var(--mid); font-size: 1.05rem; margin-bottom: 1.2rem; }
+    .meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-bar dl { display: flex; flex-direction: column; }
+    .meta-bar dt { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--terra); font-weight: 700; }
+    .meta-bar dd { font-size: 1rem; font-weight: 700; color: var(--brown); }
+    .recipe-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+    @media (max-width: 680px) { .recipe-body { grid-template-columns: 1fr; } }
+    .ingredients-col h2, .directions-col h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--mid); border-bottom: 2px solid var(--tan); padding-bottom: .5rem; margin-bottom: 1.2rem; }
+    .ingredients-col h3, .directions-col h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--terra); margin: 1.2rem 0 .5rem; font-weight: 700; }
+    .ingredients-col ul { list-style: none; padding: 0; }
+    .ingredients-col ul li { padding: .35rem 0; border-bottom: 1px solid var(--tan); font-size: .95rem; }
+    .ingredients-col ul li:last-child { border-bottom: none; }
+    .tip-box { background: var(--tan); border-left: 3px solid var(--gold); padding: .75rem 1rem; margin-top: 1rem; font-size: .88rem; color: var(--mid); border-radius: 0 6px 6px 0; }
+    .print-btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--brown); color: var(--cream); border: none; border-radius: 6px; padding: .55rem 1.2rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: background .2s; }
+    .print-btn:hover { background: var(--terra); }
+    .source-credit { font-size: .72rem; color: #aaa; font-style: italic; margin-top: .5rem; }
+    .source-credit a { color: #aaa; }
+    @media print {
+      nav, .print-btn { display: none !important; }
+      body { background: #fff; font-size: 12pt; color: #000; }
+      .recipe-page { padding: 0; max-width: 100%; }
+      .recipe-body { grid-template-columns: 1fr 2fr; gap: 2rem; }
+      .recipe-header { border-bottom: 2pt solid #000; }
+      .recipe-header h1, .meta-bar dd { color: #000; }
+      .tip-box { border-left: 2pt solid #aaa; background: #f5f5f5; }
+      a { text-decoration: none; color: inherit; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/recipes/ida-rose/" class="back-link" style="color:#c8b8a0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-right:.5rem;">← Collection</a>
+  <a href="#top" class="brand">The Ida Rose Farhat Collection</a>
+</nav>
+
+<div class="recipe-page" id="top">
+  <div class="recipe-header">
+    <h1>Chicken-Fried Mushrooms with Creamy Mushroom Gravy</h1>
+    <p class="tagline">The full chicken-fried treatment on juicy oyster mushrooms — double-dredged, fried golden, and smothered in creamy mushroom gravy</p>
+    <div class="meta-bar">
+      <dl><dt>Section</dt><dd>Vegetables</dd></dl>
+      <dl><dt>Active</dt><dd>50 min</dd></dl>
+      <dl><dt>Total</dt><dd>1 hr 10 min</dd></dl>
+      <dl><dt>Servings</dt><dd>4</dd></dl>
+    </div>
+    <div style="margin-top:1.2rem;">
+      <button class="print-btn" onclick="window.print()">&#x2399; Print Recipe</button>
+    </div>
+    <p class="source-credit">Via <a href="https://www.southernliving.com/chicken-fried-mushrooms-8701011" target="_blank">Southern Living</a> · By John Somerall</p>
+  </div>
+
+  <div class="recipe-body">
+    <div class="ingredients-col">
+      <h2>Ingredients</h2>
+
+      <h3>Chicken-Fried Mushrooms</h3>
+      <ul>
+        <li>2 cups mushroom stock</li>
+        <li>1 lb fresh oyster mushrooms, torn into 3–4" pieces (about 12 cups)</li>
+        <li>3 cups all-purpose flour</li>
+        <li>1 tbsp kosher salt, plus more to taste</li>
+        <li>2 tsp black pepper, plus more to taste</li>
+        <li>1½ cups whole buttermilk</li>
+        <li>2 large eggs</li>
+        <li>Vegetable oil, for frying</li>
+      </ul>
+
+      <h3>Creamy Mushroom Gravy</h3>
+      <ul>
+        <li>3 tbsp unsalted butter</li>
+        <li>3 tbsp all-purpose flour</li>
+        <li>1½ cups whole milk</li>
+        <li>½ cup mushroom stock</li>
+        <li>¾ tsp kosher salt</li>
+        <li>¾ tsp black pepper</li>
+      </ul>
+
+      <h3>To Serve</h3>
+      <ul>
+        <li>Chopped fresh chives</li>
+        <li>Cayenne pepper</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>Mushroom stock:</strong> Available in most grocery stores, or make your own by simmering dried mushrooms with water. Adds deep umami flavor to both the tenderizing soak and the gravy.
+      </div>
+      <div class="tip-box" style="margin-top:1rem;">
+        <strong>Oil temperature:</strong> Keep oil at 350°F between batches. Too hot and the crust burns before the mushroom cooks; too cool and the coating absorbs oil and turns soggy.
+      </div>
+    </div>
+
+    <div class="directions-col">
+      <h2>Directions</h2>
+
+      <h3>Tenderize the Mushrooms</h3>
+      <ol>
+        <li>Bring 2 cups mushroom stock to a boil in a medium saucepan over medium-high heat. Place mushrooms in a large heatproof bowl.</li>
+        <li>Pour the hot stock over the mushrooms and gently stir to coat. Cover the bowl tightly with plastic wrap and let stand until mushrooms are mostly tender, 8–10 minutes.</li>
+      </ol>
+
+      <h3>Dredge</h3>
+      <ol>
+        <li>Preheat oven to 200°F. Line one baking sheet with paper towels and a second with parchment paper. Set aside.</li>
+        <li>Whisk together flour, salt, and pepper in a medium bowl. In a separate bowl, whisk together buttermilk and eggs until combined.</li>
+        <li>Remove mushrooms from the stock, drain, and transfer to the paper towel–lined baking sheet. Gently pat dry.</li>
+        <li>Working in batches: toss mushrooms in the flour mixture to coat. Dip into the buttermilk mixture. Dredge again in the flour mixture until well coated, shaking off excess between coats. Transfer to the parchment-lined baking sheet. Repeat until all mushrooms are coated.</li>
+      </ol>
+
+      <h3>Fry</h3>
+      <ol>
+        <li>Line a clean baking sheet with paper towels. Add vegetable oil to a depth of 3 inches in a large Dutch oven. Heat to 350°F.</li>
+        <li>Working in batches, fry mushrooms — stirring and turning occasionally — until golden brown and crispy, 6–8 minutes per batch. Adjust heat as needed to maintain temperature.</li>
+        <li>Transfer fried mushrooms to the paper towel–lined sheet to drain. Season to taste with salt and pepper. Keep warm in the preheated oven while making the gravy.</li>
+      </ol>
+
+      <h3>Creamy Mushroom Gravy</h3>
+      <ol>
+        <li>Melt butter in a medium saucepan over medium-low heat. Add flour and cook, whisking constantly, until light golden brown, 2–3 minutes.</li>
+        <li>Whisk in milk and mushroom stock. Cook, whisking constantly, until the mixture thickens and begins to bubble, 4–5 minutes. Whisk in salt and pepper. Remove from heat and cover to keep warm.</li>
+      </ol>
+
+      <h3>Serve</h3>
+      <ol>
+        <li>Drizzle the Chicken-Fried Mushrooms with Creamy Mushroom Gravy. Sprinkle with chopped chives and a pinch of cayenne pepper. Serve immediately.</li>
+      </ol>
+
+      <div class="tip-box" style="margin-top:1.5rem;">
+        <strong>Serve immediately:</strong> The crust stays crispiest right out of the oil. Have the gravy ready before the last batch comes out of the fryer.
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="background:var(--brown);color:#c8b8a0;padding:1.5rem 2rem;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span>The Ida Rose Farhat Collection</span>
+  <a href="/recipes/ida-rose/" style="color:var(--tan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">← Back to Collection</a>
+</footer>
+
+</body>
+</html>
