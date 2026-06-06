@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Father's Day, Tom</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0a0a0a;
+      color: #f0f0f0;
+      font-family: 'Georgia', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .eyebrow {
+      font-family: 'Courier New', monospace;
+      font-size: .7rem;
+      letter-spacing: .2em;
+      color: #c9a96e;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: normal;
+      line-height: 1.15;
+      letter-spacing: -.01em;
+      text-align: center;
+      margin-bottom: .5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: #888;
+    }
+
+    .sub {
+      font-family: 'Courier New', monospace;
+      font-size: .72rem;
+      color: #555;
+      letter-spacing: .1em;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .video-wrap {
+      width: 100%;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border: 1px solid #222;
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      font-family: 'Courier New', monospace;
+      font-size: .65rem;
+      color: #333;
+      letter-spacing: .1em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="eyebrow">A Gift From Greg</p>
+  <h1>Happy Father's Day,<br /><em>Tom.</em></h1>
+  <p class="sub">Enjoy the ride — again.</p>
+
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/kp3t3P_50yQ?rel=0&modestbranding=1"
+      title="Happy Father's Day Tom"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <p class="footer-note">gregfarhat.com</p>
+
+</body>
+</html>
