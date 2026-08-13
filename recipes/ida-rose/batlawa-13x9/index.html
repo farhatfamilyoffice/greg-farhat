@@ -38,6 +38,9 @@
       .recipe-header h1, .meta-bar dd { color: #000; }
       .tip-box { border-left: 2pt solid #aaa; background: #f5f5f5; }
       a { text-decoration: none; color: inherit; }
+      .photo-gallery { break-inside: avoid; page-break-inside: avoid; }
+      .gallery-pair { break-inside: avoid; page-break-inside: avoid; }
+      .gallery-single { break-before: avoid; page-break-before: avoid; }
     }
     .photo-gallery { max-width: 960px; margin: 0 auto 3rem; padding: 0 2rem; }
     .photo-gallery .gallery-label { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--terra); margin-bottom: .75rem; display: block; }
@@ -163,11 +166,7 @@
     <img src="../images/batlawa-photo-1.jpg" alt="Batlawa just out of the oven, glistening with syrup" />
     <img src="../images/batlawa-photo-2.jpg" alt="Batlawa scored in diamond pattern" />
   </div>
-</div>
-
-<div class="photo-gallery" id="batlawa-drawing">
-  <span class="gallery-label">Diagram</span>
-  <div class="gallery-single">
+  <div class="gallery-single" style="margin-top:1rem;">
     <img src="../images/batlawa-drawing.jpg" alt="Batlawa diamond-cut diagram" />
   </div>
 </div>
