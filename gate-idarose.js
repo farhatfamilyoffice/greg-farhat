@@ -15,7 +15,11 @@
     '#_site_gate input.err{border-color:#c04040;}',
     '#_site_gate button{background:transparent;border:1px solid #c9a96e;color:#c9a96e;font-family:"Courier New",monospace;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;padding:.85rem;cursor:pointer;transition:background .2s,color .2s;}',
     '#_site_gate button:hover{background:#c9a96e;color:#0a0a0a;}',
-    '#_site_gate .g-err{font-size:.68rem;color:#c04040;letter-spacing:.05em;text-align:center;min-height:1rem;}'
+    '#_site_gate .g-err{font-size:.68rem;color:#c04040;letter-spacing:.05em;text-align:center;min-height:1rem;}',
+    '#_site_gate .g-pw-wrap{position:relative;display:flex;}',
+    '#_site_gate .g-pw-wrap input{flex:1;padding-right:2.8rem;}',
+    '#_site_gate .g-show{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;color:#666;cursor:pointer;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;padding:0;transition:color .2s;}',
+    '#_site_gate .g-show:hover{background:none;color:#c9a96e;}'
   ].join('');
   document.head.appendChild(style);
 
@@ -26,7 +30,10 @@
     '<h1 class="g-title">Private Access</h1>',
     '<p class="g-sub">Enter password to continue</p>',
     '<form id="_g_form">',
-      '<input type="password" id="_g_pw" placeholder="Password" autocomplete="off" />',
+      '<div class="g-pw-wrap">',
+        '<input type="password" id="_g_pw" placeholder="Password" autocomplete="off" />',
+        '<button type="button" class="g-show" id="_g_show" onclick="(function(){var i=document.getElementById(\'_g_pw\'),s=document.getElementById(\'_g_show\');i.type=i.type===\'password\'?\'text\':\'password\';s.textContent=i.type===\'password\'?\'Show\':\'Hide\'})()">Show</button>',
+      '</div>',
       '<button type="submit">Enter &rarr;</button>',
       '<p class="g-err" id="_g_err"></p>',
     '</form>'
