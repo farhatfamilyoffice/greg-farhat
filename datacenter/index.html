@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="/gate.js"></script>
   <link rel="icon" href="/favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -120,8 +119,6 @@
     }
 
     /* ── Content (hidden until unlocked) ── */
-    #content { display: none; }
-    #content.visible { display: block; }
 
     /* ── Nav ── */
     nav {
@@ -537,16 +534,6 @@
 <body>
 
 <!-- ── Password Gate ── -->
-<div id="gate">
-  <div class="gate-logo">Greg Farhat</div>
-  <h1 class="gate-title">Demystifying Data Centers</h1>
-  <p class="gate-sub">A Practitioner's Briefing · Restricted Access</p>
-  <form class="gate-form" id="gate-form">
-    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off" />
-    <button type="submit">Access Document →</button>
-    <p class="gate-error" id="gate-error"></p>
-  </form>
-</div>
 
 <!-- ── Document Content ── -->
 <div id="content">
@@ -845,31 +832,6 @@
   </article>
 </div>
 
-<script>
-  const PASS = 'D@+aC3NTER$';
-  const KEY = 'dc_unlocked';
-
-  function unlock() {
-    document.getElementById('gate').classList.add('hidden');
-    document.getElementById('content').classList.add('visible');
-    sessionStorage.setItem(KEY, '1');
-  }
-
-  if (sessionStorage.getItem(KEY) === '1') unlock();
-
-  document.getElementById('gate-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const input = document.getElementById('pw-input');
-    if (input.value === PASS) {
-      unlock();
-    } else {
-      input.classList.add('error');
-      document.getElementById('gate-error').textContent = 'Incorrect password.';
-      input.value = '';
-      setTimeout(() => input.classList.remove('error'), 1500);
-    }
-  });
-</script>
 
 </body>
 </html>
