@@ -178,9 +178,12 @@
       color: var(--ink);
       border-top: 3px solid var(--bronze);
     }
-    .lower .focus-num { color: var(--oxblood); }
-    .lower .focus-title { color: var(--green); }
-    .lower .focus-desc { color: var(--ink-muted); }
+    .focus-band { background: var(--green); border-bottom: 3px solid var(--bronze); }
+    .focus-band .focus-num { color: #c9a96e; }
+    .focus-band .focus-title { color: var(--cream); }
+    .focus-band .focus-desc { color: #d8cfbd; }
+    .lower .about { padding-top: 5rem; }
+    @media (max-width: 600px) { .lower .about { padding-top: 3rem; } }
 
     /* ── About ── */
     .about {
@@ -318,6 +321,7 @@
     <hr class="rule" />
 
     <div class="lower">
+    <div class="focus-band">
     <section class="focuses" id="focuses">
       <div class="focus-item">
         <p class="focus-num">01</p>
@@ -340,6 +344,7 @@
         <p class="focus-desc">Preserving the recipes, rituals, and values that connect our family across generations.</p>
       </div>
     </section>
+    </div>
 
     <section class="about" id="about">
       <div class="about-main">
