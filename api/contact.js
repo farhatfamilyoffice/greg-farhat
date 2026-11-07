@@ -7,9 +7,9 @@ export default async function handler(req, res) {
   if (!String(req.headers['content-type'] || '').includes('application/json')) return res.status(415).json({ error: 'type' });
   if (Number(req.headers['content-length'] || 0) > 10000) return res.status(413).json({ error: 'size' });
   const origin = req.headers.origin;
-  if (origin) { try { const h = new URL(origin).hostname; if (!(h === 'gregfarhat.com' || h === 'www.gregfarhat.com' || h.endsWith('.vercel.app'))) return res.status(403).json({ error: 'origin' }); } catch { return res.status(403).json({ error: 'origin' }); } }
+  if (origin) { try { const h = new URL(origin).hostname; if (!['gregfarhat.com', 'www.gregfarhat.com', process.env.VERCEL_URL, process.env.VERCEL_BRANCH_URL].filter(Boolean).includes(h)) return res.status(403).json({ error: 'origin' }); } catch { return res.status(403).json({ error: 'origin' }); } }
   const b = typeof req.body === 'object' && req.body ? req.body : {};
-  if (b.website) return res.status(200).json({ ok: true }); // honeypot
+  if (b.website) return res.status(200).json({ ok: true }); // honeypot (basic bot filter, not a rate limiter)
   const v = {};
   for (const k in lim) { const x = typeof b[k] === 'string' ? b[k].trim() : ''; if (x.length > lim[k]) return res.status(400).json({ error: k }); v[k] = x; }
   if (!v.firstName || !v.lastName) return res.status(400).json({ error: 'name' });
