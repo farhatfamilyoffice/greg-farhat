@@ -83,7 +83,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      padding: 12rem 3rem 6rem;
+      padding: 12rem 3rem 3rem;
       max-width: 900px;
     }
 
@@ -102,6 +102,15 @@
       line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: 2rem;
+    }
+
+    .hero-support {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: -1rem 0 2rem;
     }
 
     h1 em {
@@ -166,7 +175,7 @@
 
     /* ── Focus Areas ── */
     .focuses {
-      padding: 6rem 3rem;
+      padding: 3rem 3rem 6rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 3rem;
@@ -231,8 +240,8 @@
     @media (max-width: 600px) {
       nav { padding: 1.2rem 1.5rem; }
       .nav-links { gap: 1.2rem; }
-      .hero { padding: 9rem 1.5rem 4rem; }
-      .focuses { padding: 4rem 1.5rem; }
+      .hero { padding: 9rem 1.5rem 2rem; }
+      .focuses { padding: 2rem 1.5rem 4rem; }
       footer { padding: 1.5rem; }
       .rule { margin: 0 1.5rem; }
     }
@@ -254,7 +263,8 @@
   <main>
     <section class="hero">
       <p class="hero-eyebrow">Greg Farhat</p>
-      <h1>Operator.<br /><em>Builder.</em><br />Pilot.<br />Steward.</h1>
+      <h1>Executive.<br /><em>Entrepreneur.</em><br />Community Leader.</h1>
+      <p class="hero-support">Operator. Builder. Steward.</p>
       <p class="hero-bio">
         I’m Greg Farhat, a corporate real estate professional, Michigan real estate broker, and civic board member, with interests in family business and commercial real estate.
       </p>
