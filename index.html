@@ -148,7 +148,7 @@
       content: "";
       position: absolute;
       top: calc(2rem - 20vh);
-      right: -8vw;
+      right: -28vw;
       width: min(121.68vw, 1638px);
       aspect-ratio: 900 / 973;
       background: url('/crest.webp') right top / contain no-repeat;
@@ -156,8 +156,13 @@
       pointer-events: none;
       z-index: -1;
     }
-    @media (max-width: 1100px) { main::before { opacity: 0.16; width: 140.4vw; right: -22vw; } }
+    @media (max-width: 1100px) { main::before { opacity: 0.16; width: 140.4vw; right: -42vw; } }
     @media (max-width: 800px) { main::before { display: none; } }
+
+    /* ── About ── */
+    .about { padding: 0 3rem 6rem; max-width: 760px; }
+    .about-text { font-size: 1rem; line-height: 1.8; color: var(--muted); }
+    @media (max-width: 600px) { .about { padding: 0 1.5rem 4rem; } }
 
     /* ── Focus Areas ── */
     .focuses {
@@ -249,7 +254,7 @@
   <main>
     <section class="hero">
       <p class="hero-eyebrow">Greg Farhat</p>
-      <h1>Operator.<br /><em>Builder.</em><br />Steward.</h1>
+      <h1>Operator.<br /><em>Builder.</em><br />Pilot.<br />Steward.</h1>
       <p class="hero-bio">
         I’m Greg Farhat, a corporate real estate professional, Michigan real estate broker, and civic board member, with interests in family business and commercial real estate.
       </p>
@@ -285,6 +290,11 @@
         <h2 class="focus-title">Family Traditions</h2>
         <p class="focus-desc">Preserving the recipes, rituals, and values that connect our family across generations.</p>
       </div>
+    </section>
+
+    <section class="about" id="about">
+      <p class="focus-num">About Me</p>
+      <p class="about-text">Aviation is another important part of my life. I earned my private pilot license in 2025 and own a Piper aircraft hangared at Capital Region International Airport (KLAN). General aviation sits alongside my work in real estate, business, and community as a distinct part of who I am.</p>
     </section>
   </main>
 
