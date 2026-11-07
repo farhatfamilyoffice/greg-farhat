@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Greg Farhat</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<style>
+:root{--bg:#242424;--cream:#f3ede0;--ink:#26221c;--green:#1f3a2d;--oxblood:#6e1f26;--bronze:#9a7440;--accent:#c9a96e;--font:Georgia,'Times New Roman',Times,serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:var(--bg)}
+.brand{display:inline-flex;align-items:center;gap:.75rem;color:var(--accent);text-decoration:none;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:1.0625rem}
+.brand img{height:2.734375rem;width:auto}nav ul{list-style:none;display:flex;gap:2rem;margin:0;padding:0}
+nav ul a{color:#cfcfcf;text-decoration:none;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+main{max-width:720px;margin:3rem auto;background:var(--cream);padding:3rem;border-top:4px solid var(--green)}
+h1{margin:0 0 .5rem;font-weight:400;font-size:2.2rem}p.lede{margin:0 0 2rem;color:#4a443a}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}label{display:block;font-size:.9rem;letter-spacing:.05em;margin:1rem 0 .35rem}
+input,textarea{width:100%;padding:.7rem .8rem;font:inherit;font-size:1rem;border:1px solid var(--bronze);background:#fffdf8;color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--green);outline-offset:1px}textarea{min-height:9rem;resize:vertical}
+.err{color:var(--oxblood);font-size:.875rem;min-height:1em;margin-top:.25rem}
+button{margin-top:1.5rem;background:var(--green);color:var(--cream);border:1px solid var(--bronze);padding:.85rem 2rem;font:inherit;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+button[disabled]{opacity:.6}#status{margin-top:1.25rem;padding:.8rem 1rem;display:none}#status.ok{display:block;background:var(--green);color:var(--cream)}#status.bad{display:block;background:var(--oxblood);color:var(--cream)}
+.hp{position:absolute;left:-9999px}
+@media(max-width:600px){nav{padding:1rem 1.5rem}.brand{font-size:.9rem}.brand img{height:2.1875rem}main{margin:1.5rem 1rem;padding:1.75rem}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><a class="brand" href="/"><img src="/crest.webp" alt="" width="900" height="973" /><span>Greg Farhat</span></a>
+<ul><li><a href="/#about">About</a></li><li><a href="/contact/" aria-current="page">Contact</a></li></ul></nav>
+<main>
+<h1>Contact</h1><p class="lede">Send a note and I’ll follow up.</p>
+<form id="f" action="/api/contact" method="post" novalidate>
+<div class="row">
+<div><label for="firstName">First name *</label><input id="firstName" name="firstName" autocomplete="given-name" required maxlength="80" aria-describedby="firstName-e" /><div class="err" id="firstName-e" aria-live="polite"></div></div>
+<div><label for="lastName">Last name *</label><input id="lastName" name="lastName" autocomplete="family-name" required maxlength="80" aria-describedby="lastName-e" /><div class="err" id="lastName-e" aria-live="polite"></div></div>
+</div>
+<div class="row">
+<div><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="200" aria-describedby="email-e" /><div class="err" id="email-e" aria-live="polite"></div></div>
+<div><label for="phone">Phone *</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="30" pattern="[0-9+()\-. ]{7,30}" aria-describedby="phone-e" /><div class="err" id="phone-e" aria-live="polite"></div></div>
+</div>
+<label for="comment">Comment</label><textarea id="comment" name="comment" maxlength="4000"></textarea>
+<div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off" /></div>
+<button type="submit">Send</button>
+<div id="status" role="status" aria-live="polite"></div>
+</form>
+</main>
+<script>
+const f=document.getElementById('f'),st=document.getElementById('status'),msgs={firstName:'Enter your first name.',lastName:'Enter your last name.',email:'Enter a valid email address.',phone:'Enter a valid phone number.'};
+f.addEventListener('submit',async e=>{e.preventDefault();let first=null;
+for(const k in msgs){const el=f[k],ok=el.value.trim()&&el.checkValidity();document.getElementById(k+'-e').textContent=ok?'':msgs[k];el.setAttribute('aria-invalid',ok?'false':'true');if(!ok&&!first)first=el}
+if(first){first.focus();return}
+const b=f.querySelector('button');b.disabled=true;st.className='';
+try{const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f)))});
+if(r.ok){st.className='ok';st.textContent='Thank you, your message was sent.';f.reset()}else{st.className='bad';st.textContent='Sorry, your message could not be sent. Please try again later.'}}
+catch{st.className='bad';st.textContent='Sorry, your message could not be sent. Please try again later.'}b.disabled=false});
+</script>
+</body></html>
