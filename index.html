@@ -143,20 +143,20 @@
     }
 
     /* ── Decorative crest watermark ── */
-    main { position: relative; overflow-x: clip; }
+    main { position: relative; overflow: clip; }
     main::before {
       content: "";
       position: absolute;
-      top: 7rem;
-      right: 3rem;
-      width: min(40vw, 560px);
-      aspect-ratio: 1;
-      background: url('/crest.webp') center / contain no-repeat;
-      opacity: 0.08;
+      top: calc(2rem - 20vh);
+      right: -8vw;
+      width: min(121.68vw, 1638px);
+      aspect-ratio: 900 / 973;
+      background: url('/crest.webp') right top / contain no-repeat;
+      opacity: 0.22;
       pointer-events: none;
       z-index: -1;
     }
-    @media (max-width: 1100px) { main::before { opacity: 0.04; right: -6rem; } }
+    @media (max-width: 1100px) { main::before { opacity: 0.16; width: 140.4vw; right: -22vw; } }
     @media (max-width: 800px) { main::before { display: none; } }
 
     /* ── Focus Areas ── */
@@ -251,7 +251,7 @@
       <p class="hero-eyebrow">Greg Farhat</p>
       <h1>Operator.<br /><em>Builder.</em><br />Steward.</h1>
       <p class="hero-bio">
-        I'm Greg Farhat, a corporate real estate professional, Michigan real estate broker, and civic board member. My work spans real estate, family business, community, and the traditions we carry forward.
+        I’m Greg Farhat, a corporate real estate professional, Michigan real estate broker, and civic board member, with interests in family business and commercial real estate.
       </p>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
         <a class="hero-cta" href="mailto:farhatfamilyoffice@gmail.com">Get in touch</a>
