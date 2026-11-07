@@ -142,6 +142,23 @@
       margin: 0 3rem;
     }
 
+    /* ── Decorative crest watermark ── */
+    main { position: relative; overflow-x: clip; }
+    main::before {
+      content: "";
+      position: absolute;
+      top: 7rem;
+      right: 3rem;
+      width: min(40vw, 560px);
+      aspect-ratio: 1;
+      background: url('/crest.webp') center / contain no-repeat;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: -1;
+    }
+    @media (max-width: 1100px) { main::before { opacity: 0.04; right: -6rem; } }
+    @media (max-width: 800px) { main::before { display: none; } }
+
     /* ── Focus Areas ── */
     .focuses {
       padding: 6rem 3rem;
