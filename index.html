@@ -4,28 +4,25 @@
   <link rel="icon" href="/favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Greg Farhat — Corporate Real Estate Leader · Lansing, Michigan</title>
-  <meta name="description" content="Greg Farhat — Corporate Real Estate Leader at Jackson. Permanent public record. Lansing, Michigan." />
+  <title>Greg Farhat - Executive, Entrepreneur, Community Leader | Michigan</title>
+  <meta name="description" content="Greg Farhat — operator, builder, and steward." />
   <meta property="og:title" content="Greg Farhat" />
-  <meta property="og:description" content="Corporate Real Estate Leader at Jackson. Over $1B in capital deployed. Lansing, Michigan." />
+  <meta property="og:description" content="Building growth, stability, and legacy through enterprise and family foundation." />
   <meta property="og:url" content="https://gregfarhat.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://gregfarhat.com/og-image.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0a0a;
+      --bg: #242424;
       --surface: #111111;
-      --border: #1e1e1e;
+      --border: #3a3a3a;
       --text: #f0f0f0;
-      --muted: #888888;
+      --muted: #9a9a9a;
       --accent: #c9a96e;
-      --serif: 'Playfair Display', Georgia, serif;
-      --mono: 'Source Code Pro', 'Courier New', monospace;
+      --font: 'Georgia', serif;
+      --mono: 'Courier New', monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -33,8 +30,10 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: var(--mono);
+      font-family: var(--font);
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ── Nav ── */
@@ -45,359 +44,350 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.4rem 3rem;
-      background: rgba(10,10,10,0.9);
+      padding: 1.5rem 3rem;
+      background: rgba(36,36,36,0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-logo {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: 700;
+      font-size: 1.0625rem;
+      letter-spacing: 0.12em;
       color: var(--accent);
       text-transform: uppercase;
-      text-decoration: none;
+      white-space: nowrap;
     }
+    a.nav-logo { text-decoration: none; }
+    #about { scroll-margin-top: 6.5rem; }
+    .nav-logo img { height: 2.734375rem; width: auto; display: block; }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
+      font-family: var(--mono);
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
-      text-transform: uppercase;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: var(--text); }
 
     /* ── Hero ── */
     .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 8rem 3rem 3rem;
       max-width: 900px;
-      margin: 0 auto;
-      padding: 10rem 2rem 5rem;
     }
 
-    .eyebrow {
-      font-size: 0.65rem;
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
       letter-spacing: 0.2em;
       color: var(--accent);
       text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .eyebrow::before {
-      content: '';
-      display: block;
-      width: 3rem;
-      height: 1px;
-      background: var(--accent);
+    h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: normal;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
     }
 
-    .hero-name {
-      font-family: var(--serif);
-      font-weight: 400;
-      line-height: 0.95;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-name .first {
-      font-size: clamp(3.5rem, 10vw, 6rem);
-      color: var(--text);
-      display: block;
-    }
-
-    .hero-name .last {
-      font-size: clamp(3.5rem, 10vw, 6rem);
-      color: var(--accent);
+    h1 em {
       font-style: italic;
-      display: block;
-    }
-
-    .credentials {
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-      margin-bottom: 0;
-    }
-
-    .credential-line {
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
       color: var(--muted);
-      text-transform: uppercase;
     }
 
-    .credential-line strong {
-      color: var(--text);
-      font-weight: 500;
+    .hero-bio {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 3rem;
     }
 
-    /* ── Stats ── */
-    .stats {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin-top: 5rem;
-    }
-
-    .stats-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .stat {
-      padding: 3rem 2rem;
-      border-right: 1px solid var(--border);
-    }
-
-    .stat:last-child { border-right: none; }
-
-    .stat-num {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 5vw, 3rem);
+    .hero-cta {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--accent);
       color: var(--accent);
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
     }
 
-    .stat-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      text-transform: uppercase;
-      line-height: 1.6;
+    .hero-cta:hover {
+      background: var(--accent);
+      color: var(--bg);
     }
+
+    /* ── Divider ── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 3rem;
+    }
+
+    /* ── Decorative crest watermark ── */
+    main { position: relative; overflow: clip; }
+    main::before {
+      content: "";
+      position: absolute;
+      top: calc(2rem - 20vh);
+      right: -38vw;
+      width: min(109.512vw, 1474.2px);
+      aspect-ratio: 900 / 973;
+      background: url('/crest.webp') right top / contain no-repeat;
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: -1;
+    }
+    @media (max-width: 1100px) { main::before { opacity: 0.16; width: 126.36vw; right: -52vw; } }
+    @media (max-width: 800px) { main::before { display: none; } }
+
+    /* ── Lower sections: cream palette ── */
+    .lower {
+      --cream: #f3ede0;
+      --ink: #26221c;
+      --ink-muted: #4f483d;
+      --green: #1f3a2d;
+      --oxblood: #6e1f26;
+      --bronze: #9a7440;
+      background: var(--cream);
+      color: var(--ink);
+      border-top: 3px solid var(--bronze);
+    }
+    .focus-band { background: var(--green); border-bottom: 3px solid var(--bronze); }
+    .focus-band .focus-num { color: #c9a96e; }
+    .focus-band .focus-title { color: var(--cream); }
+    .focus-band .focus-desc { color: #d8cfbd; }
+    .lower .about { padding-top: 5rem; }
+    @media (max-width: 600px) { .lower .about { padding-top: 3rem; } }
 
     /* ── About ── */
     .about {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
+      padding: 0 3rem 6rem;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text { font-size: 1rem; line-height: 1.8; color: var(--ink-muted); }
+    .about-text + .about-text { margin-top: 1.25rem; }
+    .about-text a { color: var(--oxblood); text-decoration: underline; text-underline-offset: 0.2em; }
+    .about-text a:hover { color: var(--green); }
+    .about-stats { display: flex; flex-direction: column; gap: 1rem; position: sticky; top: 7rem; }
+    .stat {
+      background: var(--oxblood);
+      color: var(--cream);
+      padding: 1.5rem 1.5rem 1.35rem;
+      border-left: 3px solid var(--bronze);
+    }
+    .stat { aspect-ratio: 1 / 1; display: flex; flex-direction: column; justify-content: center; }
+    @media (max-height: 949px) { .about-stats { position: static; } }
+    .stat-num { font-family: var(--font); font-size: 2rem; line-height: 1.1; color: #e9dcc0; }
+    .stat-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem; color: #d8cfbd; }
+    @media (max-width: 900px) {
+      .about { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-stats { position: static; }
+      .stat { aspect-ratio: auto; min-height: 9rem; }
+    }
+    @media (max-width: 600px) { .about { padding: 0 1.5rem 4rem; } }
+
+    /* ── Focus Areas ── */
+    .focuses {
+      padding: 3rem 3rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      max-width: 1100px;
     }
 
-    .section-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+    @media (max-width: 800px) {
+      .focuses { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .focus-item {}
+
+    .focus-num {
+      font-family: var(--mono);
+      font-size: 0.7rem;
       color: var(--accent);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
     }
 
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
+    .focus-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
     }
 
-    .about-body {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: #ccc;
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-    }
-
-    /* ── Focus Tags ── */
-    .focus {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem 5rem;
-    }
-
-    .focus-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .tag {
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .focus-desc {
+      font-size: 0.85rem;
       color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 0.45rem 0.9rem;
+      line-height: 1.7;
     }
 
     /* ── Footer ── */
     footer {
-      background: var(--surface);
       border-top: 1px solid var(--border);
-    }
-
-    .footer-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
+      padding: 2rem 3rem;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 1rem;
     }
 
-    .footer-name {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      text-transform: uppercase;
+    footer span {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
     }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer-links a {
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
+    .footer-disclaimer { flex-basis: 100%; max-width: 760px; font-family: var(--font); font-size: 0.875rem; line-height: 1.6; color: #b5b5b5; }
+    .footer-disclaimer a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.2em; }
+    .footer-contact a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
       color: var(--muted);
       text-decoration: none;
-      text-transform: uppercase;
+      letter-spacing: 0.1em;
       transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: var(--accent); }
+    .footer-contact a:hover { color: var(--accent); }
 
-    .footer-updated {
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      color: #555;
-      text-transform: uppercase;
-    }
-
-    .footer-disclaimer {
-      font-family: var(--serif);
-      font-size: 0.78rem;
-      color: #555;
-      line-height: 1.7;
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    /* ── Mobile ── */
-    @media (max-width: 680px) {
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
       nav { padding: 1.2rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
-      .hero { padding: 8rem 1.5rem 4rem; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      .stat { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat:last-child { border-bottom: none; }
-      .about { padding: 4rem 1.5rem; }
-      .focus { padding: 0 1.5rem 4rem; }
-      .footer-inner { padding: 2.5rem 1.5rem; }
+      .nav-links { gap: 1.2rem; margin-left: 1rem; }
+      .nav-links a { font-size: 0.85rem; }
+      .nav-logo { font-size: 0.9rem; gap: 0.5625rem; }
+      .nav-logo img { height: 2.1875rem; }
+      .hero { padding: 6.25rem 1.5rem 2rem; }
+      .focuses { padding: 2rem 1.5rem 2rem; }
+      footer { padding: 1.5rem; }
+      .rule { margin: 0 1.5rem; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a class="nav-logo" href="/">Greg Farhat</a>
+    <a class="nav-logo" href="/"><img src="/crest.webp" alt="" width="900" height="973" /><span>Greg Farhat</span></a>
     <ul class="nav-links">
-      <li><a href="/recipes">Recipes</a></li>
-      <li><a href="/familytree">Family Tree</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <p class="eyebrow">Permanent Public Record &middot; Lansing, Michigan</p>
-    <h1 class="hero-name">
-      <span class="first">Greg</span>
-      <span class="last">Farhat</span>
-    </h1>
-    <div class="credentials">
-      <p class="credential-line"><strong>Corporate Real Estate Leader</strong> &middot; Jackson</p>
-      <p class="credential-line"><strong>Project Manager</strong> &middot; The Christman Company</p>
-      <p class="credential-line"><strong>Principal</strong> &middot; Farhat Family Office &middot; Private Real Estate</p>
-      <p class="credential-line"><strong>Michigan State University</strong></p>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <div class="stats">
-    <div class="stats-inner">
-      <div class="stat">
-        <div class="stat-num">$1B+</div>
-        <div class="stat-label">Capital deployed across corporate real estate, infrastructure, and enterprise workplace investments</div>
+  <main>
+    <section class="hero">
+      <h1>Executive.<br /><em>Entrepreneur.</em><br />Community Leader.</h1>
+      <p class="hero-bio">
+        I’m Greg Farhat, a corporate real estate executive, entrepreneur, and civic board member, with interests in business growth and community development.
+      </p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+        <a class="hero-cta" href="/contact/">Get in touch</a>
+        <a class="hero-cta" href="https://www.linkedin.com/in/gregoryfarhat/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.358V9h3.414v1.561h.048c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
       </div>
-      <div class="stat">
-        <div class="stat-num">$250M+</div>
-        <div class="stat-label">Commercial development projects managed at The Christman Company</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">500kW</div>
-        <div class="stat-label">Solar farm capacity at Jackson&rsquo;s 8 Corporate Way &mdash; supplying one-fourth of annual building power</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">NYSE: JXN</div>
-        <div class="stat-label">Jackson &mdash; one of the largest financial services organizations in the United States</div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- About -->
-  <section class="about">
-    <h2 class="section-label">About Greg Farhat</h2>
-    <div class="about-body">
-      <p>Greg Farhat is a corporate real estate leader based in Lansing, Michigan, responsible for aligning workplace infrastructure, facilities operations, and capital projects with enterprise strategy at Jackson — one of the largest financial services organizations in the United States.</p>
-      <p>At Jackson, Greg leads a national real estate portfolio supporting thousands of associates. His work focuses on ensuring development initiatives, facilities, and workplace environments enable long-term business performance, operational resilience, and an exceptional associate experience. This requires close collaboration with executive leadership and cross-functional partners across finance, legal, human resources, and technology to align infrastructure decisions with broader organizational priorities.</p>
-      <p>Through roles in construction management and corporate real estate leadership, Greg has contributed to more than $1 billion in capital deployment across development projects, infrastructure initiatives, and enterprise workplace investments.</p>
-      <p>Prior to Jackson, Greg served as a Project Manager with The Christman Company, where he worked on over $250 million in commercial development projects across Michigan.</p>
-      <p>In addition to his corporate role, Greg is a private real estate investor and operator through Farhat Family Office, focused on building and stewarding a portfolio of commercial real estate holdings in Mid-Michigan.</p>
-      <p>Greg holds a degree from Michigan State University and is actively involved in the greater Lansing community, including support for Ele&rsquo;s Place Capital Region and civic and charitable initiatives in Mid-Michigan.</p>
-    </div>
-  </section>
+    <hr class="rule" />
 
-  <!-- Focus Tags -->
-  <section class="focus">
-    <h2 class="section-label">Areas of Focus</h2>
-    <div class="focus-tags">
-      <span class="tag">Corporate Real Estate</span>
-      <span class="tag">Portfolio Strategy</span>
-      <span class="tag">Capital Planning</span>
-      <span class="tag">Project Delivery</span>
-      <span class="tag">Workplace Strategy</span>
-      <span class="tag">Facilities &amp; Infrastructure</span>
-      <span class="tag">Construction Management</span>
-      <span class="tag">Private Real Estate</span>
-      <span class="tag">Financial Services</span>
-      <span class="tag">ESG &amp; Sustainability</span>
-      <span class="tag">Vendor Management</span>
-      <span class="tag">Michigan</span>
+    <div class="lower">
+    <div class="focus-band">
+    <section class="focuses" id="focuses">
+      <div class="focus-item">
+        <p class="focus-num">01</p>
+        <h2 class="focus-title">Corporate Real Estate</h2>
+        <p class="focus-desc">I lead corporate real estate strategy and portfolio initiatives at Jackson.</p>
+      </div>
+      <div class="focus-item">
+        <p class="focus-num">02</p>
+        <h2 class="focus-title">Family Business</h2>
+        <p class="focus-desc">My wife, Jess, founded and operates NECTAR body•face•skin. I hold a Michigan real estate broker’s license through Jameson Real Estate Services, and we build businesses with our two children, Olivia and Sean.</p>
+      </div>
+      <div class="focus-item">
+        <p class="focus-num">03</p>
+        <h2 class="focus-title">Community</h2>
+        <p class="focus-desc">I serve on the boards of the Lansing Regional Chamber of Commerce and LEAP, the Lansing Economic Area Partnership. I challenge these organizations to stay focused on their mission and deliver meaningful results.</p>
+      </div>
+      <div class="focus-item">
+        <p class="focus-num">04</p>
+        <h2 class="focus-title">Family Traditions</h2>
+        <p class="focus-desc">Preserving the recipes, rituals, and values that connect our family across generations.</p>
+      </div>
+    </section>
     </div>
-  </section>
 
-  <!-- Footer -->
+    <section class="about" id="about">
+      <div class="about-main">
+        <h2 class="focus-num">About Me</h2>
+        <p class="about-text">I’m Greg Farhat, a corporate real estate professional, Michigan real estate broker, and civic board member based in the Lansing area. My work and interests center on business growth, community development, and the people and places that shape our lives.</p>
+        <p class="about-text">My career began in commercial construction with <a href="https://www.christmanco.com" target="_blank" rel="noopener">The Christman Company</a>, ranked No. 68 nationally on Engineering News-Record’s 2026 Top 400 Contractors list. There, I was involved in more than $250 million of construction and real estate development, working on projects ranging from data centers and schools to historic restorations. That experience grounded me in the details of how buildings come together and the importance of good execution across a large team.</p>
+        <p class="about-text">I lead corporate real estate strategy and portfolio initiatives at <a href="https://www.jackson.com" target="_blank" rel="noopener">Jackson</a>.</p>
+        <p class="about-text">I earned a bachelor’s degree in construction management from Michigan State University and an MBA from Northwood University. I have also pursued executive education through the University of Michigan’s Ross School of Business and Imperial College London, including study in London, Shenzhen, and Hong Kong. My perspective brings together construction, real estate, and business, balancing practical details with long-term priorities.</p>
+        <p class="about-text">Family business is another part of my life, and I’m particularly proud of what my wife, Jess, has built. Jessica Farhat, MSN, NP-C, is a board-certified nurse practitioner and the founder and operator of <a href="https://nectarbodyfaceskin.com" target="_blank" rel="noopener">NECTAR body•face•skin</a>, a boutique medical aesthetics practice based in DeWitt and expanding into Jackson, Michigan. She also provides consulting nationally. She brings extensive experience in medical, surgical, and cosmetic dermatology to a business built around clinical expertise, thoughtful care, and natural results.</p>
+        <p class="about-text">Jess’s expertise has earned recognition beyond Michigan. She is one of only 40 providers selected globally as a <a href="https://zoskinhealth.com/" target="_blank" rel="noopener">ZO® Skin Health</a> Ambassador and has trained directly with Dr. Zein Obagi. NECTAR is also a ZO Sapphire Circle Club member. Under her leadership, the practice was named one of the 2025 Michigan 50 Companies to Watch by Michigan Celebrates Small Business and earned Lansing City Pulse’s Best Med Spa and Best Facial awards in 2024. I’m proud of both the practice she has created and the team she continues to develop.</p>
+        <p class="about-text">I hold my Michigan real estate broker’s license through Jameson Real Estate Services, and we own commercial real estate.</p>
+        <p class="about-text">I serve on the boards of the <a href="https://www.lansingchamber.org/" target="_blank" rel="noopener">Lansing Regional Chamber of Commerce</a> and LEAP (Lansing Economic Area Partnership). My community involvement has also included Allen Neighborhood Center, the Boys &amp; Girls Club of Lansing, and Ele’s Place.</p>
+        <p class="about-text">Aviation is another important part of my life. I earned my private pilot license in 2025 and own a Piper aircraft hangared at Capital Region International Airport (KLAN). General aviation sits alongside my work in real estate, business, and community as a distinct part of who I am.</p>
+        <p class="about-text">We’re also proud to see our children developing their own interests and careers. Our daughter, Olivia, recently became a licensed esthetician in Michigan. She currently works in a support role at NECTAR while continuing her in-house training as an esthetician. Our son Sean is completing his senior year at Lansing Catholic High School and plans to follow my path by pursuing a construction management degree. He has been accepted to Northern Michigan University and is also considering Ferris State University and Michigan State University.</p>
+        <p class="about-text">Beyond work, I value family and the traditions that connect generations. My grandfather, Leo A. Farhat, whom we called Gido, was a prominent Michigan attorney. My grandmother, Virginia M. Farhat, whom we called Tete, was the glue of our family through her grace, love, and humor. Together, they started the traditions we continue to build on today. My grandparents had ten children, and my father, Leo A. Farhat Jr., helped shape who I am today. Preserving our family tree, recipes, and shared stories is a way of honoring them and carrying that foundation forward for our children and future generations.</p>
+      </div>
+      <aside class="about-stats" aria-label="Career highlights">
+        <div class="stat"><p class="stat-num">1M+</p><p class="stat-label">Square feet managed</p></div>
+        <div class="stat"><p class="stat-num">$500M+</p><p class="stat-label">Real estate developed</p></div>
+        <div class="stat"><p class="stat-num">$1B+</p><p class="stat-label">Budget executed</p></div>
+      </aside>
+    </section>
+    </div>
+  </main>
+
   <footer>
-    <div class="footer-inner">
-      <p class="footer-name">Greg Farhat &middot; Lansing, Michigan</p>
-      <div class="footer-links">
-        <a href="https://linkedin.com/in/gregoryfarhat" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="/recipes">Recipes</a>
-        <a href="/familytree">Family Tree</a>
-      </div>
-      <p class="footer-updated">Last updated: September 2026</p>
-      <p class="footer-disclaimer">This is a permanent public record for Greg Farhat. Maintained so the record persists and remains under its subject&rsquo;s control. All figures and descriptions reflect Greg&rsquo;s own professional experience and public statements.</p>
-    </div>
+    <span>&copy; 2026 Greg Farhat</span>
+    <span class="footer-contact" style="display:flex;align-items:center;flex-wrap:wrap;gap:1.5rem;">
+      <a href="#about" style="font-family:var(--mono);font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;">About</a>
+      <a href="/recipes/" style="font-family:var(--mono);font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;">Recipes</a>
+      <a href="/datacenter/" style="font-family:var(--mono);font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;">Data Centers</a>
+      <a href="/familytree/" style="font-family:var(--mono);font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;">Family Tree</a>
+      <a href="mailto:farhatfamilyoffice@gmail.com" style="font-family:var(--mono);font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;">farhatfamilyoffice@gmail.com</a>
+      <a href="https://www.linkedin.com/in/gregoryfarhat/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.358V9h3.414v1.561h.048c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </span>
+    <p class="footer-disclaimer">This is my official personal website and public archive—the primary source for information I share about my background, interests, work, and projects. Views are my own and do not represent or imply endorsement by my employer or any organization I serve. This site is not an official source for those organizations; please consult their websites for official information.</p>
   </footer>
 
 </body>
