@@ -194,27 +194,28 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) 260px;
       gap: 4rem;
-      align-items: start;
+      align-items: stretch;
     }
     .about-text { font-size: 1rem; line-height: 1.8; color: var(--ink-muted); }
     .about-text + .about-text { margin-top: 1.25rem; }
     .about-text a { color: var(--oxblood); text-decoration: underline; text-underline-offset: 0.2em; }
     .about-text a:hover { color: var(--green); }
-    .about-stats { display: flex; flex-direction: column; gap: 1rem; position: sticky; top: 7rem; }
+    .about-stats { display: flex; flex-direction: column; gap: 1rem; height: 100%; }
     .stat {
       background: var(--oxblood);
       color: var(--cream);
       padding: 1.5rem 1.5rem 1.35rem;
       border-left: 3px solid var(--bronze);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-    .stat { aspect-ratio: 1 / 1; display: flex; flex-direction: column; justify-content: center; }
-    @media (max-height: 949px) { .about-stats { position: static; } }
-    .stat-num { font-family: var(--font); font-size: 2rem; line-height: 1.1; color: #e9dcc0; }
-    .stat-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem; color: #d8cfbd; }
+    .stat-num { font-family: var(--font); font-size: 1.75rem; line-height: 1.15; color: #e9dcc0; }
+    .stat-label { font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.6rem; color: #d8cfbd; line-height: 1.5; }
     @media (max-width: 900px) {
       .about { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-stats { position: static; }
-      .stat { aspect-ratio: auto; min-height: 9rem; }
+      .stat { min-height: 7rem; flex: none; }
     }
     @media (max-width: 600px) { .about { padding: 0 1.5rem 4rem; } }
 
