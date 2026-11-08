@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Press & Recognition | Greg Farhat</title>
+  <meta name="description" content="Press coverage, board service, and recognition for Greg Farhat — corporate real estate executive, entrepreneur, and community leader in Michigan." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #242424;
+      --cream: #f3ede0;
+      --ink: #26221c;
+      --ink-muted: #4f483d;
+      --green: #1f3a2d;
+      --oxblood: #6e1f26;
+      --bronze: #9a7440;
+      --accent: #c9a96e;
+      --border: #3a3a3a;
+      --muted: #9a9a9a;
+      --font: Georgia, 'Times New Roman', Times, serif;
+      --mono: 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--cream); font-family: var(--font); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 3rem;
+      background: rgba(36,36,36,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-family: var(--font); font-weight: 700; font-size: 1.0625rem;
+      letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase;
+      white-space: nowrap; text-decoration: none; flex-shrink: 0;
+    }
+    .nav-logo img { height: 2.734375rem; width: auto; display: block; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.95rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--cream); }
+
+    /* ── Hero band ── */
+    .press-hero {
+      background: var(--green);
+      border-bottom: 3px solid var(--bronze);
+      padding: 7rem 3rem 3.5rem;
+    }
+    .press-hero-inner { max-width: 1100px; }
+    .eyebrow {
+      font-family: var(--mono); font-size: 1.4rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem; display: block;
+    }
+    .press-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 700;
+      line-height: 1.1; color: var(--cream); margin-bottom: 0.75rem;
+    }
+    .press-hero p {
+      font-size: 1rem; line-height: 1.8; color: #d8cfbd; max-width: 600px;
+    }
+
+    /* ── Recognition callouts ── */
+    .recognition-strip {
+      background: var(--oxblood);
+      border-bottom: 3px solid var(--bronze);
+      padding: 2.5rem 3rem;
+    }
+    .recognition-strip-inner { max-width: 1100px; }
+    .rec-strip-label {
+      font-family: var(--mono); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(201,169,110,0.7); margin-bottom: 1.5rem;
+    }
+    .rec-blocks {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .rec-block {
+      border-left: 3px solid rgba(201,169,110,0.5);
+      padding: 1rem 1rem 1rem 1.25rem;
+      background: rgba(0,0,0,0.15);
+    }
+    .rec-block-label {
+      font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.4rem;
+    }
+    .rec-block-org {
+      font-family: var(--font); font-size: 1rem; font-weight: 600;
+      color: var(--cream); line-height: 1.35; margin-bottom: 0.3rem;
+    }
+    .rec-block-year {
+      font-family: var(--mono); font-size: 0.7rem; color: #d8cfbd; letter-spacing: 0.08em;
+    }
+
+    /* ── Lower cream sections ── */
+    .lower {
+      background: var(--cream);
+      color: var(--ink);
+      flex: 1;
+    }
+
+    /* ── Press sections ── */
+    .press-section {
+      max-width: 1100px;
+      padding: 4rem 3rem;
+    }
+    .press-section + .press-section {
+      border-top: 1px solid rgba(154,116,64,0.25);
+    }
+    .section-eyebrow {
+      font-family: var(--mono); font-size: 1.4rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--bronze); margin-bottom: 0.5rem;
+    }
+    .section-desc {
+      font-size: 0.9rem; color: var(--ink-muted); line-height: 1.7;
+      margin-bottom: 2.5rem; max-width: 580px;
+    }
+
+    /* ── Press cards ── */
+    .press-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border-top: 2px solid var(--bronze);
+    }
+    .press-card {
+      display: grid;
+      grid-template-columns: 160px 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(154,116,64,0.2);
+    }
+    .press-pub {
+      font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--bronze); padding-top: 0.2rem; line-height: 1.4;
+    }
+    .press-body { }
+    .press-headline {
+      font-family: var(--font); font-size: 1.05rem; font-weight: 600;
+      color: var(--ink); line-height: 1.4; margin-bottom: 0.4rem;
+    }
+    .press-headline a {
+      color: var(--oxblood); text-decoration: none;
+      border-bottom: 1px solid rgba(110,31,38,0.25);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .press-headline a:hover { color: var(--green); border-color: var(--green); }
+    .press-desc {
+      font-size: 0.9rem; color: var(--ink-muted); line-height: 1.65;
+    }
+    .press-year {
+      font-family: var(--mono); font-size: 0.72rem; color: var(--ink-muted);
+      letter-spacing: 0.08em; padding-top: 0.25rem; white-space: nowrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer span { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; }
+    .footer-back a {
+      font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.1em; transition: color 0.2s;
+    }
+    .footer-back a:hover { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 800px) {
+      .rec-blocks { grid-template-columns: repeat(2, 1fr); }
+      .press-card { grid-template-columns: 1fr auto; }
+      .press-pub { grid-column: 1 / -1; padding-bottom: 0; }
+      .press-body { grid-column: 1; }
+      .press-year { grid-column: 2; grid-row: 2; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .nav-logo { font-size: 0.9rem; }
+      .nav-logo img { height: 2.1875rem; }
+      .press-hero { padding: 6rem 1.5rem 2.5rem; }
+      .recognition-strip { padding: 2rem 1.5rem; }
+      .rec-blocks { grid-template-columns: 1fr; }
+      .press-section { padding: 2.5rem 1.5rem; }
+      .press-card { grid-template-columns: 1fr; gap: 0.5rem; }
+      .press-year { padding-top: 0; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/"><img src="/crest.webp" alt="" width="900" height="973" /><span>Greg Farhat</span></a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/press/" aria-current="page">Press</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="press-hero">
+    <div class="press-hero-inner">
+      <span class="eyebrow">In the record</span>
+      <h1>Press &amp; Recognition</h1>
+      <p>Third-party coverage, board service, and institutional recognition — a record of the work and the people behind it.</p>
+    </div>
+  </div>
+
+  <!-- Recognition callout blocks -->
+  <div class="recognition-strip">
+    <div class="recognition-strip-inner">
+      <p class="rec-strip-label">Credentials &amp; Appointments</p>
+      <div class="rec-blocks">
+        <div class="rec-block">
+          <p class="rec-block-label">Board Member</p>
+          <p class="rec-block-org">Lansing Regional Chamber of Commerce</p>
+          <p class="rec-block-year">Jan 2026 – Present</p>
+        </div>
+        <div class="rec-block">
+          <p class="rec-block-label">Board Member</p>
+          <p class="rec-block-org">LEAP — Lansing Economic Area Partnership</p>
+          <p class="rec-block-year">Current</p>
+        </div>
+        <div class="rec-block">
+          <p class="rec-block-label">Michigan 50</p>
+          <p class="rec-block-org">Companies to Watch — NECTAR body•face•skin</p>
+          <p class="rec-block-year">Michigan Celebrates Small Business, 2025</p>
+        </div>
+        <div class="rec-block">
+          <p class="rec-block-label">ZO® Ambassador</p>
+          <p class="rec-block-org">1 of 40 Selected Globally — Jess Farhat, NP-C</p>
+          <p class="rec-block-year">ZO® Skin Health · Current</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lower">
+
+    <!-- Greg Farhat press -->
+    <section class="press-section">
+      <p class="section-eyebrow">Greg Farhat</p>
+      <p class="section-desc">Direct press coverage and institutional listings for Greg Farhat — corporate real estate, community boards, and entrepreneurship.</p>
+
+      <div class="press-grid">
+
+        <div class="press-card">
+          <p class="press-pub">Lansing State Journal</p>
+          <div class="press-body">
+            <p class="press-headline">
+              <a href="https://www.lansingstatejournal.com/story/money/business/2015/07/02/knight-cap-reopens-new-look/29647743/" target="_blank" rel="noopener">Knight Cap reopens with new look</a>
+            </p>
+            <p class="press-desc">Greg Farhat and his father Leo Farhat Jr. renovated the iconic Lansing bar and restaurant. Greg quoted: <em>"It's pretty timeless what we've done in terms of the finishes."</em></p>
+          </div>
+          <p class="press-year">Jul 2015</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">Lansing State Journal</p>
+          <div class="press-body">
+            <p class="press-headline">
+              <a href="https://www.lansingstatejournal.com/story/entertainment/dining/2017/07/19/knight-cap-retiring-48-years-creating-memories/492551001/" target="_blank" rel="noopener">The Knight Cap is retiring after nearly 48 years of creating memories</a>
+            </p>
+            <p class="press-desc">Co-owners Leo Farhat Jr. and son Greg Farhat sold the historic Lansing establishment after owning and renovating it for approximately two years.</p>
+          </div>
+          <p class="press-year">Jul 2017</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">Lansing Regional Chamber</p>
+          <div class="press-body">
+            <p class="press-headline">
+              <a href="https://www.lansingchamber.org/board-of-directors" target="_blank" rel="noopener">Board of Directors — Lansing Regional Chamber of Commerce</a>
+            </p>
+            <p class="press-desc">Greg Farhat listed as Board Member representing Jackson National Life on the Lansing Regional Chamber of Commerce Board of Directors.</p>
+          </div>
+          <p class="press-year">2026 – Present</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">LEAP</p>
+          <div class="press-body">
+            <p class="press-headline">
+              <a href="https://www.purelansing.com/about-leap/board-of-directors/" target="_blank" rel="noopener">Board of Directors — Lansing Economic Area Partnership</a>
+            </p>
+            <p class="press-desc">Gregory Farhat listed as AVP of Corporate Real Estate, Jackson, on the LEAP Board of Directors — the Lansing region's primary economic development organization.</p>
+          </div>
+          <p class="press-year">Current</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">Jameson Real Estate Services</p>
+          <div class="press-body">
+            <p class="press-headline">
+              <a href="https://www.jamesonres.com/team" target="_blank" rel="noopener">Team — Jameson Real Estate Services</a>
+            </p>
+            <p class="press-desc">Gregory Farhat, President &amp; Broker. Farhat founded Jameson Real Estate Services in 2011 and has served as active President ever since.</p>
+          </div>
+          <p class="press-year">Est. 2011</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Family Business / NECTAR press -->
+    <section class="press-section">
+      <p class="section-eyebrow">Family Business — NECTAR body•face•skin</p>
+      <p class="section-desc">Press coverage for NECTAR body•face•skin, founded and operated by Jessica Farhat, MSN, NP-C. Greg Farhat serves as a business partner and advisor.</p>
+
+      <div class="press-grid">
+
+        <div class="press-card">
+          <p class="press-pub">517 Business Magazine</p>
+          <div class="press-body">
+            <p class="press-headline">
+              <a href="https://517mag.com/more-than-skin-deep-nectars-jess-farhat-proves-local-relationships-expertise-fuel-ambitious-entrepreneurial-success/" target="_blank" rel="noopener">More Than Skin Deep: Nectar's Jess Farhat proves local relationships, expertise fuel ambitious entrepreneurial success</a>
+            </p>
+            <p class="press-desc">Feature on the growth story behind NECTAR and Jess Farhat's approach to building an ambitious practice in the Lansing region. Covers Michigan 50 recognition and ZO® Ambassador status.</p>
+          </div>
+          <p class="press-year">Oct 2026</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">517 Business Magazine</p>
+          <div class="press-body">
+            <p class="press-headline">
+              <a href="https://517mag.com/october-2026-notable-news-professional-highlights-from-around-the-517/" target="_blank" rel="noopener">517 In Your Business Podcast — S2, E27: Jess Farhat of Nectar</a>
+            </p>
+            <p class="press-desc">Podcast feature with Jess Farhat discussing the NECTAR brand, medical aesthetics, and building a business in mid-Michigan.</p>
+          </div>
+          <p class="press-year">Oct 2026</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">Greater Lansing Area Moms</p>
+          <div class="press-body">
+            <p class="press-headline">
+              <a href="https://greaterlansingareamoms.com/meet-a-mom-jess-farhat-nectar-bodyfaceskin/" target="_blank" rel="noopener">Meet a Mom: Jess Farhat | NECTAR body•face•skin</a>
+            </p>
+            <p class="press-desc">Feature profile on Jess Farhat as founder, nurse practitioner, and mother — covering the balance of running NECTAR alongside family life.</p>
+          </div>
+          <p class="press-year">2023</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">Shoutout Michigan</p>
+          <div class="press-body">
+            <p class="press-headline">Feature: Jessica Farhat, NP-C — Nurse Practitioner &amp; Founder of NECTAR</p>
+            <p class="press-desc">Profile of Jessica Farhat's clinical background and the founding of NECTAR. Jess writes: <em>"A HUGE shoutout goes to my husband, Gregory Farhat, for teaching me the foundation of business."</em></p>
+          </div>
+          <p class="press-year">2023</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">Michigan Celebrates Small Business</p>
+          <div class="press-body">
+            <p class="press-headline">Michigan 50 Companies to Watch — NECTAR body•face•skin</p>
+            <p class="press-desc">NECTAR named one of the 2025 Michigan 50 Companies to Watch by Michigan Celebrates Small Business, recognizing high-growth companies making an impact across the state.</p>
+          </div>
+          <p class="press-year">2025</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">Lansing City Pulse</p>
+          <div class="press-body">
+            <p class="press-headline">Best Med Spa &amp; Best Facial — Lansing City Pulse Readers' Choice</p>
+            <p class="press-desc">NECTAR body•face•skin awarded Best Med Spa and Best Facial by Lansing City Pulse readers' choice awards.</p>
+          </div>
+          <p class="press-year">2024</p>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">ZO® Skin Health</p>
+          <div class="press-body">
+            <p class="press-headline">
+              <a href="https://zoskinhealth.com/" target="_blank" rel="noopener">ZO® Skin Health Ambassador &amp; Sapphire Circle Club</a>
+            </p>
+            <p class="press-desc">Jess Farhat selected as one of only 40 ZO® Skin Health Ambassadors chosen globally, training directly with founder Dr. Zein Obagi. NECTAR is also a ZO Sapphire Circle Club member.</p>
+          </div>
+          <p class="press-year">Current</p>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /.lower -->
+
+  <footer>
+    <span>&copy; 2026 Greg Farhat</span>
+    <span class="footer-back"><a href="/">← gregfarhat.com</a></span>
+  </footer>
+
+</body>
+</html>

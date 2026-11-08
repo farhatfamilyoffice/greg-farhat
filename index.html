@@ -241,6 +241,26 @@
     }
     @media (max-width: 600px) { .about { padding: 0 1.5rem 4rem; } }
 
+    /* ── Recognition Band ── */
+    .recognition-band {
+      background: var(--green);
+      border-top: 1px solid rgba(154,116,64,0.3);
+      border-bottom: 3px solid var(--bronze);
+      padding: 3rem 3rem;
+    }
+    .recognition-inner { max-width: 1100px; }
+    .recognition-items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .rec-item { border-left: 2px solid rgba(201,169,110,0.4); padding-left: 1rem; }
+    .rec-label { font-family: var(--mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #c9a96e; margin-bottom: 0.4rem; }
+    .rec-org { font-family: Georgia, serif; font-size: 0.95rem; color: var(--cream); line-height: 1.4; margin-bottom: 0.3rem; }
+    .rec-year { font-family: var(--mono); font-size: 0.72rem; color: #9aad9a; letter-spacing: 0.1em; }
+    @media (max-width: 800px) { .recognition-items { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .recognition-items { grid-template-columns: 1fr; } .recognition-band { padding: 2rem 1.5rem; } }
+
     /* ── Focus Areas ── */
     .focuses {
       padding: 3rem 3rem 3rem;
@@ -329,6 +349,7 @@
     <a class="nav-logo" href="/"><img src="/crest.webp" alt="" width="900" height="973" /><span>Greg Farhat</span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="/press/">Press</a></li>
       <li><a href="/contact/">Contact</a></li>
     </ul>
   </nav>
@@ -371,15 +392,43 @@
       <div class="focus-item">
         <p class="focus-num">04</p>
         <h2 class="focus-title">Family Traditions</h2>
-        <p class="focus-desc">Preserving the recipes, rituals, and values that connect our family across generations.</p>
+        <p class="focus-desc">My grandparents Leo and Virginia Farhat built a family of ten children and a legacy defined by warmth, humor, and service. We preserve their recipes, rituals, and stories — and pass them forward to our children, Olivia and Sean.</p>
       </div>
     </section>
     </div>
 
+    <section class="recognition-band">
+      <div class="recognition-inner">
+        <p class="focus-num" style="color:#c9a96e;margin-bottom:2rem;">Recognition</p>
+        <div class="recognition-items">
+          <div class="rec-item">
+            <p class="rec-label">Board Member</p>
+            <p class="rec-org">Lansing Regional Chamber of Commerce</p>
+            <p class="rec-year">2026 – Present</p>
+          </div>
+          <div class="rec-item">
+            <p class="rec-label">Board Member</p>
+            <p class="rec-org">LEAP — Lansing Economic Area Partnership</p>
+            <p class="rec-year">Current</p>
+          </div>
+          <div class="rec-item">
+            <p class="rec-label">Michigan 50</p>
+            <p class="rec-org">Companies to Watch — NECTAR body•face•skin</p>
+            <p class="rec-year">2025</p>
+          </div>
+          <div class="rec-item">
+            <p class="rec-label">ZO® Ambassador</p>
+            <p class="rec-org">1 of 40 Selected Globally — Jess Farhat</p>
+            <p class="rec-year">Current</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="about" id="about">
       <div class="about-main">
         <h2 class="focus-num">About Me</h2>
-        <p class="about-text">I’m Greg Farhat, a corporate real estate professional, Michigan real estate broker, and civic board member based in the Lansing area. My work and interests center on business growth, community development, and the people and places that shape our lives.</p>
+        <p class="about-text">Based in the Lansing area, my work spans corporate real estate strategy, entrepreneurship, and community leadership. My perspective is shaped by more than twenty years of building — from the first poured foundation to boardroom decisions on billion-dollar portfolios.</p>
         <p class="about-text">My career began in commercial construction with <a href="https://www.christmanco.com" target="_blank" rel="noopener">The Christman Company</a>, ranked No. 68 nationally on Engineering News-Record’s 2026 Top 400 Contractors list. There, I was involved in more than $250 million of construction and real estate development, working on projects ranging from data centers and schools to historic restorations. That experience grounded me in the details of how buildings come together and the importance of good execution across a large team.</p>
         <p class="about-text">I lead corporate real estate strategy and portfolio initiatives at <a href="https://www.jackson.com" target="_blank" rel="noopener">Jackson</a>.</p>
         <p class="about-text">I earned a bachelor’s degree in construction management from Michigan State University and an MBA from Northwood University. I have also pursued executive education through the University of Michigan’s Ross School of Business and Imperial College London, including study in London, Shenzhen, and Hong Kong. My perspective brings together construction, real estate, and business, balancing practical details with long-term priorities.</p>
